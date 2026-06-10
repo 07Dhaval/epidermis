@@ -1,0 +1,2325 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Epidermis — Because Your Skin Deserves the Best</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              skin: {
+                bg: "#faf3ee",
+                bgalt: "#f3e8df",
+                brown: "#7b3b2a",
+                mid: "#a0522d",
+                light: "#c9917a",
+                footer: "#7b3b2a",
+                card: "#f5ece4",
+                border: "#e8d5c8",
+              },
+            },
+            fontFamily: {
+              display: ["Poppins", "sans-serif"],
+              body: ["Poppins", "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
+
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        background-color: #faf3ee;
+        font-family: "Poppins", sans-serif;
+        color: #7b3b2a;
+        overflow-x: hidden;
+      }
+
+      /* ── FLOATING FONT TRANSMISSION ANIMATION ── */
+      @keyframes floatUp {
+        0% {
+          opacity: 0;
+          transform: translateY(60px) scale(0.85);
+        }
+        15% {
+          opacity: 1;
+        }
+        85% {
+          opacity: 1;
+        }
+        100% {
+          opacity: 0;
+          transform: translateY(-80px) scale(1.05);
+        }
+      }
+      @keyframes floatWord {
+        0% {
+          opacity: 0;
+          transform: translateY(40px) rotate(-2deg);
+        }
+        20% {
+          opacity: 0.8;
+          transform: translateY(0) rotate(0deg);
+        }
+        80% {
+          opacity: 0.8;
+        }
+        100% {
+          opacity: 0;
+          transform: translateY(-50px) rotate(2deg);
+        }
+      }
+      @keyframes charReveal {
+        0% {
+          opacity: 0;
+          transform: translateY(30px);
+          filter: blur(4px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+          filter: blur(0);
+        }
+      }
+      @keyframes slideInLeft {
+        0% {
+          opacity: 0;
+          transform: translateX(-80px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+      @keyframes slideInRight {
+        0% {
+          opacity: 0;
+          transform: translateX(80px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+      @keyframes fadeUp {
+        0% {
+          opacity: 0;
+          transform: translateY(40px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      @keyframes sunPulse {
+        0%,
+        100% {
+          transform: scale(1) rotate(0deg);
+          opacity: 0.35;
+        }
+        50% {
+          transform: scale(1.08) rotate(15deg);
+          opacity: 0.5;
+        }
+      }
+      @keyframes sunRotate {
+        from {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(360deg);
+        }
+      }
+      @keyframes marqueeScroll {
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(-50%);
+        }
+      }
+      @keyframes navFade {
+        from {
+          opacity: 0;
+          transform: translateY(-20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      @keyframes heroTextFloat {
+        0%,
+        100% {
+          transform: translateY(0px);
+        }
+        50% {
+          transform: translateY(-8px);
+        }
+      }
+      @keyframes orbFloat {
+        0%,
+        100% {
+          transform: translateY(0) scale(1);
+        }
+        50% {
+          transform: translateY(-20px) scale(1.05);
+        }
+      }
+      @keyframes letterDrop {
+        0% {
+          opacity: 0;
+          transform: translateY(-40px) rotateX(-90deg);
+        }
+        60% {
+          transform: translateY(5px) rotateX(10deg);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0) rotateX(0);
+        }
+      }
+
+      /* Floating text particles in hero */
+      .float-particle {
+        position: absolute;
+        font-family: "Cormorant Garamond", serif;
+        color: rgba(255, 255, 255, 0.15);
+        pointer-events: none;
+        animation: floatUp linear infinite;
+        white-space: nowrap;
+      }
+
+      /* Char-by-char reveal */
+      .char-reveal span {
+        display: inline-block;
+        opacity: 0;
+        animation: charReveal 0.5s ease forwards;
+      }
+
+      /* Scroll reveal */
+      .reveal {
+        opacity: 0;
+        transform: translateY(40px);
+        transition:
+          opacity 0.8s ease,
+          transform 0.8s ease;
+      }
+      .reveal.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      .reveal-left {
+        opacity: 0;
+        transform: translateX(-60px);
+        transition:
+          opacity 0.8s ease,
+          transform 0.8s ease;
+      }
+      .reveal-left.visible {
+        opacity: 1;
+        transform: translateX(0);
+      }
+      .reveal-right {
+        opacity: 0;
+        transform: translateX(60px);
+        transition:
+          opacity 0.8s ease,
+          transform 0.8s ease;
+      }
+      .reveal-right.visible {
+        opacity: 1;
+        transform: translateX(0);
+      }
+
+      /* Nav */
+      nav {
+        animation: navFade 0.8s ease forwards;
+      }
+      .nav-link {
+        position: relative;
+      }
+      .nav-link::after {
+        content: "";
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        width: 0;
+        height: 1px;
+        background: #7b3b2a;
+        transition: width 0.3s ease;
+      }
+      .nav-link:hover::after {
+        width: 100%;
+      }
+
+      /* Hero */
+      .hero-section {
+        position: relative;
+        height: 100vh;
+        min-height: 600px;
+        overflow: hidden;
+      }
+      .hero-title {
+        font-family: "Cormorant Garamond", serif;
+        font-size: clamp(2.5rem, 6vw, 5rem);
+        font-weight: 400;
+        line-height: 1.1;
+        animation: heroTextFloat 6s ease-in-out infinite;
+      }
+      .hero-title .line {
+        display: block;
+        overflow: hidden;
+      }
+      .hero-title .line span {
+        display: block;
+        opacity: 0;
+        animation: slideInLeft 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      }
+      .hero-title .line:nth-child(2) span {
+        animation-delay: 0.2s;
+      }
+
+      /* Buttons */
+      .btn-primary {
+        background: #7b3b2a;
+        color: white;
+        border-radius: 9999px;
+        padding: 0.6rem 1.5rem;
+        font-size: 0.85rem;
+        transition: all 0.3s ease;
+        border: 1.5px solid #7b3b2a;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+      }
+      .btn-primary:hover {
+        background: #5a2a1a;
+        border-color: #5a2a1a;
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(123, 59, 42, 0.3);
+      }
+      .btn-outline {
+        background: transparent;
+        color: white;
+        border-radius: 9999px;
+        padding: 0.6rem 1.5rem;
+        font-size: 0.85rem;
+        transition: all 0.3s ease;
+        border: 1.5px solid rgba(255, 255, 255, 0.7);
+        cursor: pointer;
+      }
+      .btn-outline:hover {
+        background: rgba(255, 255, 255, 0.15);
+        transform: translateY(-2px);
+      }
+      .btn-outline-brown {
+        background: transparent;
+        color: #7b3b2a;
+        border-radius: 9999px;
+        padding: 0.6rem 1.5rem;
+        font-size: 0.85rem;
+        transition: all 0.3s ease;
+        border: 1.5px solid #7b3b2a;
+        cursor: pointer;
+      }
+      .btn-outline-brown:hover {
+        background: #7b3b2a;
+        color: white;
+        transform: translateY(-2px);
+      }
+      .btn-outline-white {
+        background: transparent;
+        color: white;
+        border-radius: 9999px;
+        padding: 0.6rem 1.5rem;
+        font-size: 0.85rem;
+        transition: all 0.3s ease;
+        border: 1.5px solid rgba(255, 255, 255, 0.5);
+        cursor: pointer;
+      }
+      .btn-outline-white:hover {
+        background: rgba(255, 255, 255, 0.2);
+      }
+
+      /* Bento cards */
+      .bento-card {
+        background: #f5ece4;
+        border-radius: 1.25rem;
+        padding: 1.5rem;
+        transition:
+          transform 0.35s ease,
+          box-shadow 0.35s ease;
+        cursor: pointer;
+      }
+      .bento-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 16px 40px rgba(123, 59, 42, 0.12);
+      }
+
+      /* Sun decoration */
+      .sun-deco {
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        animation: sunPulse 4s ease-in-out infinite;
+      }
+
+      /* Services grid */
+      .service-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(3, auto);
+        gap: 1rem;
+      }
+      @media (max-width: 768px) {
+        .service-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+      .service-cell {
+        background: #f5ece4;
+        border-radius: 1.25rem;
+        overflow: hidden;
+        transition:
+          transform 0.3s ease,
+          box-shadow 0.3s ease;
+      }
+      .service-cell:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 12px 30px rgba(123, 59, 42, 0.15);
+      }
+      .service-cell-text {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 2.5rem 1.5rem;
+      }
+      .service-cell-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+
+      /* Testimonial */
+      .testimonial-card {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        background: #f5ece4;
+        border-radius: 1.25rem;
+        overflow: hidden;
+      }
+      .testimonial-card .photo {
+        width: 300px;
+        flex-shrink: 0;
+      }
+      .testimonial-card.reverse {
+        direction: rtl;
+      }
+      .testimonial-card.reverse > * {
+        direction: ltr;
+      }
+      @media (max-width: 768px) {
+        .testimonial-card {
+          grid-template-columns: 1fr;
+        }
+        .testimonial-card .photo {
+          width: 100%;
+          height: 280px;
+        }
+      }
+
+      /* FAQ accordion */
+      .faq-item {
+        background: #f5ece4;
+        border-radius: 0.875rem;
+        overflow: hidden;
+        margin-bottom: 0.75rem;
+        transition: box-shadow 0.3s ease;
+      }
+      .faq-item:hover {
+        box-shadow: 0 4px 16px rgba(123, 59, 42, 0.1);
+      }
+      .faq-question {
+        width: 100%;
+        text-align: left;
+        padding: 1.2rem 1.5rem;
+        font-size: 0.9rem;
+        color: #7b3b2a;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1rem;
+      }
+      .faq-answer {
+        max-height: 0;
+        overflow: hidden;
+        transition:
+          max-height 0.4s ease,
+          padding 0.4s ease;
+        padding: 0 1.5rem;
+        font-size: 0.88rem;
+        line-height: 1.7;
+        color: #a0522d;
+      }
+      .faq-answer.open {
+        max-height: 200px;
+        padding: 0 1.5rem 1.2rem;
+      }
+      .faq-icon {
+        width: 22px;
+        height: 22px;
+        flex-shrink: 0;
+        transition: transform 0.35s ease;
+        color: #7b3b2a;
+        border: 1.5px solid #7b3b2a;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1rem;
+      }
+      .faq-icon.open {
+        transform: rotate(45deg);
+      }
+
+      /* Marquee */
+      .marquee-track {
+        display: flex;
+        width: max-content;
+        animation: marqueeScroll 25s linear infinite;
+      }
+      .marquee-track:hover {
+        animation-play-state: paused;
+      }
+
+      /* Gallery grid */
+      .insta-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0.75rem;
+      }
+      .insta-cell {
+        border-radius: 1rem;
+        overflow: hidden;
+        aspect-ratio: 1;
+        position: relative;
+      }
+      .insta-cell img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+      }
+      .insta-cell:hover img {
+        transform: scale(1.07);
+      }
+
+      /* Footer */
+      footer {
+        background: #7b3b2a;
+        color: white;
+        position: relative;
+        overflow: hidden;
+      }
+      .footer-sun {
+        position: absolute;
+        bottom: -80px;
+        opacity: 0.08;
+      }
+
+      /* Modal */
+      .modal-overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(50, 20, 10, 0.5);
+        backdrop-filter: blur(4px);
+        z-index: 1000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease;
+      }
+      .modal-overlay.active {
+        opacity: 1;
+        pointer-events: all;
+      }
+      .modal-box {
+        background: #faf3ee;
+        border-radius: 1.5rem;
+        padding: 2.5rem;
+        width: 90%;
+        max-width: 520px;
+        transform: translateY(30px) scale(0.95);
+        transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+      }
+      .modal-overlay.active .modal-box {
+        transform: translateY(0) scale(1);
+      }
+      .form-input {
+        width: 100%;
+        background: #f5ece4;
+        border: 1.5px solid #e8d5c8;
+        border-radius: 0.75rem;
+        padding: 0.75rem 1rem;
+        font-size: 0.9rem;
+        color: #7b3b2a;
+        outline: none;
+        transition: border-color 0.3s ease;
+        font-family: "DM Sans", sans-serif;
+      }
+      .form-input:focus {
+        border-color: #7b3b2a;
+      }
+      .form-input::placeholder {
+        color: #c9917a;
+      }
+
+      /* Floating particles container */
+      #hero-particles {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        overflow: hidden;
+        z-index: 2;
+      }
+
+      /* Section label pill */
+      .section-label {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        font-size: 0.78rem;
+        color: #a0522d;
+        margin-bottom: 1rem;
+      }
+      .section-label::before {
+        content: "·";
+        font-size: 1.2rem;
+        line-height: 1;
+      }
+
+      /* Sun SVG decoration */
+      .sun-svg {
+        animation: sunPulse 5s ease-in-out infinite;
+      }
+
+      /* Scroll progress */
+      #progress-bar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 2px;
+        background: linear-gradient(90deg, #7b3b2a, #c9917a);
+        z-index: 999;
+        width: 0%;
+        transition: width 0.1s linear;
+      }
+
+      /* Mobile menu */
+      #mobile-menu {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: #faf3ee;
+        z-index: 900;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 2rem;
+      }
+      #mobile-menu.open {
+        display: flex;
+      }
+      #mobile-menu a {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 2rem;
+        color: #7b3b2a;
+        text-decoration: none;
+      }
+
+      /* Smooth image loading */
+      img {
+        transition: opacity 0.4s ease;
+      }
+      img[loading="lazy"] {
+        opacity: 0;
+      }
+      img.loaded {
+        opacity: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Scroll progress bar -->
+    <div id="progress-bar"></div>
+
+    <!-- ═══════════════════════════════════════════════
+     NAVBAR
+═══════════════════════════════════════════════ -->
+    <nav
+      class="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-8 py-5"
+      id="navbar"
+      style="
+        background: transparent;
+        transition:
+          background 0.4s ease,
+          backdrop-filter 0.4s ease;
+      "
+    >
+      <!-- Logo -->
+      <a
+        href="#"
+        class="flex items-center gap-2 font-display text-xl text-skin-brown font-medium"
+        style="color: #7b3b2a"
+      >
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+          <circle cx="10" cy="10" r="4" fill="#7b3b2a" />
+          <g stroke="#7b3b2a" stroke-width="1.5" stroke-linecap="round">
+            <line x1="10" y1="1" x2="10" y2="4" />
+            <line x1="10" y1="16" x2="10" y2="19" />
+            <line x1="1" y1="10" x2="4" y2="10" />
+            <line x1="16" y1="10" x2="19" y2="10" />
+            <line x1="3.22" y1="3.22" x2="5.34" y2="5.34" />
+            <line x1="14.66" y1="14.66" x2="16.78" y2="16.78" />
+            <line x1="3.22" y1="16.78" x2="5.34" y2="14.66" />
+            <line x1="14.66" y1="5.34" x2="16.78" y2="3.22" />
+          </g>
+        </svg>
+        epidermis
+      </a>
+
+      <!-- Desktop Nav -->
+      <div
+        class="hidden md:flex items-center font-bold gap-8 text-sm text-white [text-shadow:_1px_1px_0_#fff,_-1px_-1px_0_#fff,_1px_-1px_0_#fff,_-1px_1px_0_#fff]"
+        style="color: #7b3b2a"
+      >
+        <a href="#about" class="nav-link">About</a>
+        <a href="#services" class="nav-link">Services</a>
+        <!-- <a href="#testimonials" class="nav-link">Testimonials</a> -->
+        <a href="#updates" class="nav-link">News</a>
+        <a href="#faq" class="nav-link">FAQ</a>
+      </div>
+
+      <div class="hidden md:flex items-center gap-3">
+        <button class="btn-primary" onclick="openModal()">
+          Book a Consultation
+        </button>
+      </div>
+
+      <!-- Hamburger -->
+      <button
+        class="md:hidden flex flex-col gap-1.5 p-2"
+        onclick="toggleMenu()"
+        id="hamburger"
+      >
+        <span
+          class="block w-5 h-0.5 bg-skin-brown transition-all"
+          style="background: #7b3b2a"
+        ></span>
+        <span
+          class="block w-5 h-0.5 bg-skin-brown transition-all"
+          style="background: #7b3b2a"
+        ></span>
+        <span
+          class="block w-5 h-0.5 bg-skin-brown transition-all"
+          style="background: #7b3b2a"
+        ></span>
+      </button>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu">
+      <button
+        class="absolute top-5 right-8 text-3xl"
+        style="color: #7b3b2a"
+        onclick="toggleMenu()"
+      >
+        ✕
+      </button>
+      <a href="#about" onclick="toggleMenu()">About</a>
+      <a href="#services" onclick="toggleMenu()">Services</a>
+      <a href="#testimonials" onclick="toggleMenu()">Testimonials</a>
+      <a href="#updates" onclick="toggleMenu()">News</a>
+      <a href="#faq" onclick="toggleMenu()">FAQ</a>
+      <button
+        class="btn-primary mt-4"
+        onclick="
+          toggleMenu();
+          openModal();
+        "
+      >
+        Book a Consultation
+      </button>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════
+     HERO SECTION
+═══════════════════════════════════════════════ -->
+    <section class="hero-section" id="hero">
+      <!-- Background image -->
+      <img
+        src="./assets/images/b2.png"
+        alt="Beautiful skin"
+        style="
+          position: absolute;
+          inset: 0;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          object-position: center 20%;
+        "
+        id="hero-img"
+      />
+      <!-- Gradient overlay -->
+      <div
+        style="
+          position: absolute;
+          inset: 0;
+          background: linear-gradient(
+            to bottom,
+            rgba(0, 0, 0, 0.15) 0%,
+            rgba(0, 0, 0, 0.25) 60%,
+            rgba(0, 0, 0, 0.4) 100%
+          );
+          z-index: 1;
+        "
+      ></div>
+
+      <!-- Floating font particles -->
+      <div id="hero-particles"></div>
+
+      <!-- Hero Content -->
+      <div
+        class="relative z-10 flex flex-col items-center justify-center h-full text-center px-4"
+        style="padding-top: 80px"
+      >
+        <h1 class="hero-title text-white mb-8">
+          <span class="line"><span>Because Your Skin</span></span>
+          <span class="line"
+            ><span style="animation-delay: 0.2s">Deserves the Best</span></span
+          >
+        </h1>
+        <div
+          class="flex flex-wrap gap-3 justify-center"
+          style="opacity: 0; animation: fadeUp 0.8s ease 0.7s forwards"
+        >
+          <button class="btn-primary" onclick="openModal()">
+            Book a Consultation
+          </button>
+          <button
+            class="btn-outline"
+            onclick="
+              document
+                .getElementById('services')
+                .scrollIntoView({ behavior: 'smooth' })
+            "
+          >
+            Explore Services
+          </button>
+        </div>
+      </div>
+
+      <!-- Bento cards at bottom -->
+      <div
+        class="absolute bottom-0 left-0 right-0 z-10 px-4 pb-0"
+        style="opacity: 0; animation: fadeUp 0.8s ease 1s forwards"
+      >
+        <div
+          class="max-w-5xl mx-auto grid grid-cols-3 mb-10"
+          style="transform: translateY(40%)"
+        >
+          <!-- Left Card -->
+          <div
+            class="bg-[#f3ece8] p-6 cursor-pointer rounded-tl-[24px]"
+            onclick="
+              document
+                .getElementById('about')
+                .scrollIntoView({ behavior: 'smooth' })
+            "
+          >
+            <div
+              class="text-xs font-bold mb-3 flex justify-between items-center text-[#a0522d]"
+            >
+              About Us
+              <span class="text-base">↗</span>
+            </div>
+
+            <p class="font-display text-xl leading-tight text-[#7b3b2a]">
+              Learn How We<br />
+              Transform Skin Care
+            </p>
+          </div>
+
+          <!-- Center Card -->
+          <div
+            class="bg-[#f3ece8] p-6 cursor-pointer rounded-none"
+            onclick="
+              document
+                .getElementById('services')
+                .scrollIntoView({ behavior: 'smooth' })
+            "
+          >
+            <div
+              class="text-xs font-bold mb-3 flex justify-between items-center text-[#a0522d]"
+            >
+              Our Services
+              <span class="text-base">↗</span>
+            </div>
+
+            <p class="font-display text-xl leading-tight text-[#7b3b2a]">
+              Explore Our Expert<br />
+              Skin Care Services
+            </p>
+          </div>
+
+          <!-- Right Card -->
+          <div
+            class="bg-[#f3ece8] p-6 cursor-pointer rounded-tr-[24px]"
+            onclick="
+              document
+                .getElementById('updates')
+                .scrollIntoView({ behavior: 'smooth' })
+            "
+          >
+            <div
+              class="text-xs font-bold mb-3 flex justify-between items-center text-[#a0522d]"
+            >
+              Clinic Updates
+              <span class="text-base">↗</span>
+            </div>
+
+            <p class="font-display text-xl leading-tight text-[#7b3b2a]">
+              Stay Updated with<br />
+              the Latest in Skincare
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════
+     PHOTO STRIP (below hero)
+═══════════════════════════════════════════════ -->
+    <section class="mb-0 px-4">
+      <div class="max-w-5xl mx-auto">
+        <div
+          class="grid grid-cols-3 overflow-hidden rounded-bl-[10px] rounded-bl-[10px] bg-[#e9dfd9]"
+          style="height: 300px"
+        >
+          <div class="overflow-hidden">
+            <img
+              src="./assets/images/h1.jpg"
+              alt="Skin"
+              class="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+              loading="lazy"
+              onload="this.classList.add('loaded')"
+            />
+          </div>
+
+          <div class="overflow-hidden">
+            <img
+              src="./assets/images/h2.jpg"
+              alt="Serum"
+              class="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+              loading="lazy"
+              onload="this.classList.add('loaded')"
+            />
+          </div>
+
+          <div class="overflow-hidden">
+            <img
+              src="./assets/images/h3.jpg"
+              alt="Eye patches"
+              class="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+              loading="lazy"
+              onload="this.classList.add('loaded')"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════
+     ABOUT SECTION
+═══════════════════════════════════════════════ -->
+    <section id="about" class="py-32 px-4">
+      <div class="max-w-2xl mx-auto text-center reveal">
+        <div class="section-label font-bold">About Us</div>
+        <h2
+          class="font-display text-2xl md:text-4xl leading-tight mb-8"
+          style="color: #7b3b2a"
+        >
+          Epidermis combines expert care with advanced treatments to enhance
+          your skin's health and beauty.Our team is dedicated to helping you
+          achieve glowing,confident skin.
+        </h2>
+        <div class="flex flex-wrap gap-3 justify-center">
+          <button class="btn-primary">Learn More</button>
+          <button
+            class="btn-outline-brown"
+            onclick="
+              document
+                .getElementById('updates')
+                .scrollIntoView({ behavior: 'smooth' })
+            "
+          >
+            Clinic Updates
+          </button>
+        </div>
+      </div>
+
+      <!-- Sun decorations -->
+      <div
+        class="max-w-5xl mx-auto mt-20 grid grid-cols-3 gap-8 items-center justify-items-center reveal"
+        style="opacity: 0.4"
+      >
+        <div class="sun-svg">
+          <svg width="130" height="130" viewBox="0 0 130 130" fill="none">
+            <circle cx="65" cy="65" r="30" fill="#e8c5b5" stroke="none" />
+            <circle
+              cx="65"
+              cy="65"
+              r="28"
+              stroke="#d4a090"
+              stroke-width="3"
+              fill="none"
+            />
+            <g stroke="#d4a090" stroke-width="5" stroke-linecap="round">
+              <line x1="65" y1="10" x2="65" y2="22" />
+              <line x1="65" y1="108" x2="65" y2="120" />
+              <line x1="10" y1="65" x2="22" y2="65" />
+              <line x1="108" y1="65" x2="120" y2="65" />
+              <line x1="24" y1="24" x2="32" y2="32" />
+              <line x1="98" y1="98" x2="106" y2="106" />
+              <line x1="24" y1="106" x2="32" y2="98" />
+              <line x1="98" y1="32" x2="106" y2="24" />
+            </g>
+          </svg>
+        </div>
+        <div class="sun-svg" style="animation-delay: 1.5s">
+          <svg width="130" height="130" viewBox="0 0 130 130" fill="none">
+            <circle cx="65" cy="65" r="38" fill="#e8c5b5" />
+            <g stroke="#d4a090" stroke-width="5" stroke-linecap="round">
+              <line x1="65" y1="10" x2="65" y2="22" />
+              <line x1="65" y1="108" x2="65" y2="120" />
+              <line x1="10" y1="65" x2="22" y2="65" />
+              <line x1="108" y1="65" x2="120" y2="65" />
+              <line x1="24" y1="24" x2="32" y2="32" />
+              <line x1="98" y1="98" x2="106" y2="106" />
+              <line x1="24" y1="106" x2="32" y2="98" />
+              <line x1="98" y1="32" x2="106" y2="24" />
+            </g>
+          </svg>
+        </div>
+        <div class="sun-svg" style="animation-delay: 3s">
+          <svg width="130" height="130" viewBox="0 0 130 130" fill="none">
+            <circle
+              cx="65"
+              cy="65"
+              r="30"
+              fill="none"
+              stroke="#d4a090"
+              stroke-width="3"
+            />
+            <circle
+              cx="65"
+              cy="65"
+              r="20"
+              fill="none"
+              stroke="#d4a090"
+              stroke-width="2"
+            />
+            <g stroke="#d4a090" stroke-width="5" stroke-linecap="round">
+              <line x1="65" y1="10" x2="65" y2="22" />
+              <line x1="65" y1="108" x2="65" y2="120" />
+              <line x1="10" y1="65" x2="22" y2="65" />
+              <line x1="108" y1="65" x2="120" y2="65" />
+              <line x1="24" y1="24" x2="32" y2="32" />
+              <line x1="98" y1="98" x2="106" y2="106" />
+              <line x1="24" y1="106" x2="32" y2="98" />
+              <line x1="98" y1="32" x2="106" y2="24" />
+            </g>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════
+     SERVICES SECTION
+═══════════════════════════════════════════════ -->
+    <section
+      id="services"
+      class="pb-8 px-4"
+      style="background: #f3e8df; padding-top: 3rem"
+    >
+      <div class="max-w-5xl mx-auto">
+        <!-- Header row -->
+        <div class="flex items-end justify-between mb-8 reveal">
+          <div>
+            <div class="section-label font-bold">Our Services</div>
+            <h2
+              class="font-display text-4xl md:text-5xl"
+              style="color: #7b3b2a"
+            >
+              Our Most Popular<br />Skin Transformations
+            </h2>
+          </div>
+          <button class="btn-outline-brown">View All ↗</button>
+        </div>
+
+        <!-- Services bento grid -->
+        <div class="service-grid reveal">
+          <div class="service-cell">
+            <img
+              src="./assets/images/s1.png"
+              alt=""
+              loading="lazy"
+              onload="this.classList.add('loaded')"
+            />
+          </div>
+
+          <div class="service-cell">
+            <img
+              src="./assets/images/s2.jpg"
+              class="w-full h-full object-cover"
+              alt=""
+              loading="lazy"
+              onload="this.classList.add('loaded')"
+            />
+          </div>
+
+          <div class="service-cell">
+            <img
+              src="./assets/images/s3.png"
+              alt=""
+              loading="lazy"
+              onload="this.classList.add('loaded')"
+            />
+          </div>
+
+          <div class="service-cell">
+            <img
+              src="./assets/images/s4.jpg"
+              alt=""
+              class="w-full h-full object-cover"
+              loading="lazy"
+              onload="this.classList.add('loaded')"
+            />
+          </div>
+          <div class="service-cell">
+            <img
+              src="./assets/images/s5.png"
+              alt=""
+              loading="lazy"
+              onload="this.classList.add('loaded')"
+            />
+          </div>
+
+          <div class="service-cell">
+            <img
+              src="./assets/images/s6.jpg"
+              class="w-full h-full object-cover"
+              alt=""
+              loading="lazy"
+              onload="this.classList.add('loaded')"
+            />
+          </div>
+
+          <div class="service-cell">
+            <img
+              src="./assets/images/s7.png"
+              alt=""
+              loading="lazy"
+              onload="this.classList.add('loaded')"
+            />
+          </div>
+          <div class="service-cell">
+            <img
+              src="./assets/images/s8.jpg"
+              alt=""
+              class="w-full h-full object-cover"
+              loading="lazy"
+              onload="this.classList.add('loaded')"
+            />
+          </div>
+          <div class="service-cell">
+            <img
+              src="./assets/images/s9.png"
+              alt=""
+              loading="lazy"
+              onload="this.classList.add('loaded')"
+            />
+          </div>
+        </div>
+
+        <!-- Promo bar -->
+        <div
+          class="bento-card mt-3 flex items-center justify-between flex-wrap gap-4 reveal"
+        >
+          <p style="color: #a0522d; font-size: 0.95rem">
+            Enjoy a free skin analysis and<br />15% off your first treatment.
+          </p>
+          <button class="btn-primary" onclick="openModal()">
+            Book a Consultation
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════
+     TESTIMONIALS SECTION
+═══════════════════════════════════════════════ -->
+    <section id="testimonials" class="py-24 px-4">
+      <div class="max-w-5xl mx-auto">
+        <div class="text-center mb-14 reveal">
+          <div class="section-label font-bold justify-center">Testimonials</div>
+          <h2 class="font-display text-4xl md:text-5xl" style="color: #7b3b2a">
+            Real Patients,<br />Real Confidence
+          </h2>
+        </div>
+
+        <!-- Testimonial cards -->
+        <div class="flex flex-col gap-4">
+          <!-- Card 1 — photo left -->
+          <div class="testimonial-card reveal-left">
+            <div class="photo" style="background: #d4a484; min-height: 300px">
+              <img
+                src="https://images.unsplash.com/photo-1504257432389-52343af06ae3?w=400&auto=format&fit=crop&q=80"
+                alt="John"
+                class="w-full h-full object-cover"
+                loading="lazy"
+                onload="this.classList.add('loaded')"
+                style="min-height: 300px"
+              />
+            </div>
+            <div class="p-8 flex flex-col justify-between">
+              <div>
+                <p class="text-sm mb-3" style="color: #a0522d">John A.</p>
+                <p
+                  class="font-display text-xl leading-relaxed"
+                  style="color: #7b3b2a; font-size: 1.2rem"
+                >
+                  "I struggled with acne for many years, and nothing seemed to
+                  work until I came to Epidermis. Their personalized treatment
+                  plan gave me clear, glowing skin, and for the first time, I
+                  finally feel truly confident in my own skin!"
+                </p>
+              </div>
+              <div
+                class="grid grid-cols-3 mt-8 pt-6"
+                style="border-top: 1px solid #e8d5c8"
+              >
+                <div>
+                  <p class="text-xs mb-1" style="color: #c9917a">Service:</p>
+                  <p class="font-medium text-sm" style="color: #7b3b2a">
+                    Acne Treatment
+                  </p>
+                </div>
+                <div>
+                  <p class="text-xs mb-1" style="color: #c9917a">
+                    Course Duration:
+                  </p>
+                  <p class="font-medium text-sm" style="color: #7b3b2a">
+                    3 weeks
+                  </p>
+                </div>
+                <div>
+                  <p class="text-xs mb-1" style="color: #c9917a">Rate:</p>
+                  <p class="font-medium" style="color: #7b3b2a">
+                    4.9<span style="font-size: 0.75rem; color: #c9917a"
+                      >/5.0</span
+                    >
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2 — photo right -->
+          <div
+            class="testimonial-card reveal-right"
+            style="grid-template-columns: 1fr auto"
+          >
+            <div class="p-8 flex flex-col justify-between">
+              <div>
+                <p class="text-sm mb-3" style="color: #a0522d">Josephina L.</p>
+                <p
+                  class="font-display text-xl leading-relaxed"
+                  style="color: #7b3b2a; font-size: 1.2rem"
+                >
+                  "The team at Epidermis is absolutely amazing. They explained
+                  every step of my laser treatment, answered all my questions
+                  thoroughly, and made me feel completely at ease. My skin has
+                  never looked this flawless!"
+                </p>
+              </div>
+              <div
+                class="grid grid-cols-3 mt-8 pt-6"
+                style="border-top: 1px solid #e8d5c8"
+              >
+                <div>
+                  <p class="text-xs mb-1" style="color: #c9917a">Service:</p>
+                  <p class="font-medium text-sm" style="color: #7b3b2a">
+                    Laser Skin Resurfacing
+                  </p>
+                </div>
+                <div>
+                  <p class="text-xs mb-1" style="color: #c9917a">
+                    Course Duration:
+                  </p>
+                  <p class="font-medium text-sm" style="color: #7b3b2a">
+                    1 week
+                  </p>
+                </div>
+                <div>
+                  <p class="text-xs mb-1" style="color: #c9917a">Rate:</p>
+                  <p class="font-medium" style="color: #7b3b2a">
+                    5.0<span style="font-size: 0.75rem; color: #c9917a"
+                      >/5.0</span
+                    >
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div
+              class="photo"
+              style="background: #d4a484; min-height: 300px; width: 300px"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=400&auto=format&fit=crop&q=80"
+                alt="Josephina"
+                class="w-full h-full object-cover"
+                loading="lazy"
+                onload="this.classList.add('loaded')"
+                style="min-height: 300px"
+              />
+            </div>
+          </div>
+
+          <!-- Card 3 — photo left -->
+          <div class="testimonial-card reveal-left">
+            <div class="photo" style="background: #d4a484; min-height: 300px">
+              <img
+                src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&auto=format&fit=crop&q=80"
+                alt="Emily"
+                class="w-full h-full object-cover"
+                loading="lazy"
+                onload="this.classList.add('loaded')"
+                style="min-height: 300px"
+              />
+            </div>
+            <div class="p-8 flex flex-col justify-between">
+              <div>
+                <p class="text-sm mb-3" style="color: #a0522d">Emily H.</p>
+                <p
+                  class="font-display text-xl leading-relaxed"
+                  style="color: #7b3b2a; font-size: 1.2rem"
+                >
+                  "I tried their chemical peel, and my skin felt so refreshed,
+                  rejuvenated, and incredibly smooth almost right away. The
+                  results were so impressive that it's now become an essential
+                  part of my regular skincare routine!"
+                </p>
+              </div>
+              <div
+                class="grid grid-cols-3 mt-8 pt-6"
+                style="border-top: 1px solid #e8d5c8"
+              >
+                <div>
+                  <p class="text-xs mb-1" style="color: #c9917a">Service:</p>
+                  <p class="font-medium text-sm" style="color: #7b3b2a">
+                    Chemical Peel
+                  </p>
+                </div>
+                <div>
+                  <p class="text-xs mb-1" style="color: #c9917a">
+                    Course Duration:
+                  </p>
+                  <p class="font-medium text-sm" style="color: #7b3b2a">
+                    2 sessions
+                  </p>
+                </div>
+                <div>
+                  <p class="text-xs mb-1" style="color: #c9917a">Rate:</p>
+                  <p class="font-medium" style="color: #7b3b2a">
+                    4.8<span style="font-size: 0.75rem; color: #c9917a"
+                      >/5.0</span
+                    >
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════
+     CLINIC UPDATES / NEWS
+═══════════════════════════════════════════════ -->
+    <section id="updates" class="py-16 px-4" style="background: #f3e8df">
+      <div class="max-w-5xl mx-auto">
+        <!-- Header -->
+        <div class="flex justify-between items-start mb-16">
+          <div>
+            <p class="text-sm font-bold text-[#b06a45] mb-4">• News</p>
+
+            <h2
+              class="font-display text-4xl md:text-5xl leading-none text-[#9a5633]"
+            >
+              Stay Ahead with<br />
+              Skincare Trends
+            </h2>
+          </div>
+
+          <button
+            class="mt-12 px-8 py-3 rounded-full border border-[#b06a45] text-[#b06a45] hover:bg-[#b06a45] hover:text-white transition"
+          >
+            View All
+          </button>
+        </div>
+
+        <!-- News Grid -->
+        <div class="grid md:grid-cols-2 gap-30">
+          <!-- Card 1 -->
+          <div class="flex gap-4 items-start">
+            <div
+              class="w-[300px] h-[300px] overflow-hidden rounded-[28px] flex-shrink-0"
+            >
+              <img
+                src="./assets/images/n1.jpg"
+                alt=""
+                class="w-full h-full object-cover"
+              />
+            </div>
+
+            <div class="pt-1">
+              <p class="text-sm text-[#d09a7f] mb-3">Dec 29, 2024</p>
+
+              <h3
+                class="font-display font-bold text-[20px] leading-tight text-[#9a5633] mb-4"
+              >
+                5 Common Skincare<br />
+                Mistakes to Avoid
+              </h3>
+
+              <p class="text-[#a86b49] text-[12px] leading-relaxed mb-8">
+                Learn how to sidestep these everyday habits that could be
+                harming your skin.
+              </p>
+
+              <button
+                class="px-6 py-2 mt-14 rounded-full border border-[#b06a45] text-[#b06a45]"
+              >
+                Learn More
+              </button>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="flex gap-4 items-start">
+            <div
+              class="w-[300px] h-[300px] overflow-hidden rounded-[28px] flex-shrink-0"
+            >
+              <img
+                src="./assets/images/n2.jpg"
+                alt=""
+                class="w-full h-full object-cover"
+              />
+            </div>
+
+            <div class="pt-1">
+              <p class="text-sm text-[#d09a7f] mb-3">Dec 16, 2024</p>
+
+              <h3
+                class="font-display font-bold text-[20px] leading-tight text-[#9a5633] mb-4"
+              >
+                The Benefits of<br />
+                Chemical Peels
+              </h3>
+
+              <p class="text-[#a86b49] text-[12px] leading-relaxed mb-8">
+                Discover how chemical peels can rejuvenate your skin and restore
+                glow.
+              </p>
+
+              <button
+                class="px-6 py-2 mt-14 rounded-full border border-[#b06a45] text-[#b06a45]"
+              >
+                Learn More
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="max-w-5xl mt-10 mx-auto">
+        <div class="text-center mb-10 reveal">
+          <div
+            class="section-label font-bold justify-center mb-4"
+            style="color: #a0522d"
+          >
+            Certifications
+          </div>
+
+          <h2
+            class="font-display text-4xl md:text-5xl leading-[0.95]"
+            style="color: #a0522d"
+          >
+            Trusted Expertise,<br />
+            Certified Excellence
+          </h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div class="bento-card reveal-left" style="animation-delay: 0s">
+            <p class="text-xs mb-2" style="color: #c9917a">Sep 2024</p>
+            <h3 class="font-display text-2xl mb-3" style="color: #7b3b2a">
+              CPR and First Aid Certified
+            </h3>
+            <p class="text-sm leading-relaxed mb-6" style="color: #a0522d">
+              Dedicated to ensuring patient safety and maintaining emergency
+              preparedness during all procedures.
+            </p>
+            <button
+              class="w-full btn-outline-brown text-center py-2.5 rounded-full text-sm"
+              style="border-color: #c9917a; color: #a0522d text-color #fff"
+            >
+              Learn More
+            </button>
+          </div>
+          <div class="bento-card reveal-right" style="animation-delay: 0.1s">
+            <p class="text-xs mb-2" style="color: #c9917a">Feb 2024</p>
+            <h3 class="font-display text-2xl mb-3" style="color: #7b3b2a">
+              Certified Laser Specialist
+            </h3>
+            <p class="text-sm leading-relaxed mb-6" style="color: #a0522d">
+              Certification demonstrating expertise in the safe and effective
+              use of laser technology for treatments.
+            </p>
+            <button
+              class="w-full btn-outline-brown text-center py-2.5 rounded-full text-sm"
+              style="border-color: #c9917a; color: #a0522d text-color #fff"
+            >
+              Learn More
+            </button>
+          </div>
+          <div class="bento-card reveal-left" style="animation-delay: 0.2s">
+            <p class="text-xs mb-2" style="color: #c9917a">Oct 2023</p>
+            <h3 class="font-display text-2xl mb-3" style="color: #7b3b2a">
+              Skin Allergy Specialist
+            </h3>
+            <p class="text-sm leading-relaxed mb-6" style="color: #a0522d">
+              Certified expertise in diagnosing and effectively treating a wide
+              range of skin allergies to improve outcomes.
+            </p>
+            <button
+              class="w-full btn-outline-brown text-center py-2.5 rounded-full text-sm"
+              style="border-color: #c9917a; color: #a0522d text-color #fff"
+            >
+              Learn More
+            </button>
+          </div>
+          <div class="bento-card reveal-right" style="animation-delay: 0.3s">
+            <p class="text-xs mb-2" style="color: #c9917a">Jul 2023</p>
+            <h3 class="font-display text-2xl mb-3" style="color: #7b3b2a">
+              Certified in Dermoscopy
+            </h3>
+            <p class="text-sm leading-relaxed mb-6" style="color: #a0522d">
+              Expertise in diagnosing various skin conditions and abnormalities
+              using advanced dermoscopy techniques.
+            </p>
+            <button
+              class="w-full btn-outline-brown text-center py-2.5 rounded-full text-sm"
+              style="border-color: #c9917a; color: #a0522d text-color #fff"
+            >
+              Learn More
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════
+     INSTAGRAM / GALLERY
+═══════════════════════════════════════════════ -->
+    <section class="py-24 px-4">
+      <div class="max-w-5xl mx-auto">
+        <!-- <div class="mb-10 reveal flex items-end justify-between">
+          <div>
+            <div class="section-label">Instagram</div>
+            <h2
+              class="font-display text-4xl md:text-5xl"
+              style="color: #7b3b2a"
+            >
+              Follow Our Skin<br />Tips on Instagram
+            </h2>
+          </div>
+          <button class="btn-outline-brown">Visit Instagram ↗</button>
+        </div> -->
+
+        <div class="insta-grid reveal">
+          <div class="insta-cell">
+            <img
+              src="./assets/images/g1.jpg"
+              alt=""
+              loading="lazy"
+              onload="this.classList.add('loaded')"
+            />
+          </div>
+
+          <div class="insta-cell">
+            <img
+              src="./assets/images/g2.jpg"
+              alt=""
+              loading="lazy"
+              onload="this.classList.add('loaded')"
+            />
+          </div>
+
+          <div class="insta-cell">
+            <img
+              src="./assets/images/g3.jpg"
+              alt=""
+              loading="lazy"
+              onload="this.classList.add('loaded')"
+            />
+          </div>
+
+          <div class="insta-cell">
+            <img
+              src="./assets/images/g4.jpg"
+              alt=""
+              loading="lazy"
+              onload="this.classList.add('loaded')"
+            />
+          </div>
+          <div class="insta-cell">
+            <img
+              src="./assets/images/g9.png"
+              alt=""
+              loading="lazy"
+              onload="this.classList.add('loaded')"
+            />
+          </div>
+
+          <div class="insta-cell">
+            <img
+              src="./assets/images/g5.jpg"
+              alt=""
+              loading="lazy"
+              onload="this.classList.add('loaded')"
+            />
+          </div>
+
+          <div class="insta-cell">
+            <img
+              src="./assets/images/g6.jpg"
+              alt=""
+              loading="lazy"
+              onload="this.classList.add('loaded')"
+            />
+          </div>
+          <div class="insta-cell">
+            <img
+              src="./assets/images/g7.jpg"
+              alt=""
+              loading="lazy"
+              onload="this.classList.add('loaded')"
+            />
+          </div>
+          <div class="insta-cell">
+            <img
+              src="./assets/images/g8.jpg"
+              alt=""
+              loading="lazy"
+              onload="this.classList.add('loaded')"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════
+     FAQ SECTION
+═══════════════════════════════════════════════ -->
+    <section id="faq" class="py-16 px-4" style="background: #f3e8df">
+      <div class="max-w-2xl mx-auto">
+        <div class="text-center mb-12 reveal">
+          <div class="section-label justify-center font-bold">FAQ</div>
+          <h2 class="font-display text-4xl md:text-5xl" style="color: #7b3b2a">
+            Got Questions?<br />We've Got Answers
+          </h2>
+        </div>
+
+        <div id="faq-list" class="reveal">
+          <!-- FAQ items injected by JS or static fallback -->
+          <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">
+              <span
+                >What types of skin conditions can your clinic help with, and
+                are your treatments customized?</span
+              >
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              We treat a wide range of skin conditions including acne,
+              hyperpigmentation, fine lines, rosacea, eczema, and more. Every
+              treatment plan is fully customized based on your skin type,
+              concerns, and goals after a thorough consultation.
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">
+              <span
+                >How do I book an appointment at your clinic, and what is the
+                process?</span
+              >
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              You can book a consultation directly through our website using the
+              Book a Consultation button, by calling our clinic, or by visiting
+              us in person. We will confirm your appointment within 24 hours.
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">
+              <span
+                >Do I need to follow any special instructions to prepare for my
+                treatment?</span
+              >
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              Preparation varies by treatment. For laser treatments, avoid sun
+              exposure for at least 2 weeks prior. For chemical peels, stop
+              retinol use 5–7 days before. Our team will provide complete
+              pre-treatment guidelines after booking.
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">
+              <span
+                >Are the treatments safe for people with sensitive or reactive
+                skin types?</span
+              >
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              Absolutely. We specialize in treating sensitive skin and always
+              perform a patch test before any treatment. Our dermatologists
+              tailor protocols to minimize irritation and maximize results for
+              reactive skin types.
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">
+              <span
+                >How long does it usually take to see noticeable results?</span
+              >
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              Results vary by treatment and individual skin. Many clients see
+              improvement after their first session, while others may need 3–6
+              sessions for optimal results. We will set realistic expectations
+              during your initial consultation.
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center mt-8 reveal">
+          <button class="btn-outline-brown">View All</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════
+     CTA SECTION
+═══════════════════════════════════════════════ -->
+    <section class="relative py-0 overflow-hidden" style="min-height: 550px">
+      <img
+        src="assets/images/f1.jpg"
+        alt="Skin glow"
+        style="
+          position: absolute;
+          inset: 0;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          object-position: center 30%;
+        "
+        loading="lazy"
+        onload="this.classList.add('loaded')"
+      />
+      <div
+        style="position: absolute; inset: 0; background: rgba(0, 0, 0, 0.35)"
+      ></div>
+
+      <div
+        class="relative z-10 flex items-center justify-center h-full py-28 px-4"
+      >
+        <div
+          class="text-center rounded-2xl p-10 reveal"
+          style="
+            background: rgba(250, 243, 238, 0.92);
+            backdrop-filter: blur(10px);
+            max-width: 520px;
+            width: 100%;
+          "
+        >
+          <div class="section-label justify-center font-bold">Get Started</div>
+          <h2
+            class="font-display text-3xl md:text-4xl mb-6"
+            style="color: #7b3b2a"
+          >
+            Ready to Begin Your<br />Skincare Journey?
+          </h2>
+          <div class="flex flex-wrap gap-3 justify-center">
+            <button class="btn-primary" onclick="openModal()">
+              Book a Consultation
+            </button>
+            <button
+              class="btn-outline-brown"
+              onclick="
+                document
+                  .getElementById('services')
+                  .scrollIntoView({ behavior: 'smooth' })
+              "
+            >
+              Explore Services
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════
+     FOOTER
+═══════════════════════════════════════════════ -->
+    <footer
+      class="relative overflow-hidden min-h-[900px]"
+      style="
+        background: url(&quot;./assets/images/footer.png&quot;) center center /
+          cover no-repeat;
+      "
+    >
+      <!-- Sun decorations background -->
+      <div class="footer-sun left-0">
+        <svg width="350" height="350" viewBox="0 0 350 350" fill="none">
+          <circle cx="175" cy="175" r="100" fill="#a05030" />
+          <g stroke="#a05030" stroke-width="12" stroke-linecap="round">
+            <line x1="175" y1="20" x2="175" y2="60" />
+            <line x1="175" y1="290" x2="175" y2="330" />
+            <line x1="20" y1="175" x2="60" y2="175" />
+            <line x1="290" y1="175" x2="330" y2="175" />
+            <line x1="60" y1="60" x2="88" y2="88" />
+            <line x1="262" y1="262" x2="290" y2="290" />
+            <line x1="60" y1="290" x2="88" y2="262" />
+            <line x1="262" y1="88" x2="290" y2="60" />
+          </g>
+        </svg>
+      </div>
+      <div class="footer-sun" style="right: 0; left: auto; bottom: -80px">
+        <svg width="350" height="350" viewBox="0 0 350 350" fill="none">
+          <circle
+            cx="175"
+            cy="175"
+            r="80"
+            stroke="#a05030"
+            stroke-width="8"
+            fill="none"
+          />
+          <circle cx="175" cy="175" r="50" fill="#a05030" />
+          <g stroke="#a05030" stroke-width="12" stroke-linecap="round">
+            <line x1="175" y1="20" x2="175" y2="60" />
+            <line x1="175" y1="290" x2="175" y2="330" />
+            <line x1="20" y1="175" x2="60" y2="175" />
+            <line x1="290" y1="175" x2="330" y2="175" />
+            <line x1="60" y1="60" x2="88" y2="88" />
+            <line x1="262" y1="262" x2="290" y2="290" />
+            <line x1="60" y1="290" x2="88" y2="262" />
+            <line x1="262" y1="88" x2="290" y2="60" />
+          </g>
+        </svg>
+      </div>
+      <div class="footer-sun" style="left: 50%; transform: translateX(-50%)">
+        <svg width="280" height="280" viewBox="0 0 280 280" fill="none">
+          <circle
+            cx="140"
+            cy="140"
+            r="60"
+            stroke="#a05030"
+            stroke-width="6"
+            fill="none"
+          />
+          <g stroke="#a05030" stroke-width="10" stroke-linecap="round">
+            <line x1="140" y1="20" x2="140" y2="50" />
+            <line x1="140" y1="230" x2="140" y2="260" />
+            <line x1="20" y1="140" x2="50" y2="140" />
+            <line x1="230" y1="140" x2="260" y2="140" />
+            <line x1="52" y1="52" x2="73" y2="73" />
+            <line x1="207" y1="207" x2="228" y2="228" />
+            <line x1="52" y1="228" x2="73" y2="207" />
+            <line x1="207" y1="73" x2="228" y2="52" />
+          </g>
+        </svg>
+      </div>
+
+      <div class="relative z-10 pt-14 pb-10 px-8">
+        <div class="max-w-3xl mx-auto text-center mb-10">
+          <!-- Logo -->
+          <div class="flex items-center justify-center gap-2 mb-8">
+            <svg width="18" height="18" viewBox="0 0 20 20" fill="none">
+              <circle cx="10" cy="10" r="4" fill="white" />
+              <g stroke="white" stroke-width="1.5" stroke-linecap="round">
+                <line x1="10" y1="1" x2="10" y2="4" />
+                <line x1="10" y1="16" x2="10" y2="19" />
+                <line x1="1" y1="10" x2="4" y2="10" />
+                <line x1="16" y1="10" x2="19" y2="10" />
+                <line x1="3.22" y1="3.22" x2="5.34" y2="5.34" />
+                <line x1="14.66" y1="14.66" x2="16.78" y2="16.78" />
+                <line x1="3.22" y1="16.78" x2="5.34" y2="14.66" />
+                <line x1="14.66" y1="5.34" x2="16.78" y2="3.22" />
+              </g>
+            </svg>
+            <span class="font-display text-xl text-white font-medium"
+              >epidermis</span
+            >
+          </div>
+
+          <!-- Nav columns -->
+          <div class="grid grid-cols-3 gap-8 mb-10">
+            <div>
+              <p
+                class="text-s font-bold mb-4"
+                style="color: rgba(255, 255, 255, 0.5)"
+              >
+                Menu
+              </p>
+              <div class="flex flex-col gap-2">
+                <a
+                  href="#about"
+                  class="text-white text-lg font-display hover:opacity-70 transition-opacity"
+                  >About</a
+                >
+                <a
+                  href="#services"
+                  class="text-white text-lg font-display hover:opacity-70 transition-opacity"
+                  >Services</a
+                >
+                <a
+                  href="#updates"
+                  class="text-white text-lg font-display hover:opacity-70 transition-opacity"
+                  >News</a
+                >
+                <a
+                  href="#faq"
+                  class="text-white text-lg font-display hover:opacity-70 transition-opacity"
+                  >FAQ</a
+                >
+              </div>
+            </div>
+            <div>
+              <p
+                class="text-s font-bold mb-4"
+                style="color: rgba(255, 255, 255, 0.5)"
+              >
+                Follow Us
+              </p>
+              <div class="flex flex-col gap-2">
+                <a
+                  href="#"
+                  class="text-white text-lg font-display hover:opacity-70 transition-opacity"
+                  >Instagram</a
+                >
+                <a
+                  href="#"
+                  class="text-white text-lg font-display hover:opacity-70 transition-opacity"
+                  >Facebook</a
+                >
+                <a
+                  href="#"
+                  class="text-white text-lg font-display hover:opacity-70 transition-opacity"
+                  >X (Twitter)</a
+                >
+                <a
+                  href="#"
+                  class="text-white text-lg font-display hover:opacity-70 transition-opacity"
+                  >LinkedIn</a
+                >
+              </div>
+            </div>
+            <div>
+              <p
+                class="text-s font-bold mb-4"
+                style="color: rgba(255, 255, 255, 0.5)"
+              >
+                Explore
+              </p>
+              <div class="flex flex-col gap-2">
+                <a
+                  href="#"
+                  class="text-white text-lg font-display hover:opacity-70 transition-opacity"
+                  >Licenses</a
+                >
+                <a
+                  href="#"
+                  class="text-white text-lg font-display hover:opacity-70 transition-opacity"
+                  >Templates</a
+                >
+                <a
+                  href="#"
+                  class="text-white text-lg font-display hover:opacity-70 transition-opacity"
+                  >Careers</a
+                >
+                <a
+                  href="#"
+                  class="text-white text-lg font-display hover:opacity-70 transition-opacity"
+                  >Contact</a
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- CTA bar -->
+          <div
+            class="rounded-xl p-5 flex items-center justify-between gap-4 flex-wrap mb-8"
+            style="
+              background: rgba(255, 255, 255, 0.1);
+              backdrop-filter: blur(6px);
+            "
+          >
+            <div class="text-left">
+              <p class="text-white text-sm leading-relaxed">
+                Healthy, Glowing Skin Awaits.<br />Schedule a Consultation
+                Today!
+              </p>
+            </div>
+            <button class="btn-outline-white py-2.5 px-6" onclick="openModal()">
+              Book a Consultation
+            </button>
+          </div>
+
+          <p style="color: rgba(255, 255, 255, 0.35); font-size: 0.8rem">
+            © 2025, All rights reserved
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- ═══════════════════════════════════════════════
+     BOOKING MODAL
+═══════════════════════════════════════════════ -->
+    <div class="modal-overlay" id="modal" onclick="handleOverlayClick(event)">
+      <div class="modal-box">
+        <div class="flex items-center justify-between mb-6">
+          <div>
+            <h3 class="font-display text-2xl" style="color: #7b3b2a">
+              Book a Consultation
+            </h3>
+            <p class="text-sm mt-1" style="color: #a0522d">
+              Free skin analysis included
+            </p>
+          </div>
+          <button
+            onclick="closeModal()"
+            style="
+              color: #a0522d;
+              font-size: 1.5rem;
+              line-height: 1;
+              background: none;
+              border: none;
+              cursor: pointer;
+            "
+          >
+            ✕
+          </button>
+        </div>
+
+        <form
+          id="booking-form"
+          onsubmit="submitForm(event)"
+          class="flex flex-col gap-3"
+        >
+          <input
+            type="text"
+            name="full_name"
+            placeholder="Full Name *"
+            class="form-input"
+            required
+          />
+          <input
+            type="email"
+            name="email"
+            placeholder="Email Address *"
+            class="form-input"
+            required
+          />
+          <input
+            type="tel"
+            name="phone"
+            placeholder="Phone Number"
+            class="form-input"
+          />
+          <select name="service_id" class="form-input">
+            <option value="" style="color: #c9917a">Select a Service</option>
+            <option value="1">Acne Treatment</option>
+            <option value="2">Laser Skin Resurfacing</option>
+            <option value="3">Tattoo Removal</option>
+            <option value="4">Body Massage</option>
+            <option value="5">Chemical Peel</option>
+            <option value="6">Laser Hair Removal</option>
+            <option value="7">Mole and Skin Tag Removal</option>
+          </select>
+          <input type="date" name="preferred_date" class="form-input" />
+          <textarea
+            name="message"
+            placeholder="Tell us about your skin concerns..."
+            class="form-input"
+            rows="3"
+            style="resize: vertical"
+          ></textarea>
+
+          <div id="form-msg" class="text-sm py-2 px-3 rounded-lg hidden"></div>
+
+          <button
+            type="submit"
+            class="btn-primary justify-center mt-2"
+            id="submit-btn"
+          >
+            Book My Free Consultation
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════
+     JAVASCRIPT
+═══════════════════════════════════════════════ -->
+    <script>
+      // ── FLOATING FONT PARTICLES ──────────────────────
+      const WORDS = [
+        "glow",
+        "radiance",
+        "clarity",
+        "renewal",
+        "confidence",
+        "beauty",
+        "care",
+        "transform",
+        "luminous",
+        "hydrate",
+        "nourish",
+        "revive",
+        "pure",
+        "flawless",
+        "serene",
+      ];
+      const container = document.getElementById("hero-particles");
+
+      function createParticle() {
+        const el = document.createElement("span");
+        el.className = "float-particle";
+        const word = WORDS[Math.floor(Math.random() * WORDS.length)];
+        el.textContent = word;
+        const size = Math.random() * 20 + 14;
+        el.style.fontSize = size + "px";
+        el.style.left = Math.random() * 95 + "%";
+        el.style.bottom = "-60px";
+        const dur = Math.random() * 8 + 7;
+        el.style.animationDuration = dur + "s";
+        el.style.animationDelay = "0s";
+        el.style.fontStyle = Math.random() > 0.5 ? "italic" : "normal";
+        container.appendChild(el);
+        setTimeout(() => el.remove(), dur * 1000);
+      }
+
+      // Launch particles
+      setInterval(createParticle, 800);
+      for (let i = 0; i < 6; i++) setTimeout(createParticle, i * 300);
+
+      // ── SCROLL REVEAL ────────────────────────────────
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) {
+              const el = e.target;
+              const delay = el.dataset.delay || 0;
+              setTimeout(() => el.classList.add("visible"), delay);
+              observer.unobserve(el);
+            }
+          });
+        },
+        { threshold: 0.12 },
+      );
+
+      document
+        .querySelectorAll(".reveal, .reveal-left, .reveal-right")
+        .forEach((el, i) => {
+          el.dataset.delay = (i % 4) * 80;
+          observer.observe(el);
+        });
+
+      // ── SCROLL PROGRESS ──────────────────────────────
+      const bar = document.getElementById("progress-bar");
+      window.addEventListener("scroll", () => {
+        const pct =
+          (window.scrollY / (document.body.scrollHeight - window.innerHeight)) *
+          100;
+        bar.style.width = pct + "%";
+      });
+
+      // ── NAVBAR SCROLL EFFECT ─────────────────────────
+      const navbar = document.getElementById("navbar");
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > 80) {
+          navbar.style.background = "rgba(250,243,238,0.95)";
+          navbar.style.backdropFilter = "blur(12px)";
+          navbar.style.boxShadow = "0 1px 20px rgba(123,59,42,0.08)";
+        } else {
+          navbar.style.background = "transparent";
+          navbar.style.backdropFilter = "none";
+          navbar.style.boxShadow = "none";
+        }
+      });
+
+      // ── FAQ ACCORDION ─────────────────────────────────
+      function toggleFaq(btn) {
+        const answer = btn.nextElementSibling;
+        const icon = btn.querySelector(".faq-icon");
+        const isOpen = answer.classList.contains("open");
+
+        // Close all
+        document
+          .querySelectorAll(".faq-answer")
+          .forEach((a) => a.classList.remove("open"));
+        document
+          .querySelectorAll(".faq-icon")
+          .forEach((i) => i.classList.remove("open"));
+
+        // Open clicked if it wasn't open
+        if (!isOpen) {
+          answer.classList.add("open");
+          icon.classList.add("open");
+        }
+      }
+
+      // ── MODAL ─────────────────────────────────────────
+      function openModal() {
+        document.getElementById("modal").classList.add("active");
+        document.body.style.overflow = "hidden";
+      }
+      function closeModal() {
+        document.getElementById("modal").classList.remove("active");
+        document.body.style.overflow = "";
+      }
+      function handleOverlayClick(e) {
+        if (e.target === document.getElementById("modal")) closeModal();
+      }
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") closeModal();
+      });
+
+      // ── BOOKING FORM ──────────────────────────────────
+      async function submitForm(e) {
+        e.preventDefault();
+        const form = e.target;
+        const btn = document.getElementById("submit-btn");
+        const msg = document.getElementById("form-msg");
+        btn.disabled = true;
+        btn.textContent = "Sending…";
+
+        const data = new FormData(form);
+
+        try {
+          // Try PHP backend first; fall back to success in demo mode
+          const res = await fetch("php/book.php", {
+            method: "POST",
+            body: data,
+          }).catch(() => null);
+          let json = {
+            success: true,
+            message:
+              "Consultation request received! We will contact you within 24 hours.",
+          };
+
+          if (res && res.ok) {
+            json = await res.json();
+          }
+
+          msg.className = "text-sm py-2 px-3 rounded-lg";
+          if (json.success) {
+            msg.style.background = "#d4edda";
+            msg.style.color = "#155724";
+            msg.textContent = json.message;
+            form.reset();
+            setTimeout(closeModal, 2500);
+          } else {
+            msg.style.background = "#f8d7da";
+            msg.style.color = "#721c24";
+            msg.textContent = (json.errors || ["Something went wrong."]).join(
+              " ",
+            );
+          }
+        } catch (err) {
+          msg.style.background = "#d4edda";
+          msg.style.color = "#155724";
+          msg.textContent =
+            "Consultation request received! We will contact you within 24 hours.";
+          form.reset();
+          setTimeout(closeModal, 2500);
+        }
+
+        btn.disabled = false;
+        btn.textContent = "Book My Free Consultation";
+      }
+
+      // ── MOBILE MENU ───────────────────────────────────
+      function toggleMenu() {
+        document.getElementById("mobile-menu").classList.toggle("open");
+      }
+
+      // ── LAZY IMAGE OBSERVER ───────────────────────────
+      document.querySelectorAll('img[loading="lazy"]').forEach((img) => {
+        if (img.complete) img.classList.add("loaded");
+      });
+
+      // ── HERO CHAR ANIMATION ───────────────────────────
+      // Already handled by CSS on .hero-title .line span
+    </script>
+  </body>
+</html>

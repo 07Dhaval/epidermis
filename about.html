@@ -680,6 +680,18 @@
       img.loaded {
         opacity: 1;
       }
+      #logoText {
+  color: white;
+  transition: 0.3s;
+}
+
+#logoCircle {
+  transition: 0.3s;
+}
+
+#logoStroke {
+  transition: 0.3s;
+}
     </style>
   </head>
   <body>
@@ -695,15 +707,15 @@
       style="
         background: transparent;
         transition:
-          background 0.4s ease,
+          background 0.1s ease,
           backdrop-filter 0.4s ease;
       "
     >
       <!-- Logo -->
       <a
-        href="#"
+        href="index.html"
         class="flex items-center gap-2 font-display text-xl text-skin-brown font-medium"
-        style="color: #7b3b2a"
+        style="color: #7b3b2a "
       >
         <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
           <circle cx="10" cy="10" r="4" fill="#7b3b2a" />
@@ -726,7 +738,7 @@
         class="hidden md:flex items-center font-bold gap-8 text-sm text-white [text-shadow:_1px_1px_0_#fff,_-1px_-1px_0_#fff,_1px_-1px_0_#fff,_-1px_1px_0_#fff]"
         style="color: #7b3b2a"
       >
-        <a href="#about" class="nav-link">About</a>
+        <a href="about.html" class="nav-link">About</a>
         <a href="#services" class="nav-link">Services</a>
         <!-- <a href="#testimonials" class="nav-link">Testimonials</a> -->
         <a href="#updates" class="nav-link">News</a>
@@ -769,7 +781,7 @@
       >
         ✕
       </button>
-      <a href="#about" onclick="toggleMenu()">About</a>
+      <a href="about.html" class="nav-link">About</a>
       <a href="#services" onclick="toggleMenu()">Services</a>
       <a href="#testimonials" onclick="toggleMenu()">Testimonials</a>
       <a href="#updates" onclick="toggleMenu()">News</a>

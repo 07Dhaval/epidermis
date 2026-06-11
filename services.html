@@ -670,6 +670,23 @@
         text-decoration: none;
       }
 
+      .reveal {
+        opacity: 0;
+        transform: translateY(80px);
+        animation: fadeUp 0.9s ease forwards;
+      }
+
+      @keyframes fadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(80px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
       /* Smooth image loading */
       img {
         transition: opacity 0.4s ease;
@@ -701,7 +718,7 @@
     >
       <!-- Logo -->
       <a
-        href="#"
+        href="index.html"
         class="flex items-center gap-2 font-display text-xl text-skin-brown font-medium"
         style="color: #7b3b2a"
       >
@@ -770,7 +787,7 @@
         ✕
       </button>
       <a href="about.html" class="nav-link">About</a>
-      <a href="#services" onclick="toggleMenu()">Services</a>
+      <a href="services.html" class="nav-link">Services</a>
       <a href="#testimonials" onclick="toggleMenu()">Testimonials</a>
       <a href="#updates" onclick="toggleMenu()">News</a>
       <a href="#faq" onclick="toggleMenu()">FAQ</a>
@@ -788,1041 +805,182 @@
     <!-- ═══════════════════════════════════════════════
      HERO SECTION
 ═══════════════════════════════════════════════ -->
-    <section class="hero-section" id="hero">
-      <!-- Background image -->
-      <img
-        src="./assets/images/b2.png"
-        alt="Beautiful skin"
-        style="
-          position: absolute;
-          inset: 0;
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-          object-position: center 20%;
-        "
-        id="hero-img"
-      />
-      <!-- Gradient overlay -->
-      <div
-        style="
-          position: absolute;
-          inset: 0;
-          background: linear-gradient(
-            to bottom,
-            rgba(0, 0, 0, 0.15) 0%,
-            rgba(0, 0, 0, 0.25) 60%,
-            rgba(0, 0, 0, 0.4) 100%
-          );
-          z-index: 1;
-        "
-      ></div>
 
-      <!-- Floating font particles -->
-      <div id="hero-particles"></div>
-
-      <!-- Hero Content -->
-      <div
-        class="relative z-10 flex flex-col items-center justify-center h-full text-center px-4"
-        style="padding-top: 80px"
-      >
-        <h1 class="hero-title text-white mb-8">
-          <span class="line"><span>Because Your Skin</span></span>
-          <span class="line"
-            ><span style="animation-delay: 0.2s">Deserves the Best</span></span
-          >
+    <section class="bg-[#f7f0eb] pt-28 pb-40 overflow-hidden">
+      <div class="max-w-6xl mx-auto px-4 text-center">
+        <h1 class="text-[#9a5633] text-5xl md:text-6xl leading-none reveal">
+          Our Expert Skin <br />Care Services
         </h1>
+
         <div
-          class="flex flex-wrap gap-3 justify-center"
-          style="opacity: 0; animation: fadeUp 0.8s ease 0.7s forwards"
+          class="flex justify-center gap-3 mt-6 reveal"
+          style="animation-delay: 0.2s"
         >
-          <button class="btn-primary" onclick="openModal()">
+          <button
+            class="px-6 py-3 rounded-full bg-[#9a5633] text-white text-sm transition-all duration-300 hover:scale-105"
+          >
             Book a Consultation
           </button>
+
           <button
-            class="btn-outline"
-            onclick="
-              document
-                .getElementById('services')
-                .scrollIntoView({ behavior: 'smooth' })
-            "
+            class="px-6 py-3 rounded-full border border-[#c9917a] text-[#9a5633] text-sm transition-all duration-300 hover:bg-[#9a5633] hover:text-white"
           >
-            Explore Services
+            About Epidermis
           </button>
         </div>
       </div>
 
-      <!-- Bento cards at bottom -->
       <div
-        class="absolute bottom-0 left-0 right-0 z-10 px-4 pb-0"
-        style="opacity: 0; animation: fadeUp 0.8s ease 1s forwards"
+        class="max-w-6xl mx-auto px-4 mt-12 reveal"
+        style="animation-delay: 0.4s"
       >
+        <div class="overflow-hidden rounded-[26px] shadow-lg">
+          <img
+            src="./assets/images/serviceb.png"
+            alt=""
+            class="w-full h-[650px] object-cover transition-transform duration-[2000ms] hover:scale-105"
+          />
+        </div>
+      </div>
+    </section>
+    <section class="py-20 px-4 bg-[#f7f0eb]">
+      <div class="max-w-6xl mx-auto">
+        <p class="text-[#a05a37] text-sm font-medium mb-6">
+          Medical & Cosmetic
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2">
+          <div class="service-grid-card">
+            <img src="./assets/images/ma1.png" alt="" />
+          </div>
+
+          <div class="service-grid-card">
+            <img src="./assets/images/ma2.png" alt="" />
+          </div>
+
+          <div class="service-grid-card">
+            <img src="./assets/images/ma3.png" alt="" />
+          </div>
+
+          <div class="service-grid-card">
+            <img src="./assets/images/ma4.png" alt="" />
+          </div>
+
+          <div class="service-grid-card">
+            <img src="./assets/images/ma5.png" alt="" />
+          </div>
+
+          <div class="service-grid-card">
+            <img src="./assets/images/ma6.png" alt="" />
+          </div>
+
+          <div class="service-grid-card">
+            <img src="./assets/images/ma7.png" alt="" />
+          </div>
+
+          <div class="service-grid-card">
+            <img src="./assets/images/ma8.png" alt="" />
+          </div>
+        </div>
+      </div>
+      <div class="max-w-7xl mx-auto">
+        <div class="w-full h-px bg-[#e6d8d0] my-12"></div>
+      </div>
+      <div class="max-w-6xl mx-auto mt-6">
+        <p class="text-[#a05a37] text-sm font-medium mb-2">
+          Laser & Advanced Treatments
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2">
+          <div class="service-grid-card">
+            <img src="./assets/images/l1.png" alt="" />
+          </div>
+
+          <div class="service-grid-card">
+            <img src="./assets/images/l2.png" alt="" />
+          </div>
+
+          <div class="service-grid-card">
+            <img src="./assets/images/l3.png" alt="" />
+          </div>
+
+          <div class="service-grid-card">
+            <img src="./assets/images/l4.png" alt="" />
+          </div>
+        </div>
+      </div>
+      <div class="max-w-7xl mx-auto">
+        <div class="w-full h-px bg-[#e6d8d0] my-12"></div>
+      </div>
+      <div class="max-w-6xl mx-auto mt-6">
+        <p class="text-[#a05a37] text-sm font-medium mb-2">
+          Skin Wellness & Maintenance
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2">
+          <div class="service-grid-card">
+            <img src="./assets/images/ss1.png" alt="" />
+          </div>
+
+          <div class="service-grid-card">
+            <img src="./assets/images/ss2.png" alt="" />
+          </div>
+
+          <div class="service-grid-card">
+            <img src="./assets/images/ss3.png" alt="" />
+          </div>
+
+          <div class="service-grid-card">
+            <img src="./assets/images/ss4.png" alt="" />
+          </div>
+        </div>
+      </div>
+      <div class="max-w-7xl mx-auto">
+        <div class="w-full h-px bg-[#e6d8d0] my-12"></div>
+      </div>
+      <div class="max-w-6xl mx-auto mt-6">
+        <p class="text-[#a05a37] text-sm font-medium mb-2">
+          Surgical Dermatology
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2">
+          <div class="service-grid-card">
+            <img src="./assets/images/sd1.png" alt="" />
+          </div>
+
+          <div class="service-grid-card">
+            <img src="./assets/images/sd2.png" alt="" />
+          </div>
+
+          <div class="service-grid-card">
+            <img src="./assets/images/sd3.png" alt="" />
+          </div>
+
+          <div class="service-grid-card">
+            <img src="./assets/images/sd4.png" alt="" />
+          </div>
+        </div>
+      </div>
+
+      <div class="max-w-[1170px] mx-auto mt-[60px] mb-[40px]">
         <div
-          class="max-w-5xl mx-auto grid grid-cols-3 mb-10"
-          style="transform: translateY(40%)"
+          class="h-[128px] rounded-[34px] border border-[#ead8cf] bg-[#f5ece7] px-[48px] flex items-center justify-between"
         >
-          <!-- Left Card -->
-          <div
-            class="bg-[#f3ece8] p-6 cursor-pointer rounded-tl-[24px]"
-            onclick="
-              document
-                .getElementById('about')
-                .scrollIntoView({ behavior: 'smooth' })
-            "
-          >
-            <div
-              class="text-xs font-bold mb-3 flex justify-between items-center text-[#a0522d]"
-            >
-              About Us
-              <span class="text-base">↗</span>
-            </div>
-
-            <p class="font-display text-xl leading-tight text-[#7b3b2a]">
-              Learn How We<br />
-              Transform Skin Care
-            </p>
-          </div>
-
-          <!-- Center Card -->
-          <div
-            class="bg-[#f3ece8] p-6 cursor-pointer rounded-none"
-            onclick="
-              document
-                .getElementById('services')
-                .scrollIntoView({ behavior: 'smooth' })
-            "
-          >
-            <div
-              class="text-xs font-bold mb-3 flex justify-between items-center text-[#a0522d]"
-            >
-              Our Services
-              <span class="text-base">↗</span>
-            </div>
-
-            <p class="font-display text-xl leading-tight text-[#7b3b2a]">
-              Explore Our Expert<br />
-              Skin Care Services
-            </p>
-          </div>
-
-          <!-- Right Card -->
-          <div
-            class="bg-[#f3ece8] p-6 cursor-pointer rounded-tr-[24px]"
-            onclick="
-              document
-                .getElementById('updates')
-                .scrollIntoView({ behavior: 'smooth' })
-            "
-          >
-            <div
-              class="text-xs font-bold mb-3 flex justify-between items-center text-[#a0522d]"
-            >
-              Clinic Updates
-              <span class="text-base">↗</span>
-            </div>
-
-            <p class="font-display text-xl leading-tight text-[#7b3b2a]">
-              Stay Updated with<br />
-              the Latest in Skincare
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ═══════════════════════════════════════════════
-     PHOTO STRIP (below hero)
-═══════════════════════════════════════════════ -->
-    <section class="mb-0 px-4">
-      <div class="max-w-5xl mx-auto">
-        <div
-          class="grid grid-cols-3 overflow-hidden rounded-bl-[10px] rounded-bl-[10px] bg-[#e9dfd9]"
-          style="height: 300px"
-        >
-          <div class="overflow-hidden">
-            <img
-              src="./assets/images/h1.jpg"
-              alt="Skin"
-              class="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
-              loading="lazy"
-              onload="this.classList.add('loaded')"
-            />
-          </div>
-
-          <div class="overflow-hidden">
-            <img
-              src="./assets/images/h2.jpg"
-              alt="Serum"
-              class="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
-              loading="lazy"
-              onload="this.classList.add('loaded')"
-            />
-          </div>
-
-          <div class="overflow-hidden">
-            <img
-              src="./assets/images/h3.jpg"
-              alt="Eye patches"
-              class="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
-              loading="lazy"
-              onload="this.classList.add('loaded')"
-            />
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ═══════════════════════════════════════════════
-     ABOUT SECTION
-═══════════════════════════════════════════════ -->
-    <section id="about" class="py-32 px-4">
-      <div class="max-w-2xl mx-auto text-center reveal">
-        <div class="section-label font-bold">About Us</div>
-        <h2
-          class="font-display text-2xl md:text-4xl leading-tight mb-8"
-          style="color: #7b3b2a"
-        >
-          Epidermis combines expert care with advanced treatments to enhance
-          your skin's health and beauty.Our team is dedicated to helping you
-          achieve glowing,confident skin.
-        </h2>
-        <div class="flex flex-wrap gap-3 justify-center">
-          <button class="btn-primary">Learn More</button>
-          <button
-            class="btn-outline-brown"
-            onclick="
-              document
-                .getElementById('updates')
-                .scrollIntoView({ behavior: 'smooth' })
-            "
-          >
-            Clinic Updates
-          </button>
-        </div>
-      </div>
-
-      <!-- Sun decorations -->
-      <div
-        class="max-w-5xl mx-auto mt-20 grid grid-cols-3 gap-8 items-center justify-items-center reveal"
-        style="opacity: 0.4"
-      >
-        <div class="sun-svg">
-          <svg width="130" height="130" viewBox="0 0 130 130" fill="none">
-            <circle cx="65" cy="65" r="30" fill="#e8c5b5" stroke="none" />
-            <circle
-              cx="65"
-              cy="65"
-              r="28"
-              stroke="#d4a090"
-              stroke-width="3"
-              fill="none"
-            />
-            <g stroke="#d4a090" stroke-width="5" stroke-linecap="round">
-              <line x1="65" y1="10" x2="65" y2="22" />
-              <line x1="65" y1="108" x2="65" y2="120" />
-              <line x1="10" y1="65" x2="22" y2="65" />
-              <line x1="108" y1="65" x2="120" y2="65" />
-              <line x1="24" y1="24" x2="32" y2="32" />
-              <line x1="98" y1="98" x2="106" y2="106" />
-              <line x1="24" y1="106" x2="32" y2="98" />
-              <line x1="98" y1="32" x2="106" y2="24" />
-            </g>
-          </svg>
-        </div>
-        <div class="sun-svg" style="animation-delay: 1.5s">
-          <svg width="130" height="130" viewBox="0 0 130 130" fill="none">
-            <circle cx="65" cy="65" r="38" fill="#e8c5b5" />
-            <g stroke="#d4a090" stroke-width="5" stroke-linecap="round">
-              <line x1="65" y1="10" x2="65" y2="22" />
-              <line x1="65" y1="108" x2="65" y2="120" />
-              <line x1="10" y1="65" x2="22" y2="65" />
-              <line x1="108" y1="65" x2="120" y2="65" />
-              <line x1="24" y1="24" x2="32" y2="32" />
-              <line x1="98" y1="98" x2="106" y2="106" />
-              <line x1="24" y1="106" x2="32" y2="98" />
-              <line x1="98" y1="32" x2="106" y2="24" />
-            </g>
-          </svg>
-        </div>
-        <div class="sun-svg" style="animation-delay: 3s">
-          <svg width="130" height="130" viewBox="0 0 130 130" fill="none">
-            <circle
-              cx="65"
-              cy="65"
-              r="30"
-              fill="none"
-              stroke="#d4a090"
-              stroke-width="3"
-            />
-            <circle
-              cx="65"
-              cy="65"
-              r="20"
-              fill="none"
-              stroke="#d4a090"
-              stroke-width="2"
-            />
-            <g stroke="#d4a090" stroke-width="5" stroke-linecap="round">
-              <line x1="65" y1="10" x2="65" y2="22" />
-              <line x1="65" y1="108" x2="65" y2="120" />
-              <line x1="10" y1="65" x2="22" y2="65" />
-              <line x1="108" y1="65" x2="120" y2="65" />
-              <line x1="24" y1="24" x2="32" y2="32" />
-              <line x1="98" y1="98" x2="106" y2="106" />
-              <line x1="24" y1="106" x2="32" y2="98" />
-              <line x1="98" y1="32" x2="106" y2="24" />
-            </g>
-          </svg>
-        </div>
-      </div>
-    </section>
-
-    <!-- ═══════════════════════════════════════════════
-     SERVICES SECTION
-═══════════════════════════════════════════════ -->
-    <section
-      id="services"
-      class="pb-8 px-4"
-      style="background: #f3e8df; padding-top: 3rem"
-    >
-      <div class="max-w-5xl mx-auto">
-        <!-- Header row -->
-        <div class="flex items-end justify-between mb-8 reveal">
           <div>
-            <div class="section-label font-bold">Our Services</div>
-            <h2
-              class="font-display text-4xl md:text-5xl"
-              style="color: #7b3b2a"
+            <h3
+              class="text-[#a85b34] text-[29px] font-medium leading-[1.05] tracking-[-0.02em]"
             >
-              Our Most Popular<br />Skin Transformations
-            </h2>
-          </div>
-          <button class="btn-outline-brown">View All ↗</button>
-        </div>
-
-        <!-- Services bento grid -->
-        <div class="service-grid reveal">
-          <div class="service-cell">
-            <img
-              src="./assets/images/s1.png"
-              alt=""
-              loading="lazy"
-              onload="this.classList.add('loaded')"
-            />
+              Enjoy a free skin analysis and<br />
+              15% off your first treatment.
+            </h3>
           </div>
 
-          <div class="service-cell">
-            <img
-              src="./assets/images/s2.jpg"
-              class="w-full h-full object-cover"
-              alt=""
-              loading="lazy"
-              onload="this.classList.add('loaded')"
-            />
-          </div>
-
-          <div class="service-cell">
-            <img
-              src="./assets/images/s3.png"
-              alt=""
-              loading="lazy"
-              onload="this.classList.add('loaded')"
-            />
-          </div>
-
-          <div class="service-cell">
-            <img
-              src="./assets/images/s4.jpg"
-              alt=""
-              class="w-full h-full object-cover"
-              loading="lazy"
-              onload="this.classList.add('loaded')"
-            />
-          </div>
-          <div class="service-cell">
-            <img
-              src="./assets/images/s5.png"
-              alt=""
-              loading="lazy"
-              onload="this.classList.add('loaded')"
-            />
-          </div>
-
-          <div class="service-cell">
-            <img
-              src="./assets/images/s6.jpg"
-              class="w-full h-full object-cover"
-              alt=""
-              loading="lazy"
-              onload="this.classList.add('loaded')"
-            />
-          </div>
-
-          <div class="service-cell">
-            <img
-              src="./assets/images/s7.png"
-              alt=""
-              loading="lazy"
-              onload="this.classList.add('loaded')"
-            />
-          </div>
-          <div class="service-cell">
-            <img
-              src="./assets/images/s8.jpg"
-              alt=""
-              class="w-full h-full object-cover"
-              loading="lazy"
-              onload="this.classList.add('loaded')"
-            />
-          </div>
-          <div class="service-cell">
-            <img
-              src="./assets/images/s9.png"
-              alt=""
-              loading="lazy"
-              onload="this.classList.add('loaded')"
-            />
-          </div>
-        </div>
-
-        <!-- Promo bar -->
-        <div
-          class="bento-card mt-3 flex items-center justify-between flex-wrap gap-4 reveal"
-        >
-          <p style="color: #a0522d; font-size: 0.95rem">
-            Enjoy a free skin analysis and<br />15% off your first treatment.
-          </p>
-          <button class="btn-primary" onclick="openModal()">
+          <button
+            onclick="openModal()"
+            class="h-[58px] px-[38px] rounded-full bg-[#b46538] text-white text-[16px] font-medium whitespace-nowrap hover:bg-[#a55a31] transition-all duration-300"
+          >
             Book a Consultation
           </button>
-        </div>
-      </div>
-    </section>
-
-    <!-- ═══════════════════════════════════════════════
-     TESTIMONIALS SECTION
-═══════════════════════════════════════════════ -->
-    <section id="testimonials" class="py-24 px-4">
-      <div class="max-w-5xl mx-auto">
-        <div class="text-center mb-14 reveal">
-          <div class="section-label font-bold justify-center">Testimonials</div>
-          <h2 class="font-display text-4xl md:text-5xl" style="color: #7b3b2a">
-            Real Patients,<br />Real Confidence
-          </h2>
-        </div>
-
-        <!-- Testimonial cards -->
-        <div class="flex flex-col gap-4">
-          <!-- Card 1 — photo left -->
-          <div class="testimonial-card reveal-left">
-            <div class="photo" style="background: #d4a484; min-height: 300px">
-              <img
-                src="https://images.unsplash.com/photo-1504257432389-52343af06ae3?w=400&auto=format&fit=crop&q=80"
-                alt="John"
-                class="w-full h-full object-cover"
-                loading="lazy"
-                onload="this.classList.add('loaded')"
-                style="min-height: 300px"
-              />
-            </div>
-            <div class="p-8 flex flex-col justify-between">
-              <div>
-                <p class="text-sm mb-3" style="color: #a0522d">John A.</p>
-                <p
-                  class="font-display text-xl leading-relaxed"
-                  style="color: #7b3b2a; font-size: 1.2rem"
-                >
-                  "I struggled with acne for many years, and nothing seemed to
-                  work until I came to Epidermis. Their personalized treatment
-                  plan gave me clear, glowing skin, and for the first time, I
-                  finally feel truly confident in my own skin!"
-                </p>
-              </div>
-              <div
-                class="grid grid-cols-3 mt-8 pt-6"
-                style="border-top: 1px solid #e8d5c8"
-              >
-                <div>
-                  <p class="text-xs mb-1" style="color: #c9917a">Service:</p>
-                  <p class="font-medium text-sm" style="color: #7b3b2a">
-                    Acne Treatment
-                  </p>
-                </div>
-                <div>
-                  <p class="text-xs mb-1" style="color: #c9917a">
-                    Course Duration:
-                  </p>
-                  <p class="font-medium text-sm" style="color: #7b3b2a">
-                    3 weeks
-                  </p>
-                </div>
-                <div>
-                  <p class="text-xs mb-1" style="color: #c9917a">Rate:</p>
-                  <p class="font-medium" style="color: #7b3b2a">
-                    4.9<span style="font-size: 0.75rem; color: #c9917a"
-                      >/5.0</span
-                    >
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Card 2 — photo right -->
-          <div
-            class="testimonial-card reveal-right"
-            style="grid-template-columns: 1fr auto"
-          >
-            <div class="p-8 flex flex-col justify-between">
-              <div>
-                <p class="text-sm mb-3" style="color: #a0522d">Josephina L.</p>
-                <p
-                  class="font-display text-xl leading-relaxed"
-                  style="color: #7b3b2a; font-size: 1.2rem"
-                >
-                  "The team at Epidermis is absolutely amazing. They explained
-                  every step of my laser treatment, answered all my questions
-                  thoroughly, and made me feel completely at ease. My skin has
-                  never looked this flawless!"
-                </p>
-              </div>
-              <div
-                class="grid grid-cols-3 mt-8 pt-6"
-                style="border-top: 1px solid #e8d5c8"
-              >
-                <div>
-                  <p class="text-xs mb-1" style="color: #c9917a">Service:</p>
-                  <p class="font-medium text-sm" style="color: #7b3b2a">
-                    Laser Skin Resurfacing
-                  </p>
-                </div>
-                <div>
-                  <p class="text-xs mb-1" style="color: #c9917a">
-                    Course Duration:
-                  </p>
-                  <p class="font-medium text-sm" style="color: #7b3b2a">
-                    1 week
-                  </p>
-                </div>
-                <div>
-                  <p class="text-xs mb-1" style="color: #c9917a">Rate:</p>
-                  <p class="font-medium" style="color: #7b3b2a">
-                    5.0<span style="font-size: 0.75rem; color: #c9917a"
-                      >/5.0</span
-                    >
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div
-              class="photo"
-              style="background: #d4a484; min-height: 300px; width: 300px"
-            >
-              <img
-                src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=400&auto=format&fit=crop&q=80"
-                alt="Josephina"
-                class="w-full h-full object-cover"
-                loading="lazy"
-                onload="this.classList.add('loaded')"
-                style="min-height: 300px"
-              />
-            </div>
-          </div>
-
-          <!-- Card 3 — photo left -->
-          <div class="testimonial-card reveal-left">
-            <div class="photo" style="background: #d4a484; min-height: 300px">
-              <img
-                src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&auto=format&fit=crop&q=80"
-                alt="Emily"
-                class="w-full h-full object-cover"
-                loading="lazy"
-                onload="this.classList.add('loaded')"
-                style="min-height: 300px"
-              />
-            </div>
-            <div class="p-8 flex flex-col justify-between">
-              <div>
-                <p class="text-sm mb-3" style="color: #a0522d">Emily H.</p>
-                <p
-                  class="font-display text-xl leading-relaxed"
-                  style="color: #7b3b2a; font-size: 1.2rem"
-                >
-                  "I tried their chemical peel, and my skin felt so refreshed,
-                  rejuvenated, and incredibly smooth almost right away. The
-                  results were so impressive that it's now become an essential
-                  part of my regular skincare routine!"
-                </p>
-              </div>
-              <div
-                class="grid grid-cols-3 mt-8 pt-6"
-                style="border-top: 1px solid #e8d5c8"
-              >
-                <div>
-                  <p class="text-xs mb-1" style="color: #c9917a">Service:</p>
-                  <p class="font-medium text-sm" style="color: #7b3b2a">
-                    Chemical Peel
-                  </p>
-                </div>
-                <div>
-                  <p class="text-xs mb-1" style="color: #c9917a">
-                    Course Duration:
-                  </p>
-                  <p class="font-medium text-sm" style="color: #7b3b2a">
-                    2 sessions
-                  </p>
-                </div>
-                <div>
-                  <p class="text-xs mb-1" style="color: #c9917a">Rate:</p>
-                  <p class="font-medium" style="color: #7b3b2a">
-                    4.8<span style="font-size: 0.75rem; color: #c9917a"
-                      >/5.0</span
-                    >
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ═══════════════════════════════════════════════
-     CLINIC UPDATES / NEWS
-═══════════════════════════════════════════════ -->
-    <section id="updates" class="py-16 px-4" style="background: #f3e8df">
-      <div class="max-w-5xl mx-auto">
-        <!-- Header -->
-        <div class="flex justify-between items-start mb-16">
-          <div>
-            <p class="text-sm font-bold text-[#b06a45] mb-4">• News</p>
-
-            <h2
-              class="font-display text-4xl md:text-5xl leading-none text-[#9a5633]"
-            >
-              Stay Ahead with<br />
-              Skincare Trends
-            </h2>
-          </div>
-
-          <button
-            class="mt-12 px-8 py-3 rounded-full border border-[#b06a45] text-[#b06a45] hover:bg-[#b06a45] hover:text-white transition"
-          >
-            View All
-          </button>
-        </div>
-
-        <!-- News Grid -->
-        <div class="grid md:grid-cols-2 gap-30">
-          <!-- Card 1 -->
-          <div class="flex gap-4 items-start">
-            <div
-              class="w-[300px] h-[300px] overflow-hidden rounded-[28px] flex-shrink-0"
-            >
-              <img
-                src="./assets/images/n1.jpg"
-                alt=""
-                class="w-full h-full object-cover"
-              />
-            </div>
-
-            <div class="pt-1">
-              <p class="text-sm text-[#d09a7f] mb-3">Dec 29, 2024</p>
-
-              <h3
-                class="font-display font-bold text-[20px] leading-tight text-[#9a5633] mb-4"
-              >
-                5 Common Skincare<br />
-                Mistakes to Avoid
-              </h3>
-
-              <p class="text-[#a86b49] text-[12px] leading-relaxed mb-8">
-                Learn how to sidestep these everyday habits that could be
-                harming your skin.
-              </p>
-
-              <button
-                class="px-6 py-2 mt-14 rounded-full border border-[#b06a45] text-[#b06a45]"
-              >
-                Learn More
-              </button>
-            </div>
-          </div>
-
-          <!-- Card 2 -->
-          <div class="flex gap-4 items-start">
-            <div
-              class="w-[300px] h-[300px] overflow-hidden rounded-[28px] flex-shrink-0"
-            >
-              <img
-                src="./assets/images/n2.jpg"
-                alt=""
-                class="w-full h-full object-cover"
-              />
-            </div>
-
-            <div class="pt-1">
-              <p class="text-sm text-[#d09a7f] mb-3">Dec 16, 2024</p>
-
-              <h3
-                class="font-display font-bold text-[20px] leading-tight text-[#9a5633] mb-4"
-              >
-                The Benefits of<br />
-                Chemical Peels
-              </h3>
-
-              <p class="text-[#a86b49] text-[12px] leading-relaxed mb-8">
-                Discover how chemical peels can rejuvenate your skin and restore
-                glow.
-              </p>
-
-              <button
-                class="px-6 py-2 mt-14 rounded-full border border-[#b06a45] text-[#b06a45]"
-              >
-                Learn More
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="max-w-5xl mt-10 mx-auto">
-        <div class="text-center mb-10 reveal">
-          <div
-            class="section-label font-bold justify-center mb-4"
-            style="color: #a0522d"
-          >
-            Certifications
-          </div>
-
-          <h2
-            class="font-display text-4xl md:text-5xl leading-[0.95]"
-            style="color: #a0522d"
-          >
-            Trusted Expertise,<br />
-            Certified Excellence
-          </h2>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div class="bento-card reveal-left" style="animation-delay: 0s">
-            <p class="text-xs mb-2" style="color: #c9917a">Sep 2024</p>
-            <h3 class="font-display text-2xl mb-3" style="color: #7b3b2a">
-              CPR and First Aid Certified
-            </h3>
-            <p class="text-sm leading-relaxed mb-6" style="color: #a0522d">
-              Dedicated to ensuring patient safety and maintaining emergency
-              preparedness during all procedures.
-            </p>
-            <button
-              class="w-full btn-outline-brown text-center py-2.5 rounded-full text-sm"
-              style="border-color: #c9917a; color: #a0522d text-color #fff"
-            >
-              Learn More
-            </button>
-          </div>
-          <div class="bento-card reveal-right" style="animation-delay: 0.1s">
-            <p class="text-xs mb-2" style="color: #c9917a">Feb 2024</p>
-            <h3 class="font-display text-2xl mb-3" style="color: #7b3b2a">
-              Certified Laser Specialist
-            </h3>
-            <p class="text-sm leading-relaxed mb-6" style="color: #a0522d">
-              Certification demonstrating expertise in the safe and effective
-              use of laser technology for treatments.
-            </p>
-            <button
-              class="w-full btn-outline-brown text-center py-2.5 rounded-full text-sm"
-              style="border-color: #c9917a; color: #a0522d text-color #fff"
-            >
-              Learn More
-            </button>
-          </div>
-          <div class="bento-card reveal-left" style="animation-delay: 0.2s">
-            <p class="text-xs mb-2" style="color: #c9917a">Oct 2023</p>
-            <h3 class="font-display text-2xl mb-3" style="color: #7b3b2a">
-              Skin Allergy Specialist
-            </h3>
-            <p class="text-sm leading-relaxed mb-6" style="color: #a0522d">
-              Certified expertise in diagnosing and effectively treating a wide
-              range of skin allergies to improve outcomes.
-            </p>
-            <button
-              class="w-full btn-outline-brown text-center py-2.5 rounded-full text-sm"
-              style="border-color: #c9917a; color: #a0522d text-color #fff"
-            >
-              Learn More
-            </button>
-          </div>
-          <div class="bento-card reveal-right" style="animation-delay: 0.3s">
-            <p class="text-xs mb-2" style="color: #c9917a">Jul 2023</p>
-            <h3 class="font-display text-2xl mb-3" style="color: #7b3b2a">
-              Certified in Dermoscopy
-            </h3>
-            <p class="text-sm leading-relaxed mb-6" style="color: #a0522d">
-              Expertise in diagnosing various skin conditions and abnormalities
-              using advanced dermoscopy techniques.
-            </p>
-            <button
-              class="w-full btn-outline-brown text-center py-2.5 rounded-full text-sm"
-              style="border-color: #c9917a; color: #a0522d text-color #fff"
-            >
-              Learn More
-            </button>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ═══════════════════════════════════════════════
-     INSTAGRAM / GALLERY
-═══════════════════════════════════════════════ -->
-    <section class="py-24 px-4">
-      <div class="max-w-5xl mx-auto">
-        <!-- <div class="mb-10 reveal flex items-end justify-between">
-          <div>
-            <div class="section-label">Instagram</div>
-            <h2
-              class="font-display text-4xl md:text-5xl"
-              style="color: #7b3b2a"
-            >
-              Follow Our Skin<br />Tips on Instagram
-            </h2>
-          </div>
-          <button class="btn-outline-brown">Visit Instagram ↗</button>
-        </div> -->
-
-        <div class="insta-grid reveal">
-          <div class="insta-cell">
-            <img
-              src="./assets/images/g1.jpg"
-              alt=""
-              loading="lazy"
-              onload="this.classList.add('loaded')"
-            />
-          </div>
-
-          <div class="insta-cell">
-            <img
-              src="./assets/images/g2.jpg"
-              alt=""
-              loading="lazy"
-              onload="this.classList.add('loaded')"
-            />
-          </div>
-
-          <div class="insta-cell">
-            <img
-              src="./assets/images/g3.jpg"
-              alt=""
-              loading="lazy"
-              onload="this.classList.add('loaded')"
-            />
-          </div>
-
-          <div class="insta-cell">
-            <img
-              src="./assets/images/g4.jpg"
-              alt=""
-              loading="lazy"
-              onload="this.classList.add('loaded')"
-            />
-          </div>
-          <div class="insta-cell">
-            <img
-              src="./assets/images/g9.png"
-              alt=""
-              loading="lazy"
-              onload="this.classList.add('loaded')"
-            />
-          </div>
-
-          <div class="insta-cell">
-            <img
-              src="./assets/images/g5.jpg"
-              alt=""
-              loading="lazy"
-              onload="this.classList.add('loaded')"
-            />
-          </div>
-
-          <div class="insta-cell">
-            <img
-              src="./assets/images/g6.jpg"
-              alt=""
-              loading="lazy"
-              onload="this.classList.add('loaded')"
-            />
-          </div>
-          <div class="insta-cell">
-            <img
-              src="./assets/images/g7.jpg"
-              alt=""
-              loading="lazy"
-              onload="this.classList.add('loaded')"
-            />
-          </div>
-          <div class="insta-cell">
-            <img
-              src="./assets/images/g8.jpg"
-              alt=""
-              loading="lazy"
-              onload="this.classList.add('loaded')"
-            />
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ═══════════════════════════════════════════════
-     FAQ SECTION
-═══════════════════════════════════════════════ -->
-    <section id="faq" class="py-16 px-4" style="background: #f3e8df">
-      <div class="max-w-2xl mx-auto">
-        <div class="text-center mb-12 reveal">
-          <div class="section-label justify-center font-bold">FAQ</div>
-          <h2 class="font-display text-4xl md:text-5xl" style="color: #7b3b2a">
-            Got Questions?<br />We've Got Answers
-          </h2>
-        </div>
-
-        <div id="faq-list" class="reveal">
-          <!-- FAQ items injected by JS or static fallback -->
-          <div class="faq-item">
-            <button class="faq-question" onclick="toggleFaq(this)">
-              <span
-                >What types of skin conditions can your clinic help with, and
-                are your treatments customized?</span
-              >
-              <span class="faq-icon">+</span>
-            </button>
-            <div class="faq-answer">
-              We treat a wide range of skin conditions including acne,
-              hyperpigmentation, fine lines, rosacea, eczema, and more. Every
-              treatment plan is fully customized based on your skin type,
-              concerns, and goals after a thorough consultation.
-            </div>
-          </div>
-          <div class="faq-item">
-            <button class="faq-question" onclick="toggleFaq(this)">
-              <span
-                >How do I book an appointment at your clinic, and what is the
-                process?</span
-              >
-              <span class="faq-icon">+</span>
-            </button>
-            <div class="faq-answer">
-              You can book a consultation directly through our website using the
-              Book a Consultation button, by calling our clinic, or by visiting
-              us in person. We will confirm your appointment within 24 hours.
-            </div>
-          </div>
-          <div class="faq-item">
-            <button class="faq-question" onclick="toggleFaq(this)">
-              <span
-                >Do I need to follow any special instructions to prepare for my
-                treatment?</span
-              >
-              <span class="faq-icon">+</span>
-            </button>
-            <div class="faq-answer">
-              Preparation varies by treatment. For laser treatments, avoid sun
-              exposure for at least 2 weeks prior. For chemical peels, stop
-              retinol use 5–7 days before. Our team will provide complete
-              pre-treatment guidelines after booking.
-            </div>
-          </div>
-          <div class="faq-item">
-            <button class="faq-question" onclick="toggleFaq(this)">
-              <span
-                >Are the treatments safe for people with sensitive or reactive
-                skin types?</span
-              >
-              <span class="faq-icon">+</span>
-            </button>
-            <div class="faq-answer">
-              Absolutely. We specialize in treating sensitive skin and always
-              perform a patch test before any treatment. Our dermatologists
-              tailor protocols to minimize irritation and maximize results for
-              reactive skin types.
-            </div>
-          </div>
-          <div class="faq-item">
-            <button class="faq-question" onclick="toggleFaq(this)">
-              <span
-                >How long does it usually take to see noticeable results?</span
-              >
-              <span class="faq-icon">+</span>
-            </button>
-            <div class="faq-answer">
-              Results vary by treatment and individual skin. Many clients see
-              improvement after their first session, while others may need 3–6
-              sessions for optimal results. We will set realistic expectations
-              during your initial consultation.
-            </div>
-          </div>
-        </div>
-
-        <div class="text-center mt-8 reveal">
-          <button class="btn-outline-brown">View All</button>
-        </div>
-      </div>
-    </section>
-
-    <!-- ═══════════════════════════════════════════════
-     CTA SECTION
-═══════════════════════════════════════════════ -->
-    <section class="relative py-0 overflow-hidden" style="min-height: 550px">
-      <img
-        src="assets/images/f1.jpg"
-        alt="Skin glow"
-        style="
-          position: absolute;
-          inset: 0;
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-          object-position: center 30%;
-        "
-        loading="lazy"
-        onload="this.classList.add('loaded')"
-      />
-      <div
-        style="position: absolute; inset: 0; background: rgba(0, 0, 0, 0.35)"
-      ></div>
-
-      <div
-        class="relative z-10 flex items-center justify-center h-full py-28 px-4"
-      >
-        <div
-          class="text-center rounded-2xl p-10 reveal"
-          style="
-            background: rgba(250, 243, 238, 0.92);
-            backdrop-filter: blur(10px);
-            max-width: 520px;
-            width: 100%;
-          "
-        >
-          <div class="section-label justify-center font-bold">Get Started</div>
-          <h2
-            class="font-display text-3xl md:text-4xl mb-6"
-            style="color: #7b3b2a"
-          >
-            Ready to Begin Your<br />Skincare Journey?
-          </h2>
-          <div class="flex flex-wrap gap-3 justify-center">
-            <button class="btn-primary" onclick="openModal()">
-              Book a Consultation
-            </button>
-            <button
-              class="btn-outline-brown"
-              onclick="
-                document
-                  .getElementById('services')
-                  .scrollIntoView({ behavior: 'smooth' })
-              "
-            >
-              Explore Services
-            </button>
-          </div>
         </div>
       </div>
     </section>

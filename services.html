@@ -20,10 +20,10 @@
               skin: {
                 bg: "#faf3ee",
                 bgalt: "#f3e8df",
-                brown: "#7b3b2a",
+                brown: "#7B4328",
                 mid: "#a0522d",
                 light: "#c9917a",
-                footer: "#7b3b2a",
+                footer: "#7B4328",
                 card: "#f5ece4",
                 border: "#e8d5c8",
               },
@@ -51,7 +51,7 @@
       body {
         background-color: #faf3ee;
         font-family: "Poppins", sans-serif;
-        color: #7b3b2a;
+        color: #7b4328;
         overflow-x: hidden;
       }
 
@@ -266,7 +266,7 @@
         left: 0;
         width: 0;
         height: 1px;
-        background: #7b3b2a;
+        background: #7b4328;
         transition: width 0.3s ease;
       }
       .nav-link:hover::after {
@@ -302,13 +302,13 @@
 
       /* Buttons */
       .btn-primary {
-        background: #7b3b2a;
+        background: #7b4328;
         color: white;
         border-radius: 9999px;
         padding: 0.6rem 1.5rem;
         font-size: 0.85rem;
         transition: all 0.3s ease;
-        border: 1.5px solid #7b3b2a;
+        border: 1.5px solid #7b4328;
         cursor: pointer;
         display: inline-flex;
         align-items: center;
@@ -336,16 +336,16 @@
       }
       .btn-outline-brown {
         background: transparent;
-        color: #7b3b2a;
+        color: #7b4328;
         border-radius: 9999px;
         padding: 0.6rem 1.5rem;
         font-size: 0.85rem;
         transition: all 0.3s ease;
-        border: 1.5px solid #7b3b2a;
+        border: 1.5px solid #7b4328;
         cursor: pointer;
       }
       .btn-outline-brown:hover {
-        background: #7b3b2a;
+        background: #7b4328;
         color: white;
         transform: translateY(-2px);
       }
@@ -469,7 +469,7 @@
         text-align: left;
         padding: 1.2rem 1.5rem;
         font-size: 0.9rem;
-        color: #7b3b2a;
+        color: #7b4328;
         background: transparent;
         border: none;
         cursor: pointer;
@@ -498,8 +498,8 @@
         height: 22px;
         flex-shrink: 0;
         transition: transform 0.35s ease;
-        color: #7b3b2a;
-        border: 1.5px solid #7b3b2a;
+        color: #7b4328;
+        border: 1.5px solid #7b4328;
         border-radius: 50%;
         display: flex;
         align-items: center;
@@ -544,7 +544,7 @@
 
       /* Footer */
       footer {
-        background: #7b3b2a;
+        background: #7b4328;
         color: white;
         position: relative;
         overflow: hidden;
@@ -592,13 +592,13 @@
         border-radius: 0.75rem;
         padding: 0.75rem 1rem;
         font-size: 0.9rem;
-        color: #7b3b2a;
+        color: #7b4328;
         outline: none;
         transition: border-color 0.3s ease;
         font-family: "DM Sans", sans-serif;
       }
       .form-input:focus {
-        border-color: #7b3b2a;
+        border-color: #7b4328;
       }
       .form-input::placeholder {
         color: #c9917a;
@@ -639,7 +639,7 @@
         top: 0;
         left: 0;
         height: 2px;
-        background: linear-gradient(90deg, #7b3b2a, #c9917a);
+        background: linear-gradient(90deg, #7b4328, #c9917a);
         z-index: 999;
         width: 0%;
         transition: width 0.1s linear;
@@ -666,7 +666,7 @@
       #mobile-menu a {
         font-family: "Cormorant Garamond", serif;
         font-size: 2rem;
-        color: #7b3b2a;
+        color: #7b4328;
         text-decoration: none;
       }
 
@@ -697,6 +697,148 @@
       img.loaded {
         opacity: 1;
       }
+
+      @media (max-width: 640px) {
+        html,
+        body {
+          width: 100%;
+          overflow-x: hidden;
+        }
+
+        nav {
+          padding: 1rem !important;
+        }
+
+        #mobile-menu {
+          padding: 2rem 1rem;
+        }
+
+        section {
+          overflow-x: clip;
+        }
+
+        section:first-of-type {
+          padding-top: 6rem !important;
+          padding-bottom: 4rem !important;
+        }
+
+        section:first-of-type h1 {
+          font-size: clamp(2.5rem, 13vw, 3.8rem) !important;
+          line-height: 1.05 !important;
+        }
+
+        section:first-of-type .flex {
+          flex-direction: column;
+          align-items: stretch;
+        }
+
+        section:first-of-type button {
+          width: 100%;
+          justify-content: center;
+        }
+
+        [class*="h-[650px]"] {
+          height: min(420px, 82vw) !important;
+        }
+
+        [class*="grid-cols-4"] {
+          grid-template-columns: 1fr !important;
+        }
+
+        .service-grid-card img {
+          width: 100%;
+          height: auto;
+        }
+
+        [class*="h-[128px]"] {
+          height: auto !important;
+          min-height: 0 !important;
+          flex-direction: column;
+          align-items: stretch;
+          text-align: center;
+        }
+
+        [class*="px-[48px]"] {
+          padding: 1.25rem !important;
+        }
+
+        [class*="text-[29px]"] {
+          font-size: 1.55rem !important;
+        }
+
+        [class*="h-[58px]"] {
+          height: auto !important;
+          width: 100%;
+        }
+
+        [class*="px-[38px]"] {
+          padding-left: 1.25rem !important;
+          padding-right: 1.25rem !important;
+        }
+
+        [class*="justify-between"] {
+          gap: 1rem;
+        }
+
+        .grid.grid-cols-3,
+        .insta-grid,
+        .service-grid {
+          grid-template-columns: 1fr !important;
+        }
+
+        .btn-primary,
+        .btn-outline,
+        .btn-outline-brown,
+        .btn-outline-white {
+          justify-content: center;
+          max-width: 100%;
+          text-align: center;
+          white-space: normal;
+        }
+
+        footer {
+          min-height: auto !important;
+        }
+
+        footer .relative.z-10 {
+          padding-left: 1rem !important;
+          padding-right: 1rem !important;
+        }
+
+        footer .grid.grid-cols-3 {
+          gap: 1.5rem;
+          text-align: center;
+        }
+
+        .sun-svg svg {
+          width: min(190px, 80vw);
+          height: auto;
+        }
+
+        .modal-overlay {
+          align-items: flex-start;
+          overflow-y: auto;
+          padding: 1rem;
+        }
+
+        .modal-box {
+          width: 100%;
+          max-height: calc(100svh - 2rem);
+          overflow-y: auto;
+          padding: 1.25rem;
+          border-radius: 1rem;
+        }
+      }
+
+      @media (max-width: 380px) {
+        section:first-of-type h1 {
+          font-size: 2.3rem !important;
+        }
+
+        nav a {
+          font-size: 1rem !important;
+        }
+      }
     </style>
   </head>
   <body>
@@ -720,11 +862,11 @@
       <a
         href="index.html"
         class="flex items-center gap-2 font-display text-xl text-skin-brown font-medium"
-        style="color: #7b3b2a"
+        style="color: #7b4328"
       >
         <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-          <circle cx="10" cy="10" r="4" fill="#7b3b2a" />
-          <g stroke="#7b3b2a" stroke-width="1.5" stroke-linecap="round">
+          <circle cx="10" cy="10" r="4" fill="#7B4328" />
+          <g stroke="#7B4328" stroke-width="1.5" stroke-linecap="round">
             <line x1="10" y1="1" x2="10" y2="4" />
             <line x1="10" y1="16" x2="10" y2="19" />
             <line x1="1" y1="10" x2="4" y2="10" />
@@ -741,7 +883,7 @@
       <!-- Desktop Nav -->
       <div
         class="hidden md:flex items-center font-bold gap-8 text-sm text-white [text-shadow:_1px_1px_0_#fff,_-1px_-1px_0_#fff,_1px_-1px_0_#fff,_-1px_1px_0_#fff]"
-        style="color: #7b3b2a"
+        style="color: #7b4328"
       >
         <a href="about.html" class="nav-link">About</a>
         <a href="services.html" class="nav-link">Services</a>
@@ -764,15 +906,15 @@
       >
         <span
           class="block w-5 h-0.5 bg-skin-brown transition-all"
-          style="background: #7b3b2a"
+          style="background: #7b4328"
         ></span>
         <span
           class="block w-5 h-0.5 bg-skin-brown transition-all"
-          style="background: #7b3b2a"
+          style="background: #7b4328"
         ></span>
         <span
           class="block w-5 h-0.5 bg-skin-brown transition-all"
-          style="background: #7b3b2a"
+          style="background: #7b4328"
         ></span>
       </button>
     </nav>
@@ -781,7 +923,7 @@
     <div id="mobile-menu">
       <button
         class="absolute top-5 right-8 text-3xl"
-        style="color: #7b3b2a"
+        style="color: #7b4328"
         onclick="toggleMenu()"
       >
         ✕
@@ -808,7 +950,7 @@
 
     <section class="bg-[#f7f0eb] pt-28 pb-40 overflow-hidden">
       <div class="max-w-6xl mx-auto px-4 text-center">
-        <h1 class="text-[#9a5633] text-5xl md:text-6xl leading-none reveal">
+        <h1 class="text-[#7B4328] text-5xl md:text-6xl leading-none reveal">
           Our Expert Skin <br />Care Services
         </h1>
 
@@ -817,13 +959,13 @@
           style="animation-delay: 0.2s"
         >
           <button
-            class="px-6 py-3 rounded-full bg-[#9a5633] text-white text-sm transition-all duration-300 hover:scale-105"
+            class="px-6 py-3 rounded-full bg-[#7B4328] text-white text-sm transition-all duration-300 hover:scale-105"
           >
             Book a Consultation
           </button>
 
           <button
-            class="px-6 py-3 rounded-full border border-[#c9917a] text-[#9a5633] text-sm transition-all duration-300 hover:bg-[#9a5633] hover:text-white"
+            class="px-6 py-3 rounded-full border border-[#c9917a] text-[#7B4328] text-sm transition-all duration-300 hover:bg-[#7B4328] hover:text-white"
           >
             About Epidermis
           </button>
@@ -843,9 +985,9 @@
         </div>
       </div>
     </section>
-    <section class="py-20 px-4 bg-[#f7f0eb]">
+    <section class="py-10 px-4 bg-[#f7f0eb]">
       <div class="max-w-6xl mx-auto">
-        <p class="text-[#a05a37] text-sm font-medium mb-6">
+        <p class="text-[#7B4328] text-lg font-semibold mb-6 text-center">
           Medical & Cosmetic
         </p>
 
@@ -884,10 +1026,10 @@
         </div>
       </div>
       <div class="max-w-6xl mx-auto">
-        <div class="w-full h-px bg-[#e6d8d0] my-12"></div>
+        <div class="w-full h-px bg-[#7B4328] my-12"></div>
       </div>
       <div class="max-w-6xl mx-auto mt-6">
-        <p class="text-[#a05a37] text-sm font-medium mb-2">
+        <p class="text-[#7B4328] text-lg font-semibold mb-6 text-center">
           Laser & Advanced Treatments
         </p>
 
@@ -910,36 +1052,49 @@
         </div>
       </div>
       <div class="max-w-6xl mx-auto">
-        <div class="w-full h-px bg-[#e6d8d0] my-12"></div>
+        <div class="w-full h-px bg-[#7B4328] my-12"></div>
       </div>
       <div class="max-w-6xl mx-auto mt-6">
-        <p class="text-[#a05a37] text-sm font-medium mb-2">
+        <p class="text-[#7B4328] text-lg font-semibold mb-6 text-center">
           Skin Wellness & Maintenance
         </p>
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2">
-          <div class="service-grid-card">
-            <img src="./assets/images/ss1.png" alt="" />
+          <div
+            class="service-grid-card"
+            style="
+              border: 2px solid #7b4328;
+              border-radius: 12px;
+              overflow: hidden;
+            "
+          >
+            <img
+              src="./assets/images/ss1.png"
+              alt=""
+              style="width: 100%; display: block"
+            />
           </div>
 
-          <div class="service-grid-card">
-            <img src="./assets/images/ss2.png" alt="" />
-          </div>
+          <div class="service-grid-card" style="border: 2px solid #7B4328; border-radius: 12px; overflow: hidden;">
+  <img src="./assets/images/ss2.png" alt="" style="width: 100%; display: block;" />
+</div>
 
-          <div class="service-grid-card">
-            <img src="./assets/images/ss3.png" alt="" />
-          </div>
 
-          <div class="service-grid-card">
-            <img src="./assets/images/ss4.png" alt="" />
-          </div>
-        </div>
+          <div class="service-grid-card" style="border: 2px solid #7B4328; border-radius: 12px; overflow: hidden;">
+  <img src="./assets/images/ss3.png" alt="" style="width: 100%; display: block;" />
+</div>
+
+
+          <div class="service-grid-card" style="border: 2px solid #7B4328; border-radius: 12px; overflow: hidden;">
+  <img src="./assets/images/ss4.png" alt="" style="width: 100%; display: block;" />
+</div>
+
       </div>
       <div class="max-w-6xl mx-auto">
-        <div class="w-full h-px bg-[#e6d8d0] my-12"></div>
+        <div class="w-full h-px bg-[#7B4328] my-12"></div>
       </div>
       <div class="max-w-6xl mx-auto mt-6">
-        <p class="text-[#a05a37] text-sm font-medium mb-2">
+        <p class="text-[#7B4328] text-lg font-semibold mb-6 text-center">
           Surgical Dermatology
         </p>
 
@@ -1211,7 +1366,7 @@
       <div class="modal-box">
         <div class="flex items-center justify-between mb-6">
           <div>
-            <h3 class="font-display text-2xl" style="color: #7b3b2a">
+            <h3 class="font-display text-2xl" style="color: #7b4328">
               Book a Consultation
             </h3>
             <p class="text-sm mt-1" style="color: #a0522d">

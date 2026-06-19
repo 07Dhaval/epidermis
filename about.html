@@ -999,9 +999,9 @@
     </div>
 
     <div class="hidden md:flex items-center gap-3">
-      <button class="btn-primary" onclick="openModal()">
-        Book a Consultation
-      </button>
+      <a href="booking.html" class="btn-primary">
+  Book a Consultation
+</a>
     </div>
 
     <!-- Hamburger -->
@@ -1021,12 +1021,12 @@
     <a href="services.html" class="nav-link">Services</a>
     <a href="news.html" onclick="toggleMenu()">News</a>
     <a href="faq.html" onclick="toggleMenu()">FAQ</a>
-    <button class="btn-primary mt-4" onclick="
-          toggleMenu();
-          openModal();
-        ">
-      Book a Consultation
-    </button>
+    <button
+  class="btn-primary mt-4"
+  onclick="window.location.href='booking.html'"
+>
+  Book a Consultation
+</button>
   </div>
 
   <!-- ═══════════════════════════════════════════════
@@ -1573,16 +1573,8 @@
           Ready to Begin Your<br />Skincare Journey?
         </h2>
         <div class="flex flex-wrap gap-3 justify-center">
-          <button class="btn-primary" onclick="openModal()">
-            Book a Consultation
-          </button>
-          <button class="btn-outline-brown" onclick="
-                document
-                  .getElementById('services')
-                  .scrollIntoView({ behavior: 'smooth' })
-              ">
-            Explore Services
-          </button>
+          <a href="booking.html" class="btn-primary"> Book a Consultation </a>
+            <a href="services.html" class="btn-primary"> Explore Services </a>
         </div>
       </div>
     </div>

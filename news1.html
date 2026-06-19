@@ -949,85 +949,115 @@
         opacity: 0.9;
       }
 
-      .faq-category {
-        display: grid;
-        grid-template-columns: 260px 1fr;
-        gap: 60px;
-        padding: 70px 0;
-        border-top: 1px solid #ead9cf;
-
-        opacity: 0;
-        transform: translateY(50px);
-        transition: all 0.8s ease;
+      .article-section {
+        background: #f3e8df;
+        padding: 120px 20px;
       }
 
-      .faq-category.show {
+      .article-container {
+        max-width: 72rem;
+        /* 6xl */
+        margin: auto;
+      }
+
+      .article-block {
+        margin-bottom: 90px;
+      }
+
+      .article-block:last-child {
+        margin-bottom: 0;
+      }
+
+      .article-block h2 {
+        font-size: 48px;
+        line-height: 1.1;
+        color: #9c5d3d;
+        margin-bottom: 30px;
+        font-weight: 500;
+      }
+
+      .article-block p {
+        color: #8b6b5a;
+        font-size: 16px;
+        line-height: 1.9;
+        margin-bottom: 20px;
+        max-width: 100%;
+      }
+
+      /* Reveal Animation */
+
+      .reveal {
+        opacity: 0;
+        transform: translateY(60px);
+        transition: all 1s ease;
+      }
+
+      .reveal.show {
         opacity: 1;
         transform: translateY(0);
       }
 
-      .faq-left h3 {
-        color: #8a4d2c;
-        font-size: 34px;
-        line-height: 1.1;
-      }
+      /* Tablet */
 
-      .faq-item {
-        margin-bottom: 14px;
-      }
-
-      .faq-question {
-        width: 100%;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        background: #f7ede7;
-        border: none;
-        padding: 22px 26px;
-        border-radius: 14px;
-        color: #9c5d3d;
-        cursor: pointer;
-        transition: 0.4s ease;
-      }
-
-      .faq-question:hover {
-        background: #f0dfd4;
-      }
-
-      .faq-question span {
-        font-size: 22px;
-        transition: 0.4s ease;
-      }
-
-      .faq-item.active span {
-        transform: rotate(45deg);
-      }
-
-      .faq-answer {
-        max-height: 0;
-        overflow: hidden;
-        padding: 0 25px;
-        color: #8b6a58;
-        line-height: 1.8;
-        transition:
-          max-height 0.5s ease,
-          padding 0.4s ease;
-      }
-
-      .faq-item.active .faq-answer {
-        max-height: 250px;
-        padding: 20px 25px;
-      }
-
-      @media (max-width: 768px) {
-        .faq-category {
-          grid-template-columns: 1fr;
-          gap: 30px;
+      @media (max-width: 1024px) {
+        .article-block h2 {
+          font-size: 38px;
         }
 
-        .faq-left h3 {
-          font-size: 28px;
+        .article-block {
+          margin-bottom: 70px;
         }
+      }
+
+      /* iPhone 13 Mini */
+
+      @media (max-width: 480px) {
+        .article-section {
+          padding: 70px 18px;
+        }
+
+        .article-container {
+          max-width: 100%;
+        }
+
+        .article-block {
+          margin-bottom: 50px;
+        }
+
+        .article-block h2 {
+          font-size: 32px;
+          line-height: 1.15;
+          margin-bottom: 20px;
+        }
+
+        .article-block p {
+          font-size: 15px;
+          line-height: 1.8;
+        }
+      }
+
+      .article-block h2 {
+        transition: 0.5s;
+      }
+
+      .article-block:hover h2 {
+        transform: translateX(10px);
+        color: #7b4328;
+      }
+
+      .article-block p {
+        transition: 0.4s;
+      }
+
+      .article-block:hover p {
+        color: #6d5245;
+      }
+
+      .article-container {
+        max-width: 72rem;
+        /* Tailwind max-w-6xl */
+        margin: 0 auto;
+        padding: 0 1rem;
       }
     </style>
   </head>
@@ -1122,10 +1152,7 @@
       <a href="faq.html" onclick="toggleMenu()">FAQ</a>
       <button
         class="btn-primary mt-4"
-        onclick="
-          toggleMenu();
-          openModal();
-        "
+        onclick="window.location.href = 'booking.html'"
       >
         Book a Consultation
       </button>
@@ -1138,7 +1165,7 @@
     <section class="bg-[#f7f0eb] pt-28 pb-40 overflow-hidden">
       <div class="max-w-6xl mx-auto px-4 text-center">
         <h1 class="text-[#7B4328] text-5xl md:text-6xl leading-none reveal">
-          Have Questions? <br />We Have Answers
+          5 Common Skincare <br />Mistakes to Avoid
         </h1>
       </div>
 
@@ -1148,7 +1175,7 @@
       >
         <div class="overflow-hidden rounded-[26px] shadow-lg">
           <img
-            src="./assets/images/fbg.png"
+            src="./assets/images/n1.jpg"
             alt=""
             class="w-full h-[650px] object-cover transition-transform duration-[2000ms] hover:scale-105"
           />
@@ -1156,340 +1183,75 @@
       </div>
     </section>
 
-    <section class="faq-section py-28 bg-[#faf3ee]">
-      <div class="max-w-6xl mx-auto px-6">
-        <!-- Heading -->
-        <div class="text-center mb-20">
-          <p class="text-[#9c5d3d] uppercase tracking-[3px] text-sm mb-4">
-            Frequently Asked Questions
-          </p>
+    <section class="article-section">
+      <div class="max-w-6xl mx-auto px-4">
+        <div class="article-container">
+          <div class="article-block reveal">
+            <h2>Introduction</h2>
 
-          <h2 class="text-[#7B4328] text-5xl leading-tight">
-            Everything You Need To Know
-          </h2>
-        </div>
-
-        <!-- Category -->
-        <div class="faq-category">
-          <div class="faq-left">
-            <h3>General</h3>
+            <p>
+              Achieving healthy, glowing skin is not just about using the right products—it's about adopting a skincare routine that aligns with your unique skin type, needs, and lifestyle. However, manpeople unknowingly make common skincare mistakes that can interfere with their skin's health and hinder the results they’re hoping to achieve. Whether it's over-exfoliating, neglecting sunscreen, or using products that aren’t suitable for your skin, these mistakes can lead to irritation, breakouts, or other skin concerns. Let’s explore the five most common skincare mistakes to avoid to ensure your skin remains in top condition.
+            </p>
           </div>
 
-          <div class="faq-right">
-            <div class="faq-item">
-              <button class="faq-question">
-                What types of skin conditions can your clinic help with?
-                <span>+</span>
-              </button>
+          <div class="article-block reveal">
+            <h2>Over-Exfoliating Your Skin</h2>
 
-              <div class="faq-answer">
-                We treat acne, eczema, psoriasis, pigmentation concerns, hair
-                loss, skin infections, skin cancer screening, and many cosmetic
-                skin concerns.
-              </div>
-            </div>
+            <p>
+              Exfoliation is an important step in any skincare routine. It helps remove dead skin cells, unclog pores, and promote skin renewal. However, over-exfoliating is one of the most common mistakes people make. Exfoliating too often or using harsh physical scrubs can strip your skin of its natural oils, leading to dryness, irritation, and even redness.
+            </p>
 
-            <div class="faq-item">
-              <button class="faq-question">
-                How do I book an appointment?
-                <span>+</span>
-              </button>
-
-              <div class="faq-answer">
-                You can book online, call our clinic directly, or submit an
-                inquiry through our website.
-              </div>
-            </div>
-
-            <div class="faq-item">
-              <button class="faq-question">
-                Do I need to prepare before my treatment?
-                <span>+</span>
-              </button>
-
-              <div class="faq-answer">
-                Preparation varies by treatment. Our team will provide detailed
-                instructions before your appointment.
-              </div>
-            </div>
-
-            <div class="faq-item">
-              <button class="faq-question">
-                Are the treatments safe for people with sensitive or reactive
-                skin types?
-                <span>+</span>
-              </button>
-
-              <div class="faq-answer">
-                Yes. Our dermatologists carefully assess your skin type and
-                concerns before recommending any treatment. We offer gentle,
-                customized solutions specifically designed for sensitive and
-                reactive skin, ensuring maximum comfort and safety.
-              </div>
-            </div>
-
-            <div class="faq-item">
-              <button class="faq-question">
-                How long does it usually take to see noticeable results?
-                <span>+</span>
-              </button>
-
-              <div class="faq-answer">
-                Results vary depending on the treatment and individual skin
-                condition. Some treatments, such as Hydrafacials, provide an
-                immediate glow, while others like laser therapies, scar
-                treatments, and pigmentation correction may require multiple
-                sessions over several weeks for optimal results.
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Treatments -->
-        <div class="faq-category">
-          <div class="faq-left">
-            <h3>Treatments & Services</h3>
+            <p>
+              When this happens, your skin can become sensitive, leading to inflammation or even triggering the overproduction of oil to compensate for the lack of moisture, which in turn can cause more breakouts. To avoid this, exfoliate your skin 2–3 times per week, depending on your skin’s needs, and opt for gentle chemical exfoliants like AHAs or BHAs instead of abrasive scrubs. Always follow exfoliation with a hydrating moisturizer to help restore balance to your skin.
+            </p>
           </div>
 
-          <div class="faq-right">
-            <div class="faq-item">
-              <button class="faq-question">
-                What treatments do you offer?
-                <span>+</span>
-              </button>
+          <div class="article-block reveal">
+            <h2>Not Using Sunscreen Daily</h2>
 
-              <div class="faq-answer">
-                We offer laser treatments, acne care, anti-aging solutions,
-                chemical peels, scar revision, mole removal, and customized
-                skincare plans.
-              </div>
-            </div>
+            <p>
+              One of the most damaging skincare mistakes is failing to apply sunscreen regularly. UV rays are a major cause of premature aging, sunburn, and even skin cancer. Many people think sunscreen is only necessary on sunny days, but that’s a misconception. UV rays can penetrate through clouds and windows, and are still harmful even when you're indoors or on overcast days.
+            </p>
 
-            <div class="faq-item">
-              <button class="faq-question">
-                How long do treatment results last?
-                <span>+</span>
-              </button>
-
-              <div class="faq-answer">
-                Results vary depending on the procedure, skin condition, and
-                maintenance plan recommended by your dermatologist.
-              </div>
-            </div>
-
-            <div class="faq-item">
-              <button class="faq-question">
-                Can you treat skin conditions like eczema or psoriasis?
-                <span>+</span>
-              </button>
-
-              <div class="faq-answer">
-                Yes, our dermatologists provide personalized treatment plans for
-                chronic skin conditions such as eczema, psoriasis, rosacea, and
-                dermatitis to help manage symptoms and improve skin health.
-              </div>
-            </div>
-
-            <div class="faq-item">
-              <button class="faq-question">
-                How long do treatment results last?
-                <span>+</span>
-              </button>
-
-              <div class="faq-answer">
-                Treatment results vary depending on the procedure and individual
-                skin condition. Many treatments provide long-lasting results
-                when combined with proper skincare and regular maintenance.
-              </div>
-            </div>
-
-            <div class="faq-item">
-              <button class="faq-question">
-                Can you treat eczema or psoriasis?
-                <span>+</span>
-              </button>
-
-              <div class="faq-answer">
-                Yes. We provide comprehensive treatment plans for chronic skin
-                conditions including eczema and psoriasis.
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Appointment -->
-        <div class="faq-category">
-          <div class="faq-left">
-            <h3>Appointment & Scheduling</h3>
+            <p>
+              Daily sunscreen application is essential for protecting your skin from long-term damage,preventing hyperpigmentation, wrinkles, and maintaining even skin tone. Use a broad-spectrum sunscreen with at least SPF 30 every day, even in the winter months. Don’t forget to apply it on areas often exposed to the sun, such as the face, neck, and hands. Reapply sunscreen every two hours when you're outdoors or if you've been swimming or sweating. Consistent sun protection is one of the most effective ways to keep your skin looking youthful and healthy.
+            </p>
           </div>
 
-          <div class="faq-right">
-            <div class="faq-item">
-              <button class="faq-question">
-                How far in advance should I book?
-                <span>+</span>
-              </button>
+          <div class="article-block reveal">
+            <h2>Skipping Moisturizer</h2>
 
-              <div class="faq-answer">
-                We recommend booking at least one week in advance to secure your
-                preferred appointment time.
-              </div>
-            </div>
+            <p>
+              A common mistake, especially among those with oily or acne-prone skin, is skipping moisturizer altogether. Some people mistakenly believe that moisturizing will make their skin even oilier or contribute to breakouts. However, this is far from the truth. Moisturizing is essential for all skin types, even oily skin. Skipping moisturizer can lead to dehydration, making your skin produce more oil to compensate for the lack of moisture. This overproduction of oil can then result in clogged pores, breakouts, and uneven texture.
+            </p>
 
-            <div class="faq-item">
-              <button class="faq-question">
-                How far in advance should I schedule my appointment?
-                <span>+</span>
-              </button>
-
-              <div class="faq-answer">
-                We recommend scheduling your appointment at least 1–2 weeks in
-                advance to secure your preferred date and time. For urgent
-                dermatological concerns, we do our best to accommodate same-day
-                or next-day appointments whenever possible.
-              </div>
-            </div>
-
-            <div class="faq-item">
-              <button class="faq-question">
-                Do I need a referral to see a dermatologist?
-                <span>+</span>
-              </button>
-
-              <div class="faq-answer">
-                In most cases, a referral is not required to book an appointment
-                with our dermatologists. However, some insurance providers may
-                require a referral for coverage, so we recommend checking with
-                your insurance company beforehand.
-              </div>
-            </div>
-
-            <div class="faq-item">
-              <button class="faq-question">
-                Can I reschedule my appointment?
-                <span>+</span>
-              </button>
-
-              <div class="faq-answer">
-                Yes. Please contact us at least 24 hours before your appointment
-                to make changes.
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Payment -->
-        <div class="faq-category">
-          <div class="faq-left">
-            <h3>Payment & Insurance</h3>
+            <p>
+              For oily skin, look for lightweight, non-comedogenic (pore-clogging) moisturizers that hydrate without making the skin greasy. For dry skin, use richer creams that help lock in moisture. Regular moisturizing helps maintain the skin’s moisture barrier, keeping it smooth, soft, and balanced. Additionally, moisturizers can enhance the effectiveness of other skincare products, helping to lock in active ingredients like retinoids or serums.
+            </p>
           </div>
 
-          <div class="faq-right">
-            <div class="faq-item">
-              <button class="faq-question">
-                What insurance providers do you accept?
-                <span>+</span>
-              </button>
+          <div class="article-block reveal">
+            <h2>Not Removing Makeup Before Bed</h2>
 
-              <div class="faq-answer">
-                We work with a variety of insurance providers for medically
-                necessary dermatology services. Coverage may vary depending on
-                your plan and treatment. Please contact our clinic to verify
-                your insurance benefits before your appointment.
-              </div>
-            </div>
+            <p>
+              One of the simplest yet most important skincare rules is always removing your makeup before bed. Going to sleep with makeup on can clog your pores, leading to breakouts and irritation. Throughout the day, your skin collects dirt, oil, pollution, and makeup residues that can accumulate on the surface, causing your pores to become congested. If left overnight, this debris can irritate your skin and even lead to acne, inflammation, or dullness.
+            </p>
 
-            <div class="faq-item">
-              <button class="faq-question">
-                Do you offer payment plans?
-                <span>+</span>
-              </button>
-
-              <div class="faq-answer">
-                Yes, we offer flexible payment options for selected treatments
-                and procedures. Our team can discuss available payment plans and
-                financing solutions during your consultation.
-              </div>
-            </div>
-
-            <div class="faq-item">
-              <button class="faq-question">
-                How much do treatments cost?
-                <span>+</span>
-              </button>
-
-              <div class="faq-answer">
-                Treatment costs vary depending on the procedure, treatment area,
-                and number of sessions required. We provide transparent pricing
-                and a personalized treatment plan during your consultation.
-              </div>
-            </div>
-
-            <div class="faq-item">
-              <button class="faq-question">
-                Are consultations covered by insurance?
-                <span>+</span>
-              </button>
-
-              <div class="faq-answer">
-                Insurance coverage for consultations depends on your provider
-                and the reason for your visit. Medical dermatology consultations
-                may be covered, while cosmetic consultations are typically
-                self-paid. Our staff can help you understand your coverage
-                options.
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="faq-category">
-          <div class="faq-left">
-            <h3>Aftercare & Recovery</h3>
+            <p>
+              Even if you’re tired or short on time, make it a priority to cleanse your skin thoroughly before bed. Start with a gentle makeup remover or micellar water to dissolve makeup, followed by a mild cleanser to remove any remaining impurities. This ensures your skin is clean and ready to repair itself overnight, keeping it clear and fresh. A nightly cleanse also helps your skin absorb the benefits of any treatments, such as serums or moisturizers, you apply afterward.
+            </p>
           </div>
 
-          <div class="faq-right">
-            <div class="faq-item">
-              <button class="faq-question">
-                What should I do after my treatment?
-                <span>+</span>
-              </button>
+          <div class="article-block reveal">
+            <h2>Wrong Products For Your Skin Type</h2>
 
-              <div class="faq-answer">
-                After your treatment, follow the personalized aftercare
-                instructions provided by your dermatologist. This may include
-                avoiding direct sun exposure, using recommended skincare
-                products, staying hydrated, and refraining from harsh exfoliants
-                until your skin has fully recovered.
-              </div>
-            </div>
+            <p>
+              Choosing skincare products based on your skin type is crucial for maintaining healthy skin. Using products that aren't suited to your skin’s needs can cause irritation, breakouts, or exacerbate underlying conditions. For example, if you have oily skin and use a heavy, oil-based moisturizer, it can clog pores and lead to breakouts. Conversely, if you have dry skin and use products that are too harsh or stripping, it can leave your skin dehydrated and flaky.
+            </p>
 
-            <div class="faq-item">
-              <button class="faq-question">
-                How long does recovery take after a procedure?
-                <span>+</span>
-              </button>
-
-              <div class="faq-answer">
-                Recovery time varies depending on the treatment performed. Many
-                non-invasive procedures have little to no downtime, while more
-                advanced treatments may require a few days to several weeks for
-                complete healing. Your dermatologist will discuss expected
-                recovery times during your consultation.
-              </div>
-            </div>
-
-            <div class="faq-item">
-              <button class="faq-question">
-                Are there any side effects from treatments?
-                <span>+</span>
-              </button>
-
-              <div class="faq-answer">
-                Most treatments are safe and well-tolerated. Temporary side
-                effects such as mild redness, swelling, sensitivity, or peeling
-                may occur depending on the procedure. These effects are usually
-                short-lived and resolve naturally as the skin heals.
-              </div>
-            </div>
+            <p>
+              Understanding your skin type – whether it’s dry, oily, combination, or sensitive – is the first step to building a proper skincare routine. If you're unsure of your skin type, consulting with a dermatologist can help guide you in selecting the right products. Additionally, choosing products with suitable ingredients for your skin concerns – whether it’s acne, hyperpigmentation, or fine lines – will ensure that you’re using the most effective treatments. Tailoring your skincare routine to your skin’s needs can help you achieve better, more noticeable results over time.
+            </p>
           </div>
         </div>
       </div>
@@ -1763,8 +1525,6 @@
       </div>
     </footer>
 
-  
-
     <!-- ═══════════════════════════════════════════════
      JAVASCRIPT
 ═══════════════════════════════════════════════ -->
@@ -1990,23 +1750,7 @@
       lucide.createIcons();
     </script>
     <script>
-      document.querySelectorAll(".faq-question").forEach((button) => {
-        button.addEventListener("click", () => {
-          const item = button.parentElement;
-
-          document.querySelectorAll(".faq-item").forEach((faq) => {
-            if (faq !== item) {
-              faq.classList.remove("active");
-            }
-          });
-
-          item.classList.toggle("active");
-        });
-      });
-
-      const sections = document.querySelectorAll(".faq-category");
-
-      const faqObserver = new IntersectionObserver(
+      const articleObserver = new IntersectionObserver(
         (entries) => {
           entries.forEach((entry) => {
             if (entry.isIntersecting) {
@@ -2019,8 +1763,8 @@
         },
       );
 
-      sections.forEach((section) => {
-        faqObserver.observe(section);
+      document.querySelectorAll(".reveal").forEach((el) => {
+        articleObserver.observe(el);
       });
     </script>
   </body>

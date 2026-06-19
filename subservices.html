@@ -1194,9 +1194,7 @@
       </div>
 
       <div class="hidden md:flex items-center gap-3">
-        <button class="btn-primary" onclick="openModal()">
-          Book a Consultation
-        </button>
+        <a href="booking.html" class="btn-primary"> Book a Consultation </a>
       </div>
 
       <!-- Hamburger -->
@@ -2163,19 +2161,8 @@
             Ready to Begin Your<br />Skincare Journey?
           </h2>
           <div class="flex flex-wrap gap-3 justify-center">
-            <button class="btn-primary" onclick="openModal()">
-              Book a Consultation
-            </button>
-            <button
-              class="btn-outline-brown"
-              onclick="
-                document
-                  .getElementById('services')
-                  .scrollIntoView({ behavior: 'smooth' })
-              "
-            >
-              Explore Services
-            </button>
+            <a href="booking.html" class="btn-primary"> Book a Consultation </a>
+            <a href="services.html" class="btn-primary"> Explore Services </a>
           </div>
         </div>
       </div>
@@ -2399,92 +2386,7 @@
       </div>
     </footer>
 
-    <!-- ═══════════════════════════════════════════════
-     BOOKING MODAL
-═══════════════════════════════════════════════ -->
-    <div class="modal-overlay" id="modal" onclick="handleOverlayClick(event)">
-      <div class="modal-box">
-        <div class="flex items-center justify-between mb-6">
-          <div>
-            <h3 class="font-display text-2xl" style="color: #7b4328">
-              Book a Consultation
-            </h3>
-            <p class="text-sm mt-1" style="color: #a0522d">
-              Free skin analysis included
-            </p>
-          </div>
-          <button
-            onclick="closeModal()"
-            style="
-              color: #a0522d;
-              font-size: 1.5rem;
-              line-height: 1;
-              background: none;
-              border: none;
-              cursor: pointer;
-            "
-          >
-            ✕
-          </button>
-        </div>
-
-        <form
-          id="booking-form"
-          onsubmit="submitForm(event)"
-          class="flex flex-col gap-3"
-        >
-          <input
-            type="text"
-            name="full_name"
-            placeholder="Full Name *"
-            class="form-input"
-            required
-          />
-          <input
-            type="email"
-            name="email"
-            placeholder="Email Address *"
-            class="form-input"
-            required
-          />
-          <input
-            type="tel"
-            name="phone"
-            placeholder="Phone Number"
-            class="form-input"
-          />
-          <select name="service_id" class="form-input">
-            <option value="" style="color: #c9917a">Select a Service</option>
-            <option value="1">Acne Treatment</option>
-            <option value="2">Laser Skin Resurfacing</option>
-            <option value="3">Tattoo Removal</option>
-            <option value="4">Body Massage</option>
-            <option value="5">Chemical Peel</option>
-            <option value="6">Laser Hair Removal</option>
-            <option value="7">Mole and Skin Tag Removal</option>
-          </select>
-          <input type="date" name="preferred_date" class="form-input" />
-          <textarea
-            name="message"
-            placeholder="Tell us about your skin concerns..."
-            class="form-input"
-            rows="3"
-            style="resize: vertical"
-          ></textarea>
-
-          <div id="form-msg" class="text-sm py-2 px-3 rounded-lg hidden"></div>
-
-          <button
-            type="submit"
-            class="btn-primary justify-center mt-2"
-            id="submit-btn"
-          >
-            Book My Free Consultation
-          </button>
-        </form>
-      </div>
-    </div>
-
+  
     <!-- ═══════════════════════════════════════════════
      JAVASCRIPT
 ═══════════════════════════════════════════════ -->

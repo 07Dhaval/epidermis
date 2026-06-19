@@ -1,1154 +1,1303 @@
 <!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Epidermis — Because Your Skin Deserves the Best</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Epidermis — Because Your Skin Deserves the Best</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap"
-    rel="stylesheet" />
-
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            skin: {
-              bg: "#faf3ee",
-              bgalt: "#f3e8df",
-              brown: "#7B4328",
-              mid: "#a0522d",
-              light: "#c9917a",
-              footer: "#7B4328",
-              card: "#f5ece4",
-              border: "#e8d5c8",
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              skin: {
+                bg: "#faf3ee",
+                bgalt: "#f3e8df",
+                brown: "#7B4328",
+                mid: "#a0522d",
+                light: "#c9917a",
+                footer: "#7B4328",
+                card: "#f5ece4",
+                border: "#e8d5c8",
+              },
+            },
+            fontFamily: {
+              display: ["Poppins", "sans-serif"],
+              body: ["Poppins", "sans-serif"],
             },
           },
-          fontFamily: {
-            display: ["Poppins", "sans-serif"],
-            body: ["Poppins", "sans-serif"],
-          },
         },
-      },
-    };
-  </script>
+      };
+    </script>
 
-  <style>
-    *,
-    *::before,
-    *::after {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      background-color: #faf3ee;
-      font-family: "Poppins", sans-serif;
-      color: #7b4328;
-      overflow-x: hidden;
-    }
-
-    /* ── FLOATING FONT TRANSMISSION ANIMATION ── */
-    @keyframes floatUp {
-      0% {
-        opacity: 0;
-        transform: translateY(60px) scale(0.85);
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
       }
 
-      15% {
-        opacity: 1;
+      html {
+        scroll-behavior: smooth;
       }
 
-      85% {
-        opacity: 1;
-      }
-
-      100% {
-        opacity: 0;
-        transform: translateY(-80px) scale(1.05);
-      }
-    }
-
-    @keyframes floatWord {
-      0% {
-        opacity: 0;
-        transform: translateY(40px) rotate(-2deg);
-      }
-
-      20% {
-        opacity: 0.8;
-        transform: translateY(0) rotate(0deg);
-      }
-
-      80% {
-        opacity: 0.8;
-      }
-
-      100% {
-        opacity: 0;
-        transform: translateY(-50px) rotate(2deg);
-      }
-    }
-
-    @keyframes charReveal {
-      0% {
-        opacity: 0;
-        transform: translateY(30px);
-        filter: blur(4px);
-      }
-
-      100% {
-        opacity: 1;
-        transform: translateY(0);
-        filter: blur(0);
-      }
-    }
-
-    @keyframes slideInLeft {
-      0% {
-        opacity: 0;
-        transform: translateX(-80px);
-      }
-
-      100% {
-        opacity: 1;
-        transform: translateX(0);
-      }
-    }
-
-    @keyframes slideInRight {
-      0% {
-        opacity: 0;
-        transform: translateX(80px);
-      }
-
-      100% {
-        opacity: 1;
-        transform: translateX(0);
-      }
-    }
-
-    @keyframes fadeUp {
-      0% {
-        opacity: 0;
-        transform: translateY(40px);
-      }
-
-      100% {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    @keyframes sunPulse {
-
-      0%,
-      100% {
-        transform: scale(1) rotate(0deg);
-        opacity: 0.35;
-      }
-
-      50% {
-        transform: scale(1.08) rotate(15deg);
-        opacity: 0.5;
-      }
-    }
-
-    @keyframes sunRotate {
-      from {
-        transform: rotate(0deg);
-      }
-
-      to {
-        transform: rotate(360deg);
-      }
-    }
-
-    @keyframes marqueeScroll {
-      0% {
-        transform: translateX(0);
-      }
-
-      100% {
-        transform: translateX(-50%);
-      }
-    }
-
-    @keyframes navFade {
-      from {
-        opacity: 0;
-        transform: translateY(-20px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    @keyframes heroTextFloat {
-
-      0%,
-      100% {
-        transform: translateY(0px);
-      }
-
-      50% {
-        transform: translateY(-8px);
-      }
-    }
-
-    @keyframes orbFloat {
-
-      0%,
-      100% {
-        transform: translateY(0) scale(1);
-      }
-
-      50% {
-        transform: translateY(-20px) scale(1.05);
-      }
-    }
-
-    @keyframes letterDrop {
-      0% {
-        opacity: 0;
-        transform: translateY(-40px) rotateX(-90deg);
-      }
-
-      60% {
-        transform: translateY(5px) rotateX(10deg);
-      }
-
-      100% {
-        opacity: 1;
-        transform: translateY(0) rotateX(0);
-      }
-    }
-
-    /* Floating text particles in hero */
-    .float-particle {
-      position: absolute;
-      font-family: "Cormorant Garamond", serif;
-      color: rgba(255, 255, 255, 0.15);
-      pointer-events: none;
-      animation: floatUp linear infinite;
-      white-space: nowrap;
-    }
-
-    /* Char-by-char reveal */
-    .char-reveal span {
-      display: inline-block;
-      opacity: 0;
-      animation: charReveal 0.5s ease forwards;
-    }
-
-    /* Scroll reveal */
-    .reveal {
-      opacity: 0;
-      transform: translateY(40px);
-      transition:
-        opacity 0.8s ease,
-        transform 0.8s ease;
-    }
-
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .reveal-left {
-      opacity: 0;
-      transform: translateX(-60px);
-      transition:
-        opacity 0.8s ease,
-        transform 0.8s ease;
-    }
-
-    .reveal-left.visible {
-      opacity: 1;
-      transform: translateX(0);
-    }
-
-    .reveal-right {
-      opacity: 0;
-      transform: translateX(60px);
-      transition:
-        opacity 0.8s ease,
-        transform 0.8s ease;
-    }
-
-    .reveal-right.visible {
-      opacity: 1;
-      transform: translateX(0);
-    }
-
-    /* Nav */
-    nav {
-      animation: navFade 0.8s ease forwards;
-    }
-
-    .nav-link {
-      position: relative;
-    }
-
-    .nav-link::after {
-      content: "";
-      position: absolute;
-      bottom: -2px;
-      left: 0;
-      width: 0;
-      height: 1px;
-      background: #7b4328;
-      transition: width 0.3s ease;
-    }
-
-    .nav-link:hover::after {
-      width: 100%;
-    }
-
-    /* Hero */
-    .hero-section {
-      position: relative;
-      height: 100vh;
-      min-height: 600px;
-      overflow: hidden;
-    }
-
-    .hero-title {
-      font-family: "Cormorant Garamond", serif;
-      font-size: clamp(2.5rem, 6vw, 5rem);
-      font-weight: 400;
-      line-height: 1.1;
-      animation: heroTextFloat 6s ease-in-out infinite;
-    }
-
-    .hero-title .line {
-      display: block;
-      overflow: hidden;
-    }
-
-    .hero-title .line span {
-      display: block;
-      opacity: 0;
-      animation: slideInLeft 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-    }
-
-    .hero-title .line:nth-child(2) span {
-      animation-delay: 0.2s;
-    }
-
-    /* Buttons */
-    .btn-primary {
-      background: #7b4328;
-      color: white;
-      border-radius: 9999px;
-      padding: 0.6rem 1.5rem;
-      font-size: 0.85rem;
-      transition: all 0.3s ease;
-      border: 1.5px solid #7b4328;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-    }
-
-    .btn-primary:hover {
-      background: #5a2a1a;
-      border-color: #5a2a1a;
-      transform: translateY(-2px);
-      box-shadow: 0 8px 20px rgba(123, 59, 42, 0.3);
-    }
-
-    .btn-outline {
-      background: transparent;
-      color: white;
-      border-radius: 9999px;
-      padding: 0.6rem 1.5rem;
-      font-size: 0.85rem;
-      transition: all 0.3s ease;
-      border: 1.5px solid rgba(255, 255, 255, 0.7);
-      cursor: pointer;
-    }
-
-    .btn-outline:hover {
-      background: rgba(255, 255, 255, 0.15);
-      transform: translateY(-2px);
-    }
-
-    .btn-outline-brown {
-      background: transparent;
-      color: #7b4328;
-      border-radius: 9999px;
-      padding: 0.6rem 1.5rem;
-      font-size: 0.85rem;
-      transition: all 0.3s ease;
-      border: 1.5px solid #7b4328;
-      cursor: pointer;
-    }
-
-    .btn-outline-brown:hover {
-      background: #7b4328;
-      color: white;
-      transform: translateY(-2px);
-    }
-
-    .btn-outline-white {
-      background: transparent;
-      color: white;
-      border-radius: 9999px;
-      padding: 0.6rem 1.5rem;
-      font-size: 0.85rem;
-      transition: all 0.3s ease;
-      border: 1.5px solid rgba(255, 255, 255, 0.5);
-      cursor: pointer;
-    }
-
-    .btn-outline-white:hover {
-      background: rgba(255, 255, 255, 0.2);
-    }
-
-    /* Bento cards */
-    .bento-card {
-      background: #f5ece4;
-      border-radius: 1.25rem;
-      padding: 1.5rem;
-      transition:
-        transform 0.35s ease,
-        box-shadow 0.35s ease;
-      cursor: pointer;
-    }
-
-    .bento-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 16px 40px rgba(123, 59, 42, 0.12);
-    }
-
-    /* Sun decoration */
-    .sun-deco {
-      position: relative;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      animation: sunPulse 4s ease-in-out infinite;
-    }
-
-    /* Services grid */
-    .service-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      grid-template-rows: repeat(3, auto);
-      gap: 1rem;
-    }
-
-    @media (max-width: 768px) {
-      .service-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-    }
-
-    .service-cell {
-      background: #f5ece4;
-      border-radius: 1.25rem;
-      overflow: hidden;
-      transition:
-        transform 0.3s ease,
-        box-shadow 0.3s ease;
-    }
-
-    .service-cell:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 30px rgba(123, 59, 42, 0.15);
-    }
-
-    .service-cell-text {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 2.5rem 1.5rem;
-    }
-
-    .service-cell-img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
-    /* Testimonial */
-    .testimonial-card {
-      display: grid;
-      grid-template-columns: auto 1fr;
-      background: #f5ece4;
-      border-radius: 1.25rem;
-      overflow: hidden;
-    }
-
-    .testimonial-card .photo {
-      width: 300px;
-      flex-shrink: 0;
-    }
-
-    .testimonial-card.reverse {
-      direction: rtl;
-    }
-
-    .testimonial-card.reverse>* {
-      direction: ltr;
-    }
-
-    @media (max-width: 768px) {
-      .testimonial-card {
-        grid-template-columns: 1fr;
-      }
-
-      .testimonial-card .photo {
-        width: 100%;
-        height: 280px;
-      }
-    }
-
-    /* FAQ accordion */
-    .faq-item {
-      background: #f5ece4;
-      border-radius: 0.875rem;
-      overflow: hidden;
-      margin-bottom: 0.75rem;
-      transition: box-shadow 0.3s ease;
-    }
-
-    .faq-item:hover {
-      box-shadow: 0 4px 16px rgba(123, 59, 42, 0.1);
-    }
-
-    .faq-question {
-      width: 100%;
-      text-align: left;
-      padding: 1.2rem 1.5rem;
-      font-size: 0.9rem;
-      color: #7b4328;
-      background: transparent;
-      border: none;
-      cursor: pointer;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 1rem;
-    }
-
-    .faq-answer {
-      max-height: 0;
-      overflow: hidden;
-      transition:
-        max-height 0.4s ease,
-        padding 0.4s ease;
-      padding: 0 1.5rem;
-      font-size: 0.88rem;
-      line-height: 1.7;
-      color: #a0522d;
-    }
-
-    .faq-answer.open {
-      max-height: 200px;
-      padding: 0 1.5rem 1.2rem;
-    }
-
-    .faq-icon {
-      width: 22px;
-      height: 22px;
-      flex-shrink: 0;
-      transition: transform 0.35s ease;
-      color: #7b4328;
-      border: 1.5px solid #7b4328;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1rem;
-    }
-
-    .faq-icon.open {
-      transform: rotate(45deg);
-    }
-
-    /* Marquee */
-    .marquee-track {
-      display: flex;
-      width: max-content;
-      animation: marqueeScroll 25s linear infinite;
-    }
-
-    .marquee-track:hover {
-      animation-play-state: paused;
-    }
-
-    /* Gallery grid */
-    .insta-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 0.75rem;
-    }
-
-    .insta-cell {
-      border-radius: 1rem;
-      overflow: hidden;
-      aspect-ratio: 1;
-      position: relative;
-    }
-
-    .insta-cell img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.5s ease;
-    }
-
-    .insta-cell:hover img {
-      transform: scale(1.07);
-    }
-
-    /* Footer */
-    footer {
-      background: #7b4328;
-      color: white;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .footer-sun {
-      position: absolute;
-      bottom: -80px;
-      opacity: 0.08;
-    }
-
-    /* Modal */
-    .modal-overlay {
-      position: fixed;
-      inset: 0;
-      background: rgba(50, 20, 10, 0.5);
-      backdrop-filter: blur(4px);
-      z-index: 1000;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.3s ease;
-    }
-
-    .modal-overlay.active {
-      opacity: 1;
-      pointer-events: all;
-    }
-
-    .modal-box {
-      background: #faf3ee;
-      border-radius: 1.5rem;
-      padding: 2.5rem;
-      width: 90%;
-      max-width: 520px;
-      transform: translateY(30px) scale(0.95);
-      transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
-    }
-
-    .modal-overlay.active .modal-box {
-      transform: translateY(0) scale(1);
-    }
-
-    .form-input {
-      width: 100%;
-      background: #f5ece4;
-      border: 1.5px solid #e8d5c8;
-      border-radius: 0.75rem;
-      padding: 0.75rem 1rem;
-      font-size: 0.9rem;
-      color: #7b4328;
-      outline: none;
-      transition: border-color 0.3s ease;
-      font-family: "DM Sans", sans-serif;
-    }
-
-    .form-input:focus {
-      border-color: #7b4328;
-    }
-
-    .form-input::placeholder {
-      color: #c9917a;
-    }
-
-    /* Floating particles container */
-   #hero-particles {
-  position: absolute;
-  inset: 0;
-  overflow: hidden;
-  pointer-events: none;
-}
-
-.float-particle {
-  position: absolute;
-  color: rgba(255, 255, 255, 0.18);
-  white-space: nowrap;
-  font-weight: 500;
-  animation: floatUp linear forwards;
-}
-
-@keyframes floatUp {
-  0% {
-    transform: translateY(0);
-    opacity: 0;
-  }
-
-  10% {
-    opacity: 1;
-  }
-
-  100% {
-    transform: translateY(-120vh);
-    opacity: 0;
-  }
-}
-    /* Section label pill */
-    .section-label {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      font-size: 0.78rem;
-      color: #a0522d;
-      margin-bottom: 1rem;
-    }
-
-    .section-label::before {
-      content: "·";
-      font-size: 1.2rem;
-      line-height: 1;
-    }
-
-    /* Sun SVG decoration */
-    .sun-svg {
-      animation: sunPulse 5s ease-in-out infinite;
-    }
-
-    /* Scroll progress */
-    #progress-bar {
-      position: fixed;
-      top: 0;
-      left: 0;
-      height: 2px;
-      background: linear-gradient(90deg, #7b4328, #c9917a);
-      z-index: 999;
-      width: 0%;
-      transition: width 0.1s linear;
-    }
-
-    /* Mobile menu */
-    #mobile-menu {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: #faf3ee;
-      z-index: 900;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 2rem;
-    }
-
-    #mobile-menu.open {
-      display: flex;
-    }
-
-    #mobile-menu a {
-      font-family: "Cormorant Garamond", serif;
-      font-size: 2rem;
-      color: #7b4328;
-      text-decoration: none;
-    }
-
-    .reveal {
-      opacity: 0;
-      transform: translateY(80px);
-      animation: fadeUp 0.9s ease forwards;
-    }
-
-    @keyframes fadeUp {
-      from {
-        opacity: 0;
-        transform: translateY(80px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    /* Smooth image loading */
-    img {
-      transition: opacity 0.4s ease;
-    }
-
-    img[loading="lazy"] {
-      opacity: 0;
-    }
-
-    img.loaded {
-      opacity: 1;
-    }
-
-    @media (max-width: 640px) {
-
-      html,
       body {
-        width: 100%;
+        background-color: #faf3ee;
+        font-family: "Poppins", sans-serif;
+        color: #7b4328;
         overflow-x: hidden;
       }
 
+      /* ── FLOATING FONT TRANSMISSION ANIMATION ── */
+      @keyframes floatUp {
+        0% {
+          opacity: 0;
+          transform: translateY(60px) scale(0.85);
+        }
+
+        15% {
+          opacity: 1;
+        }
+
+        85% {
+          opacity: 1;
+        }
+
+        100% {
+          opacity: 0;
+          transform: translateY(-80px) scale(1.05);
+        }
+      }
+
+      @keyframes floatWord {
+        0% {
+          opacity: 0;
+          transform: translateY(40px) rotate(-2deg);
+        }
+
+        20% {
+          opacity: 0.8;
+          transform: translateY(0) rotate(0deg);
+        }
+
+        80% {
+          opacity: 0.8;
+        }
+
+        100% {
+          opacity: 0;
+          transform: translateY(-50px) rotate(2deg);
+        }
+      }
+
+      @keyframes charReveal {
+        0% {
+          opacity: 0;
+          transform: translateY(30px);
+          filter: blur(4px);
+        }
+
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+          filter: blur(0);
+        }
+      }
+
+      @keyframes slideInLeft {
+        0% {
+          opacity: 0;
+          transform: translateX(-80px);
+        }
+
+        100% {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      @keyframes slideInRight {
+        0% {
+          opacity: 0;
+          transform: translateX(80px);
+        }
+
+        100% {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      @keyframes fadeUp {
+        0% {
+          opacity: 0;
+          transform: translateY(40px);
+        }
+
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes sunPulse {
+        0%,
+        100% {
+          transform: scale(1) rotate(0deg);
+          opacity: 0.35;
+        }
+
+        50% {
+          transform: scale(1.08) rotate(15deg);
+          opacity: 0.5;
+        }
+      }
+
+      @keyframes sunRotate {
+        from {
+          transform: rotate(0deg);
+        }
+
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      @keyframes marqueeScroll {
+        0% {
+          transform: translateX(0);
+        }
+
+        100% {
+          transform: translateX(-50%);
+        }
+      }
+
+      @keyframes navFade {
+        from {
+          opacity: 0;
+          transform: translateY(-20px);
+        }
+
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes heroTextFloat {
+        0%,
+        100% {
+          transform: translateY(0px);
+        }
+
+        50% {
+          transform: translateY(-8px);
+        }
+      }
+
+      @keyframes orbFloat {
+        0%,
+        100% {
+          transform: translateY(0) scale(1);
+        }
+
+        50% {
+          transform: translateY(-20px) scale(1.05);
+        }
+      }
+
+      @keyframes letterDrop {
+        0% {
+          opacity: 0;
+          transform: translateY(-40px) rotateX(-90deg);
+        }
+
+        60% {
+          transform: translateY(5px) rotateX(10deg);
+        }
+
+        100% {
+          opacity: 1;
+          transform: translateY(0) rotateX(0);
+        }
+      }
+
+      /* Floating text particles in hero */
+      .float-particle {
+        position: absolute;
+        font-family: "Cormorant Garamond", serif;
+        color: rgba(255, 255, 255, 0.15);
+        pointer-events: none;
+        animation: floatUp linear infinite;
+        white-space: nowrap;
+      }
+
+      /* Char-by-char reveal */
+      .char-reveal span {
+        display: inline-block;
+        opacity: 0;
+        animation: charReveal 0.5s ease forwards;
+      }
+
+      /* Scroll reveal */
+      .reveal {
+        opacity: 0;
+        transform: translateY(40px);
+        transition:
+          opacity 0.8s ease,
+          transform 0.8s ease;
+      }
+
+      .reveal.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .reveal-left {
+        opacity: 0;
+        transform: translateX(-60px);
+        transition:
+          opacity 0.8s ease,
+          transform 0.8s ease;
+      }
+
+      .reveal-left.visible {
+        opacity: 1;
+        transform: translateX(0);
+      }
+
+      .reveal-right {
+        opacity: 0;
+        transform: translateX(60px);
+        transition:
+          opacity 0.8s ease,
+          transform 0.8s ease;
+      }
+
+      .reveal-right.visible {
+        opacity: 1;
+        transform: translateX(0);
+      }
+
+      /* Nav */
       nav {
-        padding: 1rem !important;
+        animation: navFade 0.8s ease forwards;
       }
 
-      #mobile-menu {
-        padding: 2rem 1rem;
+      .nav-link {
+        position: relative;
       }
 
-      section {
-        overflow-x: clip;
+      .nav-link::after {
+        content: "";
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        width: 0;
+        height: 1px;
+        background: #7b4328;
+        transition: width 0.3s ease;
       }
 
-      section:first-of-type {
-        padding-top: 6rem !important;
-        padding-bottom: 4rem !important;
-      }
-
-      section:first-of-type h1 {
-        font-size: clamp(2.5rem, 13vw, 3.8rem) !important;
-        line-height: 1.05 !important;
-      }
-
-      section:first-of-type .flex {
-        flex-direction: column;
-        align-items: stretch;
-      }
-
-      section:first-of-type button {
+      .nav-link:hover::after {
         width: 100%;
+      }
+
+      /* Hero */
+      .hero-section {
+        position: relative;
+        height: 100vh;
+        min-height: 600px;
+        overflow: hidden;
+      }
+
+      .hero-title {
+        font-family: "Cormorant Garamond", serif;
+        font-size: clamp(2.5rem, 6vw, 5rem);
+        font-weight: 400;
+        line-height: 1.1;
+        animation: heroTextFloat 6s ease-in-out infinite;
+      }
+
+      .hero-title .line {
+        display: block;
+        overflow: hidden;
+      }
+
+      .hero-title .line span {
+        display: block;
+        opacity: 0;
+        animation: slideInLeft 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      }
+
+      .hero-title .line:nth-child(2) span {
+        animation-delay: 0.2s;
+      }
+
+      /* Buttons */
+      .btn-primary {
+        background: #7b4328;
+        color: white;
+        border-radius: 9999px;
+        padding: 0.6rem 1.5rem;
+        font-size: 0.85rem;
+        transition: all 0.3s ease;
+        border: 1.5px solid #7b4328;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+      }
+
+      .btn-primary:hover {
+        background: #5a2a1a;
+        border-color: #5a2a1a;
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(123, 59, 42, 0.3);
+      }
+
+      .btn-outline {
+        background: transparent;
+        color: white;
+        border-radius: 9999px;
+        padding: 0.6rem 1.5rem;
+        font-size: 0.85rem;
+        transition: all 0.3s ease;
+        border: 1.5px solid rgba(255, 255, 255, 0.7);
+        cursor: pointer;
+      }
+
+      .btn-outline:hover {
+        background: rgba(255, 255, 255, 0.15);
+        transform: translateY(-2px);
+      }
+
+      .btn-outline-brown {
+        background: transparent;
+        color: #7b4328;
+        border-radius: 9999px;
+        padding: 0.6rem 1.5rem;
+        font-size: 0.85rem;
+        transition: all 0.3s ease;
+        border: 1.5px solid #7b4328;
+        cursor: pointer;
+      }
+
+      .btn-outline-brown:hover {
+        background: #7b4328;
+        color: white;
+        transform: translateY(-2px);
+      }
+
+      .btn-outline-white {
+        background: transparent;
+        color: white;
+        border-radius: 9999px;
+        padding: 0.6rem 1.5rem;
+        font-size: 0.85rem;
+        transition: all 0.3s ease;
+        border: 1.5px solid rgba(255, 255, 255, 0.5);
+        cursor: pointer;
+      }
+
+      .btn-outline-white:hover {
+        background: rgba(255, 255, 255, 0.2);
+      }
+
+      /* Bento cards */
+      .bento-card {
+        background: #f5ece4;
+        border-radius: 1.25rem;
+        padding: 1.5rem;
+        transition:
+          transform 0.35s ease,
+          box-shadow 0.35s ease;
+        cursor: pointer;
+      }
+
+      .bento-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 16px 40px rgba(123, 59, 42, 0.12);
+      }
+
+      /* Sun decoration */
+      .sun-deco {
+        position: relative;
+        display: inline-flex;
+        align-items: center;
         justify-content: center;
+        animation: sunPulse 4s ease-in-out infinite;
       }
 
-      [class*="h-[650px]"] {
-        height: min(420px, 82vw) !important;
-      }
-
-      [class*="grid-cols-4"] {
-        grid-template-columns: 1fr !important;
-      }
-
-      .service-grid-card img {
-        width: 100%;
-        height: auto;
-      }
-
-      [class*="h-[128px]"] {
-        height: auto !important;
-        min-height: 0 !important;
-        flex-direction: column;
-        align-items: stretch;
-        text-align: center;
-      }
-
-      [class*="px-[48px]"] {
-        padding: 1.25rem !important;
-      }
-
-      [class*="text-[29px]"] {
-        font-size: 1.55rem !important;
-      }
-
-      [class*="h-[58px]"] {
-        height: auto !important;
-        width: 100%;
-      }
-
-      [class*="px-[38px]"] {
-        padding-left: 1.25rem !important;
-        padding-right: 1.25rem !important;
-      }
-
-      [class*="justify-between"] {
+      /* Services grid */
+      .service-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(3, auto);
         gap: 1rem;
       }
 
-      .grid.grid-cols-3,
-      .insta-grid,
-      .service-grid {
-        grid-template-columns: 1fr !important;
+      @media (max-width: 768px) {
+        .service-grid {
+          grid-template-columns: 1fr 1fr;
+        }
       }
 
-      .btn-primary,
-      .btn-outline,
-      .btn-outline-brown,
-      .btn-outline-white {
+      .service-cell {
+        background: #f5ece4;
+        border-radius: 1.25rem;
+        overflow: hidden;
+        transition:
+          transform 0.3s ease,
+          box-shadow 0.3s ease;
+      }
+
+      .service-cell:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 12px 30px rgba(123, 59, 42, 0.15);
+      }
+
+      .service-cell-text {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
         justify-content: center;
-        max-width: 100%;
-        text-align: center;
-        white-space: normal;
+        padding: 2.5rem 1.5rem;
       }
 
+      .service-cell-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+
+      /* Testimonial */
+      .testimonial-card {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        background: #f5ece4;
+        border-radius: 1.25rem;
+        overflow: hidden;
+      }
+
+      .testimonial-card .photo {
+        width: 300px;
+        flex-shrink: 0;
+      }
+
+      .testimonial-card.reverse {
+        direction: rtl;
+      }
+
+      .testimonial-card.reverse > * {
+        direction: ltr;
+      }
+
+      @media (max-width: 768px) {
+        .testimonial-card {
+          grid-template-columns: 1fr;
+        }
+
+        .testimonial-card .photo {
+          width: 100%;
+          height: 280px;
+        }
+      }
+
+      /* FAQ accordion */
+      .faq-item {
+        background: #f5ece4;
+        border-radius: 0.875rem;
+        overflow: hidden;
+        margin-bottom: 0.75rem;
+        transition: box-shadow 0.3s ease;
+      }
+
+      .faq-item:hover {
+        box-shadow: 0 4px 16px rgba(123, 59, 42, 0.1);
+      }
+
+      .faq-question {
+        width: 100%;
+        text-align: left;
+        padding: 1.2rem 1.5rem;
+        font-size: 0.9rem;
+        color: #7b4328;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1rem;
+      }
+
+      .faq-answer {
+        max-height: 0;
+        overflow: hidden;
+        transition:
+          max-height 0.4s ease,
+          padding 0.4s ease;
+        padding: 0 1.5rem;
+        font-size: 0.88rem;
+        line-height: 1.7;
+        color: #a0522d;
+      }
+
+      .faq-answer.open {
+        max-height: 200px;
+        padding: 0 1.5rem 1.2rem;
+      }
+
+      .faq-icon {
+        width: 22px;
+        height: 22px;
+        flex-shrink: 0;
+        transition: transform 0.35s ease;
+        color: #7b4328;
+        border: 1.5px solid #7b4328;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1rem;
+      }
+
+      .faq-icon.open {
+        transform: rotate(45deg);
+      }
+
+      /* Marquee */
+      .marquee-track {
+        display: flex;
+        width: max-content;
+        animation: marqueeScroll 25s linear infinite;
+      }
+
+      .marquee-track:hover {
+        animation-play-state: paused;
+      }
+
+      /* Gallery grid */
+      .insta-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0.75rem;
+      }
+
+      .insta-cell {
+        border-radius: 1rem;
+        overflow: hidden;
+        aspect-ratio: 1;
+        position: relative;
+      }
+
+      .insta-cell img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+      }
+
+      .insta-cell:hover img {
+        transform: scale(1.07);
+      }
+
+      /* Footer */
       footer {
-        min-height: auto !important;
+        background: #7b4328;
+        color: white;
+        position: relative;
+        overflow: hidden;
       }
 
-      footer .relative.z-10 {
-        padding-left: 1rem !important;
-        padding-right: 1rem !important;
+      .footer-sun {
+        position: absolute;
+        bottom: -80px;
+        opacity: 0.08;
       }
 
-      footer .grid.grid-cols-3 {
-        gap: 1.5rem;
-        text-align: center;
-      }
-
-      .sun-svg svg {
-        width: min(190px, 80vw);
-        height: auto;
-      }
-
+      /* Modal */
       .modal-overlay {
-        align-items: flex-start;
-        overflow-y: auto;
-        padding: 1rem;
+        position: fixed;
+        inset: 0;
+        background: rgba(50, 20, 10, 0.5);
+        backdrop-filter: blur(4px);
+        z-index: 1000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease;
+      }
+
+      .modal-overlay.active {
+        opacity: 1;
+        pointer-events: all;
       }
 
       .modal-box {
+        background: #faf3ee;
+        border-radius: 1.5rem;
+        padding: 2.5rem;
+        width: 90%;
+        max-width: 520px;
+        transform: translateY(30px) scale(0.95);
+        transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+      }
+
+      .modal-overlay.active .modal-box {
+        transform: translateY(0) scale(1);
+      }
+
+      .form-input {
         width: 100%;
-        max-height: calc(100svh - 2rem);
-        overflow-y: auto;
-        padding: 1.25rem;
-        border-radius: 1rem;
+        background: #f5ece4;
+        border: 1.5px solid #e8d5c8;
+        border-radius: 0.75rem;
+        padding: 0.75rem 1rem;
+        font-size: 0.9rem;
+        color: #7b4328;
+        outline: none;
+        transition: border-color 0.3s ease;
+        font-family: "DM Sans", sans-serif;
       }
-    }
 
-    @media (max-width: 380px) {
-      section:first-of-type h1 {
-        font-size: 2.3rem !important;
+      .form-input:focus {
+        border-color: #7b4328;
       }
 
-      nav a {
-        font-size: 1rem !important;
+      .form-input::placeholder {
+        color: #c9917a;
       }
-    }
-    /* Luxury Reveal */
-.luxury-reveal {
-  opacity: 0;
-  transform: translateY(80px);
-  transition:
-    opacity 1s cubic-bezier(.16,1,.3,1),
-    transform 1s cubic-bezier(.16,1,.3,1);
-}
 
-.luxury-reveal.show {
-  opacity: 1;
-  transform: translateY(0);
-}
+      /* Floating particles container */
+      #hero-particles {
+        position: absolute;
+        inset: 0;
+        overflow: hidden;
+        pointer-events: none;
+      }
 
-/* Sequential Delay */
-.delay-1 { transition-delay: .15s; }
-.delay-2 { transition-delay: .3s; }
-.delay-3 { transition-delay: .45s; }
-.delay-4 { transition-delay: .6s; }
-.delay-5 { transition-delay: .75s; }
-.service-grid-card {
-  overflow: hidden;
-  border-radius: 14px;
-  transform: translateY(50px);
-  opacity: 0;
-  transition:
-    transform .9s cubic-bezier(.16,1,.3,1),
-    opacity .9s ease,
-    box-shadow .5s ease;
-}
+      .float-particle {
+        position: absolute;
+        color: rgba(255, 255, 255, 0.18);
+        white-space: nowrap;
+        font-weight: 500;
+        animation: floatUp linear forwards;
+      }
 
-.service-grid-card.show {
-  transform: translateY(0);
-  opacity: 1;
-}
+      @keyframes floatUp {
+        0% {
+          transform: translateY(0);
+          opacity: 0;
+        }
 
-.service-grid-card img {
-  transition:
-    transform 1.2s ease,
-    filter .8s ease;
-}
+        10% {
+          opacity: 1;
+        }
 
-.service-grid-card:hover img {
-  transform: scale(1.08);
-}
+        100% {
+          transform: translateY(-120vh);
+          opacity: 0;
+        }
+      }
+      /* Section label pill */
+      .section-label {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        font-size: 0.78rem;
+        color: #a0522d;
+        margin-bottom: 1rem;
+      }
 
-.service-grid-card:hover {
-  box-shadow:
-    0 20px 60px rgba(123,67,40,.12);
-}
-.luxury-divider {
-  width: 100%;
-  height: 1px;
-  position: relative;
-  overflow: hidden;
-}
+      .section-label::before {
+        content: "·";
+        font-size: 1.2rem;
+        line-height: 1;
+      }
 
-.luxury-divider::before {
-  content: "";
-  position: absolute;
-  left: 50%;
-  top: 0;
-  width: 0;
-  height: 1px;
-  background: #7B4328;
-  transform: translateX(-50%);
-  transition: width 1.4s ease;
-}
+      /* Sun SVG decoration */
+      .sun-svg {
+        animation: sunPulse 5s ease-in-out infinite;
+      }
 
-.luxury-divider.show::before {
-  width: 100%;
-}
-.premium-cta {
-  opacity: 0;
-  transform: translateY(100px);
-  transition:
-    opacity 1s ease,
-    transform 1s cubic-bezier(.16,1,.3,1);
-}
+      /* Scroll progress */
+      #progress-bar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 2px;
+        background: linear-gradient(90deg, #7b4328, #c9917a);
+        z-index: 999;
+        width: 0%;
+        transition: width 0.1s linear;
+      }
 
-.premium-cta.show {
-  opacity: 1;
-  transform: translateY(0);
-}
-.hero-banner img {
-  transition: transform 2s ease;
-}
+      /* Mobile menu */
+      #mobile-menu {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: #faf3ee;
+        z-index: 900;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 2rem;
+      }
 
-.hero-banner:hover img {
-  transform: scale(1.05);
-}
-  </style>
-</head>
+      #mobile-menu.open {
+        display: flex;
+      }
 
-<body>
-  <!-- Scroll progress bar -->
-  <div id="progress-bar"></div>
+      #mobile-menu a {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 2rem;
+        color: #7b4328;
+        text-decoration: none;
+      }
 
-  <!-- ═══════════════════════════════════════════════
+      .reveal {
+        opacity: 0;
+        transform: translateY(80px);
+        animation: fadeUp 0.9s ease forwards;
+      }
+
+      @keyframes fadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(80px);
+        }
+
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* Smooth image loading */
+      img {
+        transition: opacity 0.4s ease;
+      }
+
+      img[loading="lazy"] {
+        opacity: 0;
+      }
+
+      img.loaded {
+        opacity: 1;
+      }
+
+      @media (max-width: 640px) {
+        html,
+        body {
+          width: 100%;
+          overflow-x: hidden;
+        }
+
+        nav {
+          padding: 1rem !important;
+        }
+
+        #mobile-menu {
+          padding: 2rem 1rem;
+        }
+
+        section {
+          overflow-x: clip;
+        }
+
+        section:first-of-type {
+          padding-top: 6rem !important;
+          padding-bottom: 4rem !important;
+        }
+
+        section:first-of-type h1 {
+          font-size: clamp(2.5rem, 13vw, 3.8rem) !important;
+          line-height: 1.05 !important;
+        }
+
+        section:first-of-type .flex {
+          flex-direction: column;
+          align-items: stretch;
+        }
+
+        section:first-of-type button {
+          width: 100%;
+          justify-content: center;
+        }
+
+        [class*="h-[650px]"] {
+          height: min(420px, 82vw) !important;
+        }
+
+        [class*="grid-cols-4"] {
+          grid-template-columns: 1fr !important;
+        }
+
+        .service-grid-card img {
+          width: 100%;
+          height: auto;
+        }
+
+        [class*="h-[128px]"] {
+          height: auto !important;
+          min-height: 0 !important;
+          flex-direction: column;
+          align-items: stretch;
+          text-align: center;
+        }
+
+        [class*="px-[48px]"] {
+          padding: 1.25rem !important;
+        }
+
+        [class*="text-[29px]"] {
+          font-size: 1.55rem !important;
+        }
+
+        [class*="h-[58px]"] {
+          height: auto !important;
+          width: 100%;
+        }
+
+        [class*="px-[38px]"] {
+          padding-left: 1.25rem !important;
+          padding-right: 1.25rem !important;
+        }
+
+        [class*="justify-between"] {
+          gap: 1rem;
+        }
+
+        .grid.grid-cols-3,
+        .insta-grid,
+        .service-grid {
+          grid-template-columns: 1fr !important;
+        }
+
+        .btn-primary,
+        .btn-outline,
+        .btn-outline-brown,
+        .btn-outline-white {
+          justify-content: center;
+          max-width: 100%;
+          text-align: center;
+          white-space: normal;
+        }
+
+        footer {
+          min-height: auto !important;
+        }
+
+        footer .relative.z-10 {
+          padding-left: 1rem !important;
+          padding-right: 1rem !important;
+        }
+
+        footer .grid.grid-cols-3 {
+          gap: 1.5rem;
+          text-align: center;
+        }
+
+        .sun-svg svg {
+          width: min(190px, 80vw);
+          height: auto;
+        }
+
+        .modal-overlay {
+          align-items: flex-start;
+          overflow-y: auto;
+          padding: 1rem;
+        }
+
+        .modal-box {
+          width: 100%;
+          max-height: calc(100svh - 2rem);
+          overflow-y: auto;
+          padding: 1.25rem;
+          border-radius: 1rem;
+        }
+      }
+
+      @media (max-width: 380px) {
+        section:first-of-type h1 {
+          font-size: 2.3rem !important;
+        }
+
+        nav a {
+          font-size: 1rem !important;
+        }
+      }
+      /* Luxury Reveal */
+      .luxury-reveal {
+        opacity: 0;
+        transform: translateY(80px);
+        transition:
+          opacity 1s cubic-bezier(0.16, 1, 0.3, 1),
+          transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+
+      .luxury-reveal.show {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* Sequential Delay */
+      .delay-1 {
+        transition-delay: 0.15s;
+      }
+      .delay-2 {
+        transition-delay: 0.3s;
+      }
+      .delay-3 {
+        transition-delay: 0.45s;
+      }
+      .delay-4 {
+        transition-delay: 0.6s;
+      }
+      .delay-5 {
+        transition-delay: 0.75s;
+      }
+      .service-grid-card {
+        overflow: hidden;
+        border-radius: 14px;
+        transform: translateY(50px);
+        opacity: 0;
+        transition:
+          transform 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+          opacity 0.9s ease,
+          box-shadow 0.5s ease;
+      }
+
+      .service-grid-card.show {
+        transform: translateY(0);
+        opacity: 1;
+      }
+
+      .service-grid-card img {
+        transition:
+          transform 1.2s ease,
+          filter 0.8s ease;
+      }
+
+      .service-grid-card:hover img {
+        transform: scale(1.08);
+      }
+
+      .service-grid-card:hover {
+        box-shadow: 0 20px 60px rgba(123, 67, 40, 0.12);
+      }
+      .luxury-divider {
+        width: 100%;
+        height: 1px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .luxury-divider::before {
+        content: "";
+        position: absolute;
+        left: 50%;
+        top: 0;
+        width: 0;
+        height: 1px;
+        background: #7b4328;
+        transform: translateX(-50%);
+        transition: width 1.4s ease;
+      }
+
+      .luxury-divider.show::before {
+        width: 100%;
+      }
+      .premium-cta {
+        opacity: 0;
+        transform: translateY(100px);
+        transition:
+          opacity 1s ease,
+          transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+
+      .premium-cta.show {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      .hero-banner img {
+        transition: transform 2s ease;
+      }
+
+      .hero-banner:hover img {
+        transform: scale(1.05);
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Scroll progress bar -->
+    <div id="progress-bar"></div>
+
+    <!-- ═══════════════════════════════════════════════
      NAVBAR
 ═══════════════════════════════════════════════ -->
-  <nav class="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-8 py-5" id="navbar" style="
+    <nav
+      class="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-8 py-5"
+      id="navbar"
+      style="
         background: transparent;
         transition:
           background 0.4s ease,
           backdrop-filter 0.4s ease;
-      ">
-    <!-- Logo -->
-    <a href="index.html" class="flex items-center gap-2 font-display text-xl text-skin-brown font-medium"
-      style="color: #7b4328">
-      <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-        <circle cx="10" cy="10" r="4" fill="#7B4328" />
-        <g stroke="#7B4328" stroke-width="1.5" stroke-linecap="round">
-          <line x1="10" y1="1" x2="10" y2="4" />
-          <line x1="10" y1="16" x2="10" y2="19" />
-          <line x1="1" y1="10" x2="4" y2="10" />
-          <line x1="16" y1="10" x2="19" y2="10" />
-          <line x1="3.22" y1="3.22" x2="5.34" y2="5.34" />
-          <line x1="14.66" y1="14.66" x2="16.78" y2="16.78" />
-          <line x1="3.22" y1="16.78" x2="5.34" y2="14.66" />
-          <line x1="14.66" y1="5.34" x2="16.78" y2="3.22" />
-        </g>
-      </svg>
-      epidermis
-    </a>
+      "
+    >
+      <!-- Logo -->
+      <a
+        href="index.html"
+        class="flex items-center gap-2 font-display text-xl text-skin-brown font-medium"
+        style="color: #7b4328"
+      >
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+          <circle cx="10" cy="10" r="4" fill="#7B4328" />
+          <g stroke="#7B4328" stroke-width="1.5" stroke-linecap="round">
+            <line x1="10" y1="1" x2="10" y2="4" />
+            <line x1="10" y1="16" x2="10" y2="19" />
+            <line x1="1" y1="10" x2="4" y2="10" />
+            <line x1="16" y1="10" x2="19" y2="10" />
+            <line x1="3.22" y1="3.22" x2="5.34" y2="5.34" />
+            <line x1="14.66" y1="14.66" x2="16.78" y2="16.78" />
+            <line x1="3.22" y1="16.78" x2="5.34" y2="14.66" />
+            <line x1="14.66" y1="5.34" x2="16.78" y2="3.22" />
+          </g>
+        </svg>
+        epidermis
+      </a>
 
-    <!-- Desktop Nav -->
-    <div
-      class="hidden md:flex items-center font-bold gap-8 text-sm text-white [text-shadow:_1px_1px_0_#fff,_-1px_-1px_0_#fff,_1px_-1px_0_#fff,_-1px_1px_0_#fff]"
-      style="color: #7b4328">
+      <!-- Desktop Nav -->
+      <div
+        class="hidden md:flex items-center font-bold gap-8 text-sm text-white [text-shadow:_1px_1px_0_#fff,_-1px_-1px_0_#fff,_1px_-1px_0_#fff,_-1px_1px_0_#fff]"
+        style="color: #7b4328"
+      >
+        <a href="about.html" class="nav-link">About</a>
+        <a href="services.html" class="nav-link">Services</a>
+        <!-- <a href="#testimonials" class="nav-link">Testimonials</a> -->
+        <a href="news.html" class="nav-link">News</a>
+        <a href="faq.html" class="nav-link">FAQ</a>
+      </div>
+
+      <div class="hidden md:flex items-center gap-3">
+        <button class="btn-primary" onclick="openModal()">
+          Book a Consultation
+        </button>
+      </div>
+
+      <!-- Hamburger -->
+      <button
+        class="md:hidden flex flex-col gap-1.5 p-2"
+        onclick="toggleMenu()"
+        id="hamburger"
+      >
+        <span
+          class="block w-5 h-0.5 bg-skin-brown transition-all"
+          style="background: #7b4328"
+        ></span>
+        <span
+          class="block w-5 h-0.5 bg-skin-brown transition-all"
+          style="background: #7b4328"
+        ></span>
+        <span
+          class="block w-5 h-0.5 bg-skin-brown transition-all"
+          style="background: #7b4328"
+        ></span>
+      </button>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu">
+      <button
+        class="absolute top-5 right-8 text-3xl"
+        style="color: #7b4328"
+        onclick="toggleMenu()"
+      >
+        ✕
+      </button>
       <a href="about.html" class="nav-link">About</a>
       <a href="services.html" class="nav-link">Services</a>
-      <!-- <a href="#testimonials" class="nav-link">Testimonials</a> -->
-      <a href="#updates" class="nav-link">News</a>
-      <a href="#faq" class="nav-link">FAQ</a>
-    </div>
-
-    <div class="hidden md:flex items-center gap-3">
-      <button class="btn-primary" onclick="openModal()">
+      <a href="#updates" onclick="toggleMenu()">News</a>
+      <a href="faq.html" onclick="toggleMenu()">FAQ</a>
+      <button
+        class="btn-primary mt-4"
+        onclick="
+          toggleMenu();
+          openModal();
+        "
+      >
         Book a Consultation
       </button>
     </div>
 
-    <!-- Hamburger -->
-    <button class="md:hidden flex flex-col gap-1.5 p-2" onclick="toggleMenu()" id="hamburger">
-      <span class="block w-5 h-0.5 bg-skin-brown transition-all" style="background: #7b4328"></span>
-      <span class="block w-5 h-0.5 bg-skin-brown transition-all" style="background: #7b4328"></span>
-      <span class="block w-5 h-0.5 bg-skin-brown transition-all" style="background: #7b4328"></span>
-    </button>
-  </nav>
-
-  <!-- Mobile Menu -->
-  <div id="mobile-menu">
-    <button class="absolute top-5 right-8 text-3xl" style="color: #7b4328" onclick="toggleMenu()">
-      ✕
-    </button>
-    <a href="about.html" class="nav-link">About</a>
-    <a href="services.html" class="nav-link">Services</a>
-    <a href="#testimonials" onclick="toggleMenu()">Testimonials</a>
-    <a href="#updates" onclick="toggleMenu()">News</a>
-    <a href="#faq" onclick="toggleMenu()">FAQ</a>
-    <button class="btn-primary mt-4" onclick="
-          toggleMenu();
-          openModal();
-        ">
-      Book a Consultation
-    </button>
-  </div>
-
-  <!-- ═══════════════════════════════════════════════
+    <!-- ═══════════════════════════════════════════════
      HERO SECTION
 ═══════════════════════════════════════════════ -->
 
-  <section class="bg-[#f7f0eb] pt-28 pb-40 overflow-hidden">
-    <div class="max-w-6xl mx-auto px-4 text-center">
-      <h1 class="text-[#7B4328] text-5xl md:text-6xl leading-none reveal">
-        Our Expert Skin <br />Care Services
-      </h1>
+    <section class="bg-[#f7f0eb] pt-28 pb-40 overflow-hidden">
+      <div class="max-w-6xl mx-auto px-4 text-center">
+        <h1 class="text-[#7B4328] text-5xl md:text-6xl leading-none reveal">
+          Our Expert Skin <br />Care Services
+        </h1>
 
-      <div class="flex justify-center gap-3 mt-6 reveal" style="animation-delay: 0.2s">
-        <button
-          class="px-6 py-3 rounded-full bg-[#7B4328] text-white text-sm transition-all duration-300 hover:scale-105">
-          Book a Consultation
-        </button>
+        <div
+          class="flex justify-center gap-3 mt-6 reveal"
+          style="animation-delay: 0.2s"
+        >
+          <button
+          onclick="openModal()"
+            class="px-6 py-3 rounded-full bg-[#7B4328] text-white text-sm transition-all duration-300 hover:scale-105"
+          >
+            Book a Consultation
+          </button>
 
-        <button
-          class="px-6 py-3 rounded-full border border-[#c9917a] text-[#7B4328] text-sm transition-all duration-300 hover:bg-[#7B4328] hover:text-white">
-          About Epidermis
-        </button>
+          <button
+          onclick="window.location.href = 'subservices.html'"
+            class="px-6 py-3 rounded-full border border-[#c9917a] text-[#7B4328] text-sm transition-all duration-300 hover:bg-[#7B4328] hover:text-white"
+          >
+            Our Services
+          </button>
+          
+        </div>
       </div>
-    </div>
 
-    <div class="max-w-6xl mx-auto px-4 mt-12 reveal" style="animation-delay: 0.4s">
-      <div class="overflow-hidden rounded-[26px] shadow-lg">
-        <img src="./assets/images/serviceb.png" alt=""
-          class="w-full h-[650px] object-cover transition-transform duration-[2000ms] hover:scale-105" />
+      <div
+        class="max-w-6xl mx-auto px-4 mt-12 reveal"
+        style="animation-delay: 0.4s"
+      >
+        <div class="overflow-hidden rounded-[26px] shadow-lg">
+          <img
+            src="./assets/images/serviceb.png"
+            alt=""
+            class="w-full h-[650px] object-cover transition-transform duration-[2000ms] hover:scale-105"
+          />
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="mt-[-100px] py-10 px-4 bg-[#f7f0eb]">
+    <!-- ═══════════════════════════════════════════════
+     CLINIC UPDATES / NEWS
+═══════════════════════════════════════════════ -->
+    <section id="updates" class="py-16 px-4" style="background: #f3e8df">
+      <div class="max-w-5xl mx-auto">
+        <!-- Header -->
+        <div class="flex justify-between items-start mb-16">
+          <div>
+            <p class="text-sm font-bold text-[#7B4328] mb-4">• Services</p>
+
+            <h2
+              class="font-display text-4xl md:text-5xl leading-none text-[#7B4328]"
+            >
+              Stay Ahead with<br />
+              Skincare Trends
+            </h2>
+          </div>
+
+          <button
+                onclick="window.location.href = 'subservices.html'"
+                class="px-6 py-2 mt-14 rounded-full border border-[#7B4328] text-[#7B4328] transition-all duration-300 hover:bg-[#7B4328] hover:text-white"
+              >
+                View All
+              </button>
+        </div>
+
+        <!-- News Grid -->
+        <div class="grid md:grid-cols-2 gap-30">
+          <!-- Card 1 -->
+          <div class="flex gap-4 items-start">
+            <div
+              class="w-[300px] h-[300px] overflow-hidden rounded-[28px] flex-shrink-0"
+            >
+              <img
+                src="./assets/images/n1.jpg"
+                alt=""
+                class="w-full h-full object-cover"
+              />
+            </div>
+
+            <div class="pt-1">
+              <h3
+                class="font-display font-bold text-[20px] leading-tight text-[#7B4328] mb-4"
+              >
+                5 Common Skincare<br />
+                Mistakes to Avoid
+              </h3>
+
+              <p class="text-[#7B4328] text-[12px] leading-relaxed mb-8">
+                Learn how to sidestep these everyday habits that could be
+                harming your skin.
+              </p>
+
+              <button
+                onclick="window.location.href = 'subservices.html'"
+                class="px-6 py-2 mt-14 rounded-full border border-[#7B4328] text-[#7B4328] transition-all duration-300 hover:bg-[#7B4328] hover:text-white"
+              >
+                Learn More
+              </button>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="flex gap-4 items-start">
+            <div
+              class="w-[300px] h-[300px] overflow-hidden rounded-[28px] flex-shrink-0"
+            >
+              <img
+                src="./assets/images/n2.jpg"
+                alt=""
+                class="w-full h-full object-cover"
+              />
+            </div>
+
+            <div class="pt-1">
+              <h3
+                class="font-display font-bold text-[20px] leading-tight text-[#7B4328] mb-4"
+              >
+                The Benefits of<br />
+                Chemical Peels
+              </h3>
+
+              <p class="text-[#7B4328] text-[12px] leading-relaxed mb-8">
+                Discover how chemical peels can rejuvenate your skin and restore
+                glow.
+              </p>
+
+              <button
+                onclick="window.location.href = 'subservices.html'"
+                class="px-6 py-2 mt-14 rounded-full border border-[#7B4328] text-[#7B4328] transition-all duration-300 hover:bg-[#7B4328] hover:text-white"
+              >
+                Learn More
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════
+   animation and images
+    ═══════════════════════════════════════════════ -->
+    <!-- 
+   <section class="mt-[-100px] py-10 px-4 bg-[#f7f0eb]">
 
     <div class="max-w-6xl mx-auto">
       <p class="text-[#7B4328] text-lg font-semibold mb-20 flex items-center justify-center gap-2">
@@ -1407,436 +1556,592 @@
           </button>
         </div>
       </div>
-  </section>
-
+  </section> -->
   <!-- ═══════════════════════════════════════════════
-     FOOTER
+     CTA SECTION
 ═══════════════════════════════════════════════ -->
-  <footer class="relative overflow-hidden min-h-[900px] bg-[#7B4328]">
-    <div class="relative z-10 pt-14 pb-10 px-8">
-      <div class="max-w-3xl mx-auto text-center mb-10">
-        <!-- Logo -->
-        <div class="flex items-center justify-center gap-2 mb-8">
-          <svg width="18" height="18" viewBox="0 0 20 20" fill="none">
-            <circle cx="10" cy="10" r="4" fill="white" />
-            <g stroke="white" stroke-width="1.5" stroke-linecap="round">
-              <line x1="10" y1="1" x2="10" y2="4" />
-              <line x1="10" y1="16" x2="10" y2="19" />
-              <line x1="1" y1="10" x2="4" y2="10" />
-              <line x1="16" y1="10" x2="19" y2="10" />
-              <line x1="3.22" y1="3.22" x2="5.34" y2="5.34" />
-              <line x1="14.66" y1="14.66" x2="16.78" y2="16.78" />
-              <line x1="3.22" y1="16.78" x2="5.34" y2="14.66" />
-              <line x1="14.66" y1="5.34" x2="16.78" y2="3.22" />
-            </g>
-          </svg>
-          <span class="font-display text-xl text-white font-medium">epidermis</span>
-        </div>
+  <section class="relative py-0 overflow-hidden" style="min-height: 550px">
+    <img src="assets/images/f1.jpg" alt="Skin glow" style="
+          position: absolute;
+          inset: 0;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          object-position: center 30%;
+        " loading="lazy" onload="this.classList.add('loaded')" />
+    <div style="position: absolute; inset: 0; background: rgba(0, 0, 0, 0.35)"></div>
 
-        <!-- Nav columns -->
-        <div class="grid grid-cols-3 gap-8 mb-10">
-          <div>
-            <p class="text-s font-bold mb-4" style="color: rgba(255, 255, 255, 0.5)">
-              Menu
-            </p>
-            <div class="flex flex-col gap-2">
-              <a href="#about" class="text-white text-lg font-display hover:opacity-70 transition-opacity">About</a>
-              <a href="#services"
-                class="text-white text-lg font-display hover:opacity-70 transition-opacity">Services</a>
-              <a href="#updates" class="text-white text-lg font-display hover:opacity-70 transition-opacity">News</a>
-              <a href="#faq" class="text-white text-lg font-display hover:opacity-70 transition-opacity">FAQ</a>
-            </div>
-          </div>
-          <div>
-            <p class="text-s font-bold mb-4" style="color: rgba(255, 255, 255, 0.5)">
-              Follow Us
-            </p>
-            <div class="flex flex-col gap-2">
-              <a href="#" class="text-white text-lg font-display hover:opacity-70 transition-opacity">Instagram</a>
-              <a href="#" class="text-white text-lg font-display hover:opacity-70 transition-opacity">Facebook</a>
-              <a href="#" class="text-white text-lg font-display hover:opacity-70 transition-opacity">X (Twitter)</a>
-              <a href="#" class="text-white text-lg font-display hover:opacity-70 transition-opacity">LinkedIn</a>
-            </div>
-          </div>
-          <div>
-            <p class="text-s font-bold mb-4" style="color: rgba(255, 255, 255, 0.5)">
-              Explore
-            </p>
-            <div class="flex flex-col gap-2">
-              <a href="#" class="text-white text-lg font-display hover:opacity-70 transition-opacity">Licenses</a>
-              <a href="#" class="text-white text-lg font-display hover:opacity-70 transition-opacity">Templates</a>
-              <a href="#" class="text-white text-lg font-display hover:opacity-70 transition-opacity">Careers</a>
-              <a href="#" class="text-white text-lg font-display hover:opacity-70 transition-opacity">Contact</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- CTA bar -->
-        <div class="rounded-xl p-5 flex items-center justify-between gap-4 flex-wrap mb-8" style="
-              background: rgba(255, 255, 255, 0.1);
-              backdrop-filter: blur(6px);
-            ">
-          <div class="text-left">
-            <p class="text-white text-sm leading-relaxed">
-              Healthy, Glowing Skin Awaits.<br />Schedule a Consultation
-              Today!
-            </p>
-          </div>
-          <button class="btn-outline-white py-2.5 px-6" onclick="openModal()">
+    <div class="relative z-10 flex items-center justify-center h-full py-28 px-4">
+      <div class="text-center rounded-2xl p-10 reveal" style="
+            background: rgba(250, 243, 238, 0.92);
+            backdrop-filter: blur(10px);
+            max-width: 520px;
+            width: 100%;
+          ">
+        <div class="section-label justify-center font-bold">Get Started</div>
+        <h2 class="font-display text-3xl md:text-4xl mb-6" style="color: #7b3b2a">
+          Ready to Begin Your<br />Skincare Journey?
+        </h2>
+        <div class="flex flex-wrap gap-3 justify-center">
+          <button class="btn-primary" onclick="openModal()">
             Book a Consultation
           </button>
-        </div>
-
-        <p style="color: rgba(255, 255, 255, 0.35); font-size: 0.8rem">
-          © 2025, All rights reserved
-        </p>
-      </div>
-      <div class="max-w-5xl mx-auto mt-20 grid grid-cols-3 gap-8 items-center justify-items-center reveal"
-        style="opacity: 0.4">
-        <div class="sun-svg">
-          <svg width="230" height="330" viewBox="0 0 130 130" fill="none">
-            <circle cx="65" cy="65" r="30" fill="#e8c5b5" stroke="none" />
-            <circle cx="65" cy="65" r="28" stroke="#d4a090" stroke-width="3" fill="none" />
-            <g stroke="#d4a090" stroke-width="5" stroke-linecap="round">
-              <line x1="65" y1="10" x2="65" y2="22" />
-              <line x1="65" y1="108" x2="65" y2="120" />
-              <line x1="10" y1="65" x2="22" y2="65" />
-              <line x1="108" y1="65" x2="120" y2="65" />
-              <line x1="24" y1="24" x2="32" y2="32" />
-              <line x1="98" y1="98" x2="106" y2="106" />
-              <line x1="24" y1="106" x2="32" y2="98" />
-              <line x1="98" y1="32" x2="106" y2="24" />
-            </g>
-          </svg>
-        </div>
-        <div class="sun-svg" style="animation-delay: 1.5s">
-          <svg width="230" height="330" viewBox="0 0 130 130" fill="none">
-            <circle cx="65" cy="65" r="38" fill="#e8c5b5" />
-            <g stroke="#d4a090" stroke-width="5" stroke-linecap="round">
-              <line x1="65" y1="10" x2="65" y2="22" />
-              <line x1="65" y1="108" x2="65" y2="120" />
-              <line x1="10" y1="65" x2="22" y2="65" />
-              <line x1="108" y1="65" x2="120" y2="65" />
-              <line x1="24" y1="24" x2="32" y2="32" />
-              <line x1="98" y1="98" x2="106" y2="106" />
-              <line x1="24" y1="106" x2="32" y2="98" />
-              <line x1="98" y1="32" x2="106" y2="24" />
-            </g>
-          </svg>
-        </div>
-        <div class="sun-svg" style="animation-delay: 3s">
-          <svg width="230" height="330" viewBox="0 0 130 130" fill="none">
-            <circle cx="65" cy="65" r="30" fill="none" stroke="#d4a090" stroke-width="3" />
-            <circle cx="65" cy="65" r="20" fill="none" stroke="#d4a090" stroke-width="2" />
-            <g stroke="#d4a090" stroke-width="5" stroke-linecap="round">
-              <line x1="65" y1="10" x2="65" y2="22" />
-              <line x1="65" y1="108" x2="65" y2="120" />
-              <line x1="10" y1="65" x2="22" y2="65" />
-              <line x1="108" y1="65" x2="120" y2="65" />
-              <line x1="24" y1="24" x2="32" y2="32" />
-              <line x1="98" y1="98" x2="106" y2="106" />
-              <line x1="24" y1="106" x2="32" y2="98" />
-              <line x1="98" y1="32" x2="106" y2="24" />
-            </g>
-          </svg>
+          <button class="btn-outline-brown" onclick="
+                document
+                  .getElementById('services')
+                  .scrollIntoView({ behavior: 'smooth' })
+              ">
+            Explore Services
+          </button>
         </div>
       </div>
     </div>
-  </footer>
+  </section>
 
-  <!-- ═══════════════════════════════════════════════
-     BOOKING MODAL
+    <!-- ═══════════════════════════════════════════════
+     FOOTER
 ═══════════════════════════════════════════════ -->
-  <div class="modal-overlay" id="modal" onclick="handleOverlayClick(event)">
-    <div class="modal-box">
-      <div class="flex items-center justify-between mb-6">
-        <div>
-          <h3 class="font-display text-2xl" style="color: #7b4328">
-            Book a Consultation
-          </h3>
-          <p class="text-sm mt-1" style="color: #a0522d">
-            Free skin analysis included
+    <footer class="relative overflow-hidden min-h-[900px] bg-[#7B4328]">
+      <div class="relative z-10 pt-14 pb-10 px-8">
+        <div class="max-w-3xl mx-auto text-center mb-10">
+          <!-- Logo -->
+          <div class="flex items-center justify-center gap-2 mb-8">
+            <svg width="18" height="18" viewBox="0 0 20 20" fill="none">
+              <circle cx="10" cy="10" r="4" fill="white" />
+              <g stroke="white" stroke-width="1.5" stroke-linecap="round">
+                <line x1="10" y1="1" x2="10" y2="4" />
+                <line x1="10" y1="16" x2="10" y2="19" />
+                <line x1="1" y1="10" x2="4" y2="10" />
+                <line x1="16" y1="10" x2="19" y2="10" />
+                <line x1="3.22" y1="3.22" x2="5.34" y2="5.34" />
+                <line x1="14.66" y1="14.66" x2="16.78" y2="16.78" />
+                <line x1="3.22" y1="16.78" x2="5.34" y2="14.66" />
+                <line x1="14.66" y1="5.34" x2="16.78" y2="3.22" />
+              </g>
+            </svg>
+            <span class="font-display text-xl text-white font-medium"
+              >epidermis</span
+            >
+          </div>
+
+          <!-- Nav columns -->
+          <div class="grid grid-cols-3 gap-8 mb-10">
+            <div>
+              <p
+                class="text-s font-bold mb-4"
+                style="color: rgba(255, 255, 255, 0.5)"
+              >
+                Menu
+              </p>
+              <div class="flex flex-col gap-2">
+                <a
+                  href="#about"
+                  class="text-white text-lg font-display hover:opacity-70 transition-opacity"
+                  >About</a
+                >
+                <a
+                  href="#services"
+                  class="text-white text-lg font-display hover:opacity-70 transition-opacity"
+                  >Services</a
+                >
+                <a
+                  href="#updates"
+                  class="text-white text-lg font-display hover:opacity-70 transition-opacity"
+                  >News</a
+                >
+                <a
+                  href="#faq"
+                  class="text-white text-lg font-display hover:opacity-70 transition-opacity"
+                  >FAQ</a
+                >
+              </div>
+            </div>
+            <div>
+              <p
+                class="text-s font-bold mb-4"
+                style="color: rgba(255, 255, 255, 0.5)"
+              >
+                Follow Us
+              </p>
+              <div class="flex flex-col gap-2">
+                <a
+                  href="#"
+                  class="text-white text-lg font-display hover:opacity-70 transition-opacity"
+                  >Instagram</a
+                >
+                <a
+                  href="#"
+                  class="text-white text-lg font-display hover:opacity-70 transition-opacity"
+                  >Facebook</a
+                >
+                <a
+                  href="#"
+                  class="text-white text-lg font-display hover:opacity-70 transition-opacity"
+                  >X (Twitter)</a
+                >
+                <a
+                  href="#"
+                  class="text-white text-lg font-display hover:opacity-70 transition-opacity"
+                  >LinkedIn</a
+                >
+              </div>
+            </div>
+            <div>
+              <p
+                class="text-s font-bold mb-4"
+                style="color: rgba(255, 255, 255, 0.5)"
+              >
+                Explore
+              </p>
+              <div class="flex flex-col gap-2">
+                <a
+                  href="#"
+                  class="text-white text-lg font-display hover:opacity-70 transition-opacity"
+                  >Licenses</a
+                >
+                <a
+                  href="#"
+                  class="text-white text-lg font-display hover:opacity-70 transition-opacity"
+                  >Templates</a
+                >
+                <a
+                  href="#"
+                  class="text-white text-lg font-display hover:opacity-70 transition-opacity"
+                  >Careers</a
+                >
+                <a
+                  href="#"
+                  class="text-white text-lg font-display hover:opacity-70 transition-opacity"
+                  >Contact</a
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- CTA bar -->
+          <div
+            class="rounded-xl p-5 flex items-center justify-between gap-4 flex-wrap mb-8"
+            style="
+              background: rgba(255, 255, 255, 0.1);
+              backdrop-filter: blur(6px);
+            "
+          >
+            <div class="text-left">
+              <p class="text-white text-sm leading-relaxed">
+                Healthy, Glowing Skin Awaits.<br />Schedule a Consultation
+                Today!
+              </p>
+            </div>
+            <button class="btn-outline-white py-2.5 px-6" onclick="openModal()">
+              Book a Consultation
+            </button>
+          </div>
+
+          <p style="color: rgba(255, 255, 255, 0.35); font-size: 0.8rem">
+            © 2025, All rights reserved
           </p>
         </div>
-        <button onclick="closeModal()" style="
+        <div
+          class="max-w-5xl mx-auto mt-20 grid grid-cols-3 gap-8 items-center justify-items-center reveal"
+          style="opacity: 0.4"
+        >
+          <div class="sun-svg">
+            <svg width="230" height="330" viewBox="0 0 130 130" fill="none">
+              <circle cx="65" cy="65" r="30" fill="#e8c5b5" stroke="none" />
+              <circle
+                cx="65"
+                cy="65"
+                r="28"
+                stroke="#d4a090"
+                stroke-width="3"
+                fill="none"
+              />
+              <g stroke="#d4a090" stroke-width="5" stroke-linecap="round">
+                <line x1="65" y1="10" x2="65" y2="22" />
+                <line x1="65" y1="108" x2="65" y2="120" />
+                <line x1="10" y1="65" x2="22" y2="65" />
+                <line x1="108" y1="65" x2="120" y2="65" />
+                <line x1="24" y1="24" x2="32" y2="32" />
+                <line x1="98" y1="98" x2="106" y2="106" />
+                <line x1="24" y1="106" x2="32" y2="98" />
+                <line x1="98" y1="32" x2="106" y2="24" />
+              </g>
+            </svg>
+          </div>
+          <div class="sun-svg" style="animation-delay: 1.5s">
+            <svg width="230" height="330" viewBox="0 0 130 130" fill="none">
+              <circle cx="65" cy="65" r="38" fill="#e8c5b5" />
+              <g stroke="#d4a090" stroke-width="5" stroke-linecap="round">
+                <line x1="65" y1="10" x2="65" y2="22" />
+                <line x1="65" y1="108" x2="65" y2="120" />
+                <line x1="10" y1="65" x2="22" y2="65" />
+                <line x1="108" y1="65" x2="120" y2="65" />
+                <line x1="24" y1="24" x2="32" y2="32" />
+                <line x1="98" y1="98" x2="106" y2="106" />
+                <line x1="24" y1="106" x2="32" y2="98" />
+                <line x1="98" y1="32" x2="106" y2="24" />
+              </g>
+            </svg>
+          </div>
+          <div class="sun-svg" style="animation-delay: 3s">
+            <svg width="230" height="330" viewBox="0 0 130 130" fill="none">
+              <circle
+                cx="65"
+                cy="65"
+                r="30"
+                fill="none"
+                stroke="#d4a090"
+                stroke-width="3"
+              />
+              <circle
+                cx="65"
+                cy="65"
+                r="20"
+                fill="none"
+                stroke="#d4a090"
+                stroke-width="2"
+              />
+              <g stroke="#d4a090" stroke-width="5" stroke-linecap="round">
+                <line x1="65" y1="10" x2="65" y2="22" />
+                <line x1="65" y1="108" x2="65" y2="120" />
+                <line x1="10" y1="65" x2="22" y2="65" />
+                <line x1="108" y1="65" x2="120" y2="65" />
+                <line x1="24" y1="24" x2="32" y2="32" />
+                <line x1="98" y1="98" x2="106" y2="106" />
+                <line x1="24" y1="106" x2="32" y2="98" />
+                <line x1="98" y1="32" x2="106" y2="24" />
+              </g>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- ═══════════════════════════════════════════════
+     BOOKING MODAL
+═══════════════════════════════════════════════ -->
+    <div class="modal-overlay" id="modal" onclick="handleOverlayClick(event)">
+      <div class="modal-box">
+        <div class="flex items-center justify-between mb-6">
+          <div>
+            <h3 class="font-display text-2xl" style="color: #7b4328">
+              Book a Consultation
+            </h3>
+            <p class="text-sm mt-1" style="color: #a0522d">
+              Free skin analysis included
+            </p>
+          </div>
+          <button
+            onclick="closeModal()"
+            style="
               color: #a0522d;
               font-size: 1.5rem;
               line-height: 1;
               background: none;
               border: none;
               cursor: pointer;
-            ">
-          ✕
-        </button>
+            "
+          >
+            ✕
+          </button>
+        </div>
+
+        <form
+          id="booking-form"
+          onsubmit="submitForm(event)"
+          class="flex flex-col gap-3"
+        >
+          <input
+            type="text"
+            name="full_name"
+            placeholder="Full Name *"
+            class="form-input"
+            required
+          />
+          <input
+            type="email"
+            name="email"
+            placeholder="Email Address *"
+            class="form-input"
+            required
+          />
+          <input
+            type="tel"
+            name="phone"
+            placeholder="Phone Number"
+            class="form-input"
+          />
+          <select name="service_id" class="form-input">
+            <option value="" style="color: #c9917a">Select a Service</option>
+            <option value="1">Acne Treatment</option>
+            <option value="2">Laser Skin Resurfacing</option>
+            <option value="3">Tattoo Removal</option>
+            <option value="4">Body Massage</option>
+            <option value="5">Chemical Peel</option>
+            <option value="6">Laser Hair Removal</option>
+            <option value="7">Mole and Skin Tag Removal</option>
+          </select>
+          <input type="date" name="preferred_date" class="form-input" />
+          <textarea
+            name="message"
+            placeholder="Tell us about your skin concerns..."
+            class="form-input"
+            rows="3"
+            style="resize: vertical"
+          ></textarea>
+
+          <div id="form-msg" class="text-sm py-2 px-3 rounded-lg hidden"></div>
+
+          <button
+            type="submit"
+            class="btn-primary justify-center mt-2"
+            id="submit-btn"
+          >
+            Book My Free Consultation
+          </button>
+        </form>
       </div>
-
-      <form id="booking-form" onsubmit="submitForm(event)" class="flex flex-col gap-3">
-        <input type="text" name="full_name" placeholder="Full Name *" class="form-input" required />
-        <input type="email" name="email" placeholder="Email Address *" class="form-input" required />
-        <input type="tel" name="phone" placeholder="Phone Number" class="form-input" />
-        <select name="service_id" class="form-input">
-          <option value="" style="color: #c9917a">Select a Service</option>
-          <option value="1">Acne Treatment</option>
-          <option value="2">Laser Skin Resurfacing</option>
-          <option value="3">Tattoo Removal</option>
-          <option value="4">Body Massage</option>
-          <option value="5">Chemical Peel</option>
-          <option value="6">Laser Hair Removal</option>
-          <option value="7">Mole and Skin Tag Removal</option>
-        </select>
-        <input type="date" name="preferred_date" class="form-input" />
-        <textarea name="message" placeholder="Tell us about your skin concerns..." class="form-input" rows="3"
-          style="resize: vertical"></textarea>
-
-        <div id="form-msg" class="text-sm py-2 px-3 rounded-lg hidden"></div>
-
-        <button type="submit" class="btn-primary justify-center mt-2" id="submit-btn">
-          Book My Free Consultation
-        </button>
-      </form>
     </div>
-  </div>
 
-  <!-- ═══════════════════════════════════════════════
+    <!-- ═══════════════════════════════════════════════
      JAVASCRIPT
 ═══════════════════════════════════════════════ -->
-  <script>
-    // ── FLOATING FONT PARTICLES ──────────────────────
-   const WORDS = [
-  "glow",
-  "radiance",
-  "clarity",
-  "renewal",
-  "confidence",
-  "beauty",
-  "care",
-  "transform",
-  "luminous",
-  "hydrate",
-  "nourish",
-  "revive",
-  "pure",
-  "flawless",
-  "serene",
-];
+    <script>
+      // ── FLOATING FONT PARTICLES ──────────────────────
+      const WORDS = [
+        "glow",
+        "radiance",
+        "clarity",
+        "renewal",
+        "confidence",
+        "beauty",
+        "care",
+        "transform",
+        "luminous",
+        "hydrate",
+        "nourish",
+        "revive",
+        "pure",
+        "flawless",
+        "serene",
+      ];
 
-const container = document.getElementById("hero-particles");
+      const container = document.getElementById("hero-particles");
 
-function createParticle() {
-  if (!container) return;
+      function createParticle() {
+        if (!container) return;
 
-  const el = document.createElement("span");
-  el.classList.add("float-particle");
+        const el = document.createElement("span");
+        el.classList.add("float-particle");
 
-  // Random word
-  el.textContent =
-    WORDS[Math.floor(Math.random() * WORDS.length)];
+        // Random word
+        el.textContent = WORDS[Math.floor(Math.random() * WORDS.length)];
 
-  // Random size (14px - 34px)
-  el.style.fontSize = `${Math.random() * 20 + 14}px`;
+        // Random size (14px - 34px)
+        el.style.fontSize = `${Math.random() * 20 + 14}px`;
 
-  // Random horizontal position
-  el.style.left = `${Math.random() * 100}%`;
+        // Random horizontal position
+        el.style.left = `${Math.random() * 100}%`;
 
-  // Start below screen
-  el.style.bottom = "-60px";
+        // Start below screen
+        el.style.bottom = "-60px";
 
-  // Random duration (7s - 15s)
-  const duration = Math.random() * 8 + 7;
-  el.style.animationDuration = `${duration}s`;
+        // Random duration (7s - 15s)
+        const duration = Math.random() * 8 + 7;
+        el.style.animationDuration = `${duration}s`;
 
-  // Random font style
-  el.style.fontStyle =
-    Math.random() > 0.5 ? "italic" : "normal";
+        // Random font style
+        el.style.fontStyle = Math.random() > 0.5 ? "italic" : "normal";
 
-  container.appendChild(el);
+        container.appendChild(el);
 
-  // Remove particle after animation
-  setTimeout(() => {
-    if (el.parentNode) {
-      el.parentNode.removeChild(el);
-    }
-  }, duration * 1000);
-}
-
-// Generate particles continuously
-setInterval(createParticle, 800);
-
-    // Launch particles
-    setInterval(createParticle, 800);
-    for (let i = 0; i < 6; i++) setTimeout(createParticle, i * 300);
-
-    // ── SCROLL REVEAL ────────────────────────────────
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((e) => {
-          if (e.isIntersecting) {
-            const el = e.target;
-            const delay = el.dataset.delay || 0;
-            setTimeout(() => el.classList.add("visible"), delay);
-            observer.unobserve(el);
+        // Remove particle after animation
+        setTimeout(() => {
+          if (el.parentNode) {
+            el.parentNode.removeChild(el);
           }
-        });
-      },
-      { threshold: 0.12 },
-    );
+        }, duration * 1000);
+      }
 
-    document
-      .querySelectorAll(".reveal, .reveal-left, .reveal-right")
-      .forEach((el, i) => {
-        el.dataset.delay = (i % 4) * 80;
-        observer.observe(el);
+      // Generate particles continuously
+      setInterval(createParticle, 800);
+
+      // Launch particles
+      setInterval(createParticle, 800);
+      for (let i = 0; i < 6; i++) setTimeout(createParticle, i * 300);
+
+      // ── SCROLL REVEAL ────────────────────────────────
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) {
+              const el = e.target;
+              const delay = el.dataset.delay || 0;
+              setTimeout(() => el.classList.add("visible"), delay);
+              observer.unobserve(el);
+            }
+          });
+        },
+        { threshold: 0.12 },
+      );
+
+      document
+        .querySelectorAll(".reveal, .reveal-left, .reveal-right")
+        .forEach((el, i) => {
+          el.dataset.delay = (i % 4) * 80;
+          observer.observe(el);
+        });
+
+      // ── SCROLL PROGRESS ──────────────────────────────
+      const bar = document.getElementById("progress-bar");
+      window.addEventListener("scroll", () => {
+        const pct =
+          (window.scrollY / (document.body.scrollHeight - window.innerHeight)) *
+          100;
+        bar.style.width = pct + "%";
       });
 
-    // ── SCROLL PROGRESS ──────────────────────────────
-    const bar = document.getElementById("progress-bar");
-    window.addEventListener("scroll", () => {
-      const pct =
-        (window.scrollY / (document.body.scrollHeight - window.innerHeight)) *
-        100;
-      bar.style.width = pct + "%";
-    });
-
-    // ── NAVBAR SCROLL EFFECT ─────────────────────────
-    const navbar = document.getElementById("navbar");
-    window.addEventListener("scroll", () => {
-      if (window.scrollY > 80) {
-        navbar.style.background = "rgba(250,243,238,0.95)";
-        navbar.style.backdropFilter = "blur(12px)";
-        navbar.style.boxShadow = "0 1px 20px rgba(123,59,42,0.08)";
-      } else {
-        navbar.style.background = "transparent";
-        navbar.style.backdropFilter = "none";
-        navbar.style.boxShadow = "none";
-      }
-    });
-
-    // ── FAQ ACCORDION ─────────────────────────────────
-    function toggleFaq(btn) {
-      const answer = btn.nextElementSibling;
-      const icon = btn.querySelector(".faq-icon");
-      const isOpen = answer.classList.contains("open");
-
-      // Close all
-      document
-        .querySelectorAll(".faq-answer")
-        .forEach((a) => a.classList.remove("open"));
-      document
-        .querySelectorAll(".faq-icon")
-        .forEach((i) => i.classList.remove("open"));
-
-      // Open clicked if it wasn't open
-      if (!isOpen) {
-        answer.classList.add("open");
-        icon.classList.add("open");
-      }
-    }
-
-    // ── MODAL ─────────────────────────────────────────
-    function openModal() {
-      document.getElementById("modal").classList.add("active");
-      document.body.style.overflow = "hidden";
-    }
-    function closeModal() {
-      document.getElementById("modal").classList.remove("active");
-      document.body.style.overflow = "";
-    }
-    function handleOverlayClick(e) {
-      if (e.target === document.getElementById("modal")) closeModal();
-    }
-    document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape") closeModal();
-    });
-
-    // ── BOOKING FORM ──────────────────────────────────
-    async function submitForm(e) {
-      e.preventDefault();
-      const form = e.target;
-      const btn = document.getElementById("submit-btn");
-      const msg = document.getElementById("form-msg");
-      btn.disabled = true;
-      btn.textContent = "Sending…";
-
-      const data = new FormData(form);
-
-      try {
-        // Try PHP backend first; fall back to success in demo mode
-        const res = await fetch("php/book.php", {
-          method: "POST",
-          body: data,
-        }).catch(() => null);
-        let json = {
-          success: true,
-          message:
-            "Consultation request received! We will contact you within 24 hours.",
-        };
-
-        if (res && res.ok) {
-          json = await res.json();
+      // ── NAVBAR SCROLL EFFECT ─────────────────────────
+      const navbar = document.getElementById("navbar");
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > 80) {
+          navbar.style.background = "rgba(250,243,238,0.95)";
+          navbar.style.backdropFilter = "blur(12px)";
+          navbar.style.boxShadow = "0 1px 20px rgba(123,59,42,0.08)";
+        } else {
+          navbar.style.background = "transparent";
+          navbar.style.backdropFilter = "none";
+          navbar.style.boxShadow = "none";
         }
+      });
 
-        msg.className = "text-sm py-2 px-3 rounded-lg";
-        if (json.success) {
+      // ── FAQ ACCORDION ─────────────────────────────────
+      function toggleFaq(btn) {
+        const answer = btn.nextElementSibling;
+        const icon = btn.querySelector(".faq-icon");
+        const isOpen = answer.classList.contains("open");
+
+        // Close all
+        document
+          .querySelectorAll(".faq-answer")
+          .forEach((a) => a.classList.remove("open"));
+        document
+          .querySelectorAll(".faq-icon")
+          .forEach((i) => i.classList.remove("open"));
+
+        // Open clicked if it wasn't open
+        if (!isOpen) {
+          answer.classList.add("open");
+          icon.classList.add("open");
+        }
+      }
+
+      // ── MODAL ─────────────────────────────────────────
+      function openModal() {
+        document.getElementById("modal").classList.add("active");
+        document.body.style.overflow = "hidden";
+      }
+      function closeModal() {
+        document.getElementById("modal").classList.remove("active");
+        document.body.style.overflow = "";
+      }
+      function handleOverlayClick(e) {
+        if (e.target === document.getElementById("modal")) closeModal();
+      }
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") closeModal();
+      });
+
+      // ── BOOKING FORM ──────────────────────────────────
+      async function submitForm(e) {
+        e.preventDefault();
+        const form = e.target;
+        const btn = document.getElementById("submit-btn");
+        const msg = document.getElementById("form-msg");
+        btn.disabled = true;
+        btn.textContent = "Sending…";
+
+        const data = new FormData(form);
+
+        try {
+          // Try PHP backend first; fall back to success in demo mode
+          const res = await fetch("php/book.php", {
+            method: "POST",
+            body: data,
+          }).catch(() => null);
+          let json = {
+            success: true,
+            message:
+              "Consultation request received! We will contact you within 24 hours.",
+          };
+
+          if (res && res.ok) {
+            json = await res.json();
+          }
+
+          msg.className = "text-sm py-2 px-3 rounded-lg";
+          if (json.success) {
+            msg.style.background = "#d4edda";
+            msg.style.color = "#155724";
+            msg.textContent = json.message;
+            form.reset();
+            setTimeout(closeModal, 2500);
+          } else {
+            msg.style.background = "#f8d7da";
+            msg.style.color = "#721c24";
+            msg.textContent = (json.errors || ["Something went wrong."]).join(
+              " ",
+            );
+          }
+        } catch (err) {
           msg.style.background = "#d4edda";
           msg.style.color = "#155724";
-          msg.textContent = json.message;
+          msg.textContent =
+            "Consultation request received! We will contact you within 24 hours.";
           form.reset();
           setTimeout(closeModal, 2500);
-        } else {
-          msg.style.background = "#f8d7da";
-          msg.style.color = "#721c24";
-          msg.textContent = (json.errors || ["Something went wrong."]).join(
-            " ",
-          );
         }
-      } catch (err) {
-        msg.style.background = "#d4edda";
-        msg.style.color = "#155724";
-        msg.textContent =
-          "Consultation request received! We will contact you within 24 hours.";
-        form.reset();
-        setTimeout(closeModal, 2500);
+
+        btn.disabled = false;
+        btn.textContent = "Book My Free Consultation";
       }
 
-      btn.disabled = false;
-      btn.textContent = "Book My Free Consultation";
-    }
-
-    // ── MOBILE MENU ───────────────────────────────────
-    function toggleMenu() {
-      document.getElementById("mobile-menu").classList.toggle("open");
-    }
-
-    // ── LAZY IMAGE OBSERVER ───────────────────────────
-    document.querySelectorAll('img[loading="lazy"]').forEach((img) => {
-      if (img.complete) img.classList.add("loaded");
-    });
-
-    // ── HERO CHAR ANIMATION ───────────────────────────
-    // Already handled by CSS on .hero-title .line span
-  </script>
-  <script>const luxuryObserver = new IntersectionObserver(
-  (entries) => {
-    entries.forEach(entry => {
-
-      if (entry.isIntersecting) {
-
-        entry.target.classList.add("show");
-
-        luxuryObserver.unobserve(entry.target);
+      // ── MOBILE MENU ───────────────────────────────────
+      function toggleMenu() {
+        document.getElementById("mobile-menu").classList.toggle("open");
       }
-    });
-  },
-  {
-    threshold: 0.15
-  }
-);
 
-document.querySelectorAll(
-  ".service-grid-card, .luxury-divider, .premium-cta, .luxury-reveal"
-).forEach(el => {
-  luxuryObserver.observe(el);
-});</script>
-</body>
+      // ── LAZY IMAGE OBSERVER ───────────────────────────
+      document.querySelectorAll('img[loading="lazy"]').forEach((img) => {
+        if (img.complete) img.classList.add("loaded");
+      });
 
+      // ── HERO CHAR ANIMATION ───────────────────────────
+      // Already handled by CSS on .hero-title .line span
+    </script>
+    <script>
+      const luxuryObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("show");
+
+              luxuryObserver.unobserve(entry.target);
+            }
+          });
+        },
+        {
+          threshold: 0.15,
+        },
+      );
+
+      document
+        .querySelectorAll(
+          ".service-grid-card, .luxury-divider, .premium-cta, .luxury-reveal",
+        )
+        .forEach((el) => {
+          luxuryObserver.observe(el);
+        });
+    </script>
+  </body>
 </html>

@@ -952,6 +952,87 @@
     .feature-card:hover p {
       opacity: .9;
     }
+    .hero-reveal{
+  opacity:0;
+  transform:translateY(80px);
+  animation:fadeUpHero 1.2s ease forwards;
+}
+
+.buttons-reveal{
+  opacity:0;
+  transform:translateY(40px);
+  animation:fadeUpBtns 1.2s ease forwards;
+  animation-delay:.4s;
+}
+
+@keyframes fadeUpHero{
+  from{
+    opacity:0;
+    transform:translateY(80px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+@keyframes fadeUpBtns{
+  from{
+    opacity:0;
+    transform:translateY(40px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+.hero-buttons a,
+.buttons-reveal a{
+  transition:all .4s ease;
+}
+
+.hero-buttons a:hover,
+.buttons-reveal a:hover{
+  transform:translateY(-4px);
+}
+/* Image Reveal Animation */
+
+.about-image-wrapper{
+  opacity:0;
+  transform:translate(-50%, 100px);
+  animation:aboutImageReveal 1.5s ease forwards;
+  animation-delay:.6s;
+}
+
+@keyframes aboutImageReveal{
+  from{
+    opacity:0;
+    transform:translate(-50%, 100px);
+  }
+  to{
+    opacity:1;
+    transform:translate(-50%, 0);
+  }
+}
+
+/* Image Hover Effect */
+
+.about-image{
+  transition:all .6s ease;
+}
+
+.about-img{
+  transition:transform 1.2s ease;
+}
+
+.about-image:hover .about-img{
+  transform:scale(1.08);
+}
+
+.about-image:hover{
+  box-shadow:
+    0 30px 60px rgba(123,67,40,.15);
+}
   </style>
 </head>
 
@@ -1038,19 +1119,15 @@
      ABOUT SECTION
 ═══════════════════════════════════════════════ -->
   <!-- ABOUT HERO -->
-  <section class="relative bg-[#fff] pt-24 pb-48 overflow-hidden">
+  <section class="relative bg-[#f7f0eb] pt-24 pb-48 overflow-hidden">
 
     <div class="max-w-6xl mx-auto text-center px-4">
 
-      <p class="text-[#7B4328] text-sm mb-3 font-bold">
-        • About Us
-      </p>
-
-      <h1 class="text-#7B4328  text-5xl md:text-7xl leading-none">
+      <h1 class="text-[#7B4328] text-5xl md:text-6xl leading-none hero-reveal">
         Discover the Story<br> Behind Epidermis
       </h1>
 
-      <div class="flex justify-center gap-4 mt-8">
+      <div class="flex justify-center gap-4 mt-8 buttons-reveal">
         <a href="services.html"
           class="px-8 py-3 rounded-full bg-[#7B4328] text-[#fff] font-medium hover:scale-105 transition">
           Explore Services
@@ -1066,15 +1143,17 @@
 
   </section>
   <!-- Image -->
-  <div class="absolute left-1/2 -translate-x-1/2 bottom-[-380px] w-full max-w-7xl px-4 ">
+  <div class="absolute left-1/2 -translate-x-1/2 bottom-[-380px] w-full max-w-7xl px-4 about-image-wrapper">
 
-    <div class="overflow-hidden rounded-[32px] shadow-2xl">
-
-      <img src="./assets/images/about.png" alt="" class="w-full h-[650px] object-cover">
-
-    </div>
-
+  <div class="overflow-hidden rounded-[32px] shadow-2xl about-image">
+    <img
+      src="./assets/images/about.png"
+      alt=""
+      class="w-full h-[650px] object-cover about-img"
+    >
   </div>
+
+</div>
   <div class="h-[250px] bg-[#f7f0eb]"></div>
   <!-- Sun decorations -->
   <!-- WHY CHOOSE EPIDERMIS -->

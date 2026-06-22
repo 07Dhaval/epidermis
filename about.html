@@ -6,6 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Epidermis — Because Your Skin Deserves the Best</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js" defer></script>
+  <link rel="stylesheet" href="assets/css/site-cta.css" />
+  <script src="assets/js/site-cta.js" defer></script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
@@ -915,26 +918,67 @@
       }
     }
 
+    .why-us-heading,
     .feature-card {
       opacity: 0;
-      transform: translateY(60px);
+      transform: translateY(45px);
       transition:
-        opacity .8s ease,
-        transform .8s ease;
+        opacity 0.8s ease,
+        transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
+    .why-us-heading.show,
     .feature-card.show {
       opacity: 1;
       transform: translateY(0);
     }
 
     .feature-card .icon-box {
-      transition: all .5s ease;
+      position: relative;
+      overflow: hidden;
+      transition:
+        transform 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+        box-shadow 0.45s ease,
+        background-color 0.45s ease;
+    }
+
+    .feature-card .icon-box::after {
+      position: absolute;
+      inset: -40%;
+      background: linear-gradient(120deg,
+          transparent 35%,
+          rgba(255, 255, 255, 0.85) 50%,
+          transparent 65%);
+      content: "";
+      transform: translateX(-100%) rotate(15deg);
+      transition: transform 0.75s ease;
     }
 
     .feature-card:hover .icon-box {
-      transform: translateY(-10px) scale(1.08);
-      box-shadow: 0 20px 40px rgba(123, 67, 40, .18);
+      background: #7b4328;
+      box-shadow: 0 20px 40px rgba(123, 67, 40, 0.2);
+      transform: translateY(-9px) rotate(-3deg) scale(1.07);
+    }
+
+    .feature-card:hover .icon-box::after {
+      transform: translateX(100%) rotate(15deg);
+    }
+
+    .feature-card .icon-box svg {
+      position: relative;
+      z-index: 1;
+      width: 2.25rem;
+      height: 2.25rem;
+      color: #8a4d2c;
+      stroke-width: 1.7;
+      transition:
+        color 0.35s ease,
+        transform 0.45s ease;
+    }
+
+    .feature-card:hover .icon-box svg {
+      color: white;
+      transform: scale(1.08);
     }
 
     .feature-card h3 {
@@ -950,89 +994,128 @@
     }
 
     .feature-card:hover p {
-      opacity: .9;
+      opacity: 0.9;
     }
-    .hero-reveal{
-  opacity:0;
-  transform:translateY(80px);
-  animation:fadeUpHero 1.2s ease forwards;
-}
 
-.buttons-reveal{
-  opacity:0;
-  transform:translateY(40px);
-  animation:fadeUpBtns 1.2s ease forwards;
-  animation-delay:.4s;
-}
+    @media (max-width: 640px) {
+      .why-us-section {
+        padding-top: 4.5rem !important;
+        padding-bottom: 4.5rem !important;
+      }
 
-@keyframes fadeUpHero{
-  from{
-    opacity:0;
-    transform:translateY(80px);
-  }
-  to{
-    opacity:1;
-    transform:translateY(0);
-  }
-}
+      .why-us-heading {
+        margin-bottom: 4rem !important;
+      }
 
-@keyframes fadeUpBtns{
-  from{
-    opacity:0;
-    transform:translateY(40px);
-  }
-  to{
-    opacity:1;
-    transform:translateY(0);
-  }
-}
-.hero-buttons a,
-.buttons-reveal a{
-  transition:all .4s ease;
-}
+      .why-us-heading h2 {
+        font-size: clamp(2.25rem, 11vw, 3rem);
+      }
 
-.hero-buttons a:hover,
-.buttons-reveal a:hover{
-  transform:translateY(-4px);
-}
-/* Image Reveal Animation */
+      .why-us-grid {
+        row-gap: 4rem !important;
+      }
 
-.about-image-wrapper{
-  opacity:0;
-  transform:translate(-50%, 100px);
-  animation:aboutImageReveal 1.5s ease forwards;
-  animation-delay:.6s;
-}
+      .feature-card h3 {
+        font-size: 1.75rem;
+      }
+    }
 
-@keyframes aboutImageReveal{
-  from{
-    opacity:0;
-    transform:translate(-50%, 100px);
-  }
-  to{
-    opacity:1;
-    transform:translate(-50%, 0);
-  }
-}
+    @media (prefers-reduced-motion: reduce) {
 
-/* Image Hover Effect */
+      .why-us-heading,
+      .feature-card {
+        opacity: 1;
+        transform: none;
+        transition: none;
+      }
+    }
 
-.about-image{
-  transition:all .6s ease;
-}
+    .hero-reveal {
+      opacity: 0;
+      transform: translateY(80px);
+      animation: fadeUpHero 1.2s ease forwards;
+    }
 
-.about-img{
-  transition:transform 1.2s ease;
-}
+    .buttons-reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      animation: fadeUpBtns 1.2s ease forwards;
+      animation-delay: .4s;
+    }
 
-.about-image:hover .about-img{
-  transform:scale(1.08);
-}
+    @keyframes fadeUpHero {
+      from {
+        opacity: 0;
+        transform: translateY(80px);
+      }
 
-.about-image:hover{
-  box-shadow:
-    0 30px 60px rgba(123,67,40,.15);
-}
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeUpBtns {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .hero-buttons a,
+    .buttons-reveal a {
+      transition: all .4s ease;
+    }
+
+    .hero-buttons a:hover,
+    .buttons-reveal a:hover {
+      transform: translateY(-4px);
+    }
+
+    /* Image Reveal Animation */
+
+    .about-image-wrapper {
+      opacity: 0;
+      transform: translate(-50%, 100px);
+      animation: aboutImageReveal 1.5s ease forwards;
+      animation-delay: .6s;
+    }
+
+    @keyframes aboutImageReveal {
+      from {
+        opacity: 0;
+        transform: translate(-50%, 100px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translate(-50%, 0);
+      }
+    }
+
+    /* Image Hover Effect */
+
+    .about-image {
+      transition: all .6s ease;
+    }
+
+    .about-img {
+      transition: transform 1.2s ease;
+    }
+
+    .about-image:hover .about-img {
+      transform: scale(1.08);
+    }
+
+    .about-image:hover {
+      box-shadow:
+        0 30px 60px rgba(123, 67, 40, .15);
+    }
   </style>
 </head>
 
@@ -1081,8 +1164,8 @@
 
     <div class="hidden md:flex items-center gap-3">
       <a href="booking.html" class="btn-primary">
-  Book a Consultation
-</a>
+        Book a Consultation
+      </a>
     </div>
 
     <!-- Hamburger -->
@@ -1102,12 +1185,9 @@
     <a href="services.html" class="nav-link">Services</a>
     <a href="news.html" onclick="toggleMenu()">News</a>
     <a href="faq.html" onclick="toggleMenu()">FAQ</a>
-    <button
-  class="btn-primary mt-4"
-  onclick="window.location.href='booking.html'"
->
-  Book a Consultation
-</button>
+    <button class="btn-primary mt-4" onclick="window.location.href='booking.html'">
+      Book a Consultation
+    </button>
   </div>
 
   <!-- ═══════════════════════════════════════════════
@@ -1133,10 +1213,6 @@
           Explore Services
         </a>
 
-        <a href="#updates"
-          class="px-8 py-3 rounded-full border border-[#7B4328] text-[#7B4328] font-medium hover:bg-[#7B4328] hover:text-white transition hover:scale-105 transition">
-          Clinic Updates
-        </a>
       </div>
 
     </div>
@@ -1145,15 +1221,11 @@
   <!-- Image -->
   <div class="absolute left-1/2 -translate-x-1/2 bottom-[-380px] w-full max-w-7xl px-4 about-image-wrapper">
 
-  <div class="overflow-hidden rounded-[32px] shadow-2xl about-image">
-    <img
-      src="./assets/images/about.png"
-      alt=""
-      class="w-full h-[650px] object-cover about-img"
-    >
-  </div>
+    <div class="overflow-hidden rounded-[32px] shadow-2xl about-image">
+      <img src="./assets/images/about.png" alt="" class="w-full h-[650px] object-cover about-img">
+    </div>
 
-</div>
+  </div>
   <div class="h-[250px] bg-[#f7f0eb]"></div>
   <!-- Sun decorations -->
   <!-- WHY CHOOSE EPIDERMIS -->
@@ -1291,7 +1363,7 @@
 
             <button
               class="mt-5 px-5 py-2 rounded-full border border-[#7B4328] text-[#7B4328] hover:bg-[#7B4328] hover:text-white transition">
-              Email Me
+              Book An Appoinmaint
             </button>
           </div>
 
@@ -1314,10 +1386,10 @@
               Cosmetic Dermatology Specialist
             </p>
 
-            <button
-              class="mt-5 px-5 py-2 rounded-full border border-[#7B4328] text-[#7B4328] hover:bg-[#7B4328] hover:text-white transition">
-              Email Me
-            </button>
+            <a href="booking.html"
+              class="inline-block mt-5 px-5 py-2 rounded-full border border-[#7B4328] text-[#7B4328] hover:bg-[#7B4328] hover:text-white transition">
+              Book An Appointment
+            </a>
           </div>
 
         </div>
@@ -1339,10 +1411,10 @@
               Pediatric Dermatologist
             </p>
 
-            <button
-              class="mt-5 px-5 py-2 rounded-full border border-[#7B4328] text-[#7B4328] hover:bg-[#7B4328] hover:text-white transition">
-              Email Me
-            </button>
+            <a href="booking.html"
+              class="inline-block mt-5 px-5 py-2 rounded-full border border-[#7B4328] text-[#7B4328] hover:bg-[#7B4328] hover:text-white transition">
+              Book An Appointment
+            </a>
           </div>
 
         </div>
@@ -1364,10 +1436,10 @@
               Aesthetic Nurse Specialist
             </p>
 
-            <button
-              class="mt-5 px-5 py-2 rounded-full border border-[#7B4328] text-[#7B4328] hover:bg-[#7B4328] hover:text-white transition">
-              Email Me
-            </button>
+            <a href="booking.html"
+              class="inline-block mt-5 px-5 py-2 rounded-full border border-[#7B4328] text-[#7B4328] hover:bg-[#7B4328] hover:text-white transition">
+              Book An Appointment
+            </a>
           </div>
 
         </div>
@@ -1389,10 +1461,10 @@
               Physician Assistant
             </p>
 
-            <button
-              class="mt-5 px-5 py-2 rounded-full border border-[#7B4328] text-[#7B4328] hover:bg-[#7B4328] hover:text-white transition">
-              Email Me
-            </button>
+            <a href="booking.html"
+              class="inline-block mt-5 px-5 py-2 rounded-full border border-[#7B4328] text-[#7B4328] hover:bg-[#7B4328] hover:text-white transition">
+              Book An Appointment
+            </a>
           </div>
 
         </div>
@@ -1414,10 +1486,10 @@
               Clinic Manager
             </p>
 
-            <button
-              class="mt-5 px-5 py-2 rounded-full border border-[#7B4328] text-[#7B4328] hover:bg-[#7B4328] hover:text-white transition">
-              Email Me
-            </button>
+            <a href="booking.html"
+              class="inline-block mt-5 px-5 py-2 rounded-full border border-[#7B4328] text-[#7B4328] hover:bg-[#7B4328] hover:text-white transition">
+              Book An Appointment
+            </a>
           </div>
 
         </div>
@@ -1428,12 +1500,12 @@
 
   </section>
   <!-- WHY US SECTION -->
-  <section class="py-30 px-4 bg-[#faf3ee]">
+  <section class="why-us-section mb-10 py-24 px-4 bg-[#faf3ee]">
 
     <div class="max-w-4xl mx-auto">
 
       <!-- Heading -->
-      <div class="text-center mb-24">
+      <div class="why-us-heading text-center mb-24">
 
         <p class="text-[#7B4328] text-sm mb-4 font-bold">
           • Why Us?
@@ -1448,7 +1520,7 @@
 
       <!-- Features Grid -->
       <!-- Features Grid -->
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-y-20 gap-x-16">
+      <div class="why-us-grid grid grid-cols-1 md:grid-cols-3 gap-y-20 gap-x-16">
 
         <!-- Item 1 -->
         <div class="text-center group feature-card">
@@ -1551,85 +1623,12 @@
     </div>
 
   </section>
-  <section class="py-28 px-4 bg-[#faf3ee]">
-    <div class="max-w-5xl mb-10 mx-auto">
-      <div class="text-center mb-10 reveal">
-        <div class="section-label font-bold justify-center mb-4" style="color: #7B4328">
-          Certifications
-        </div>
-
-        <h2 class="font-display text-4xl md:text-5xl leading-[0.95]" style="color: #7B4328">
-          Trusted Expertise,<br />
-          Certified Excellence
-        </h2>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <div class="bento-card reveal-left" style="animation-delay: 0s">
-          <p class="text-xs mb-2" style="color: #c9917a">Sep 2024</p>
-          <h3 class="font-display text-2xl mb-3" style="color: #7b3b2a">
-            CPR and First Aid Certified
-          </h3>
-          <p class="text-sm leading-relaxed mb-6" style="color: #7B4328">
-            Dedicated to ensuring patient safety and maintaining emergency
-            preparedness during all procedures.
-          </p>
-          <button class="w-full btn-outline-brown text-center py-2.5 rounded-full text-sm"
-            style="border-color: #c9917a; color: #7B4328 text-color #fff">
-            Learn More
-          </button>
-        </div>
-        <div class="bento-card reveal-right" style="animation-delay: 0.1s">
-          <p class="text-xs mb-2" style="color: #c9917a">Feb 2024</p>
-          <h3 class="font-display text-2xl mb-3" style="color: #7b3b2a">
-            Certified Laser Specialist
-          </h3>
-          <p class="text-sm leading-relaxed mb-6" style="color: #7B4328">
-            Certification demonstrating expertise in the safe and effective
-            use of laser technology for treatments.
-          </p>
-          <button class="w-full btn-outline-brown text-center py-2.5 rounded-full text-sm"
-            style="border-color: #c9917a; color: #7B4328 text-color #fff">
-            Learn More
-          </button>
-        </div>
-        <div class="bento-card reveal-left" style="animation-delay: 0.2s">
-          <p class="text-xs mb-2" style="color: #c9917a">Oct 2023</p>
-          <h3 class="font-display text-2xl mb-3" style="color: #7b3b2a">
-            Skin Allergy Specialist
-          </h3>
-          <p class="text-sm leading-relaxed mb-6" style="color: #7B4328">
-            Certified expertise in diagnosing and effectively treating a wide
-            range of skin allergies to improve outcomes.
-          </p>
-          <button class="w-full btn-outline-brown text-center py-2.5 rounded-full text-sm"
-            style="border-color: #c9917a; color: #7B4328 text-color #fff">
-            Learn More
-          </button>
-        </div>
-        <div class="bento-card reveal-right" style="animation-delay: 0.3s">
-          <p class="text-xs mb-2" style="color: #c9917a">Jul 2023</p>
-          <h3 class="font-display text-2xl mb-3" style="color: #7b3b2a">
-            Certified in Dermoscopy
-          </h3>
-          <p class="text-sm leading-relaxed mb-6" style="color: #7B4328">
-            Expertise in diagnosing various skin conditions and abnormalities
-            using advanced dermoscopy techniques.
-          </p>
-          <button class="w-full btn-outline-brown text-center py-2.5 rounded-full text-sm"
-            style="border-color: #c9917a; color: #7B4328 text-color #fff">
-            Learn More
-          </button>
-        </div>
-      </div>
-    </div>
-  </section>
 
 
   <!-- ═══════════════════════════════════════════════
      CTA SECTION
 ═══════════════════════════════════════════════ -->
-  <section class="relative py-0 overflow-hidden" style="min-height: 550px">
+  <section class="site-cta relative py-0 overflow-hidden" style="min-height: 550px">
     <img src="assets/images/f1.jpg" alt="Skin glow" style="
           position: absolute;
           inset: 0;
@@ -1653,7 +1652,7 @@
         </h2>
         <div class="flex flex-wrap gap-3 justify-center">
           <a href="booking.html" class="btn-primary"> Book a Consultation </a>
-            <a href="services.html" class="btn-primary"> Explore Services </a>
+          <a href="services.html" class="btn-primary"> Explore Services </a>
         </div>
       </div>
     </div>
@@ -2040,39 +2039,55 @@
     // Already handled by CSS on .hero-title .line span
   </script>
   <script>
-document.addEventListener("DOMContentLoaded", () => {
+    function initializeWhyUsSection() {
+      if (window.lucide) {
+        window.lucide.createIcons({
+          attrs: {
+            "aria-hidden": "true",
+          },
+        });
+      }
 
-  const cards = document.querySelectorAll(".feature-card");
+      const elements = document.querySelectorAll(
+        ".why-us-heading, .feature-card",
+      );
 
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
+      if (!elements.length) return;
 
-        if(entry.isIntersecting){
+      if (
+        !("IntersectionObserver" in window) ||
+        window.matchMedia("(prefers-reduced-motion: reduce)").matches
+      ) {
+        elements.forEach((element) => element.classList.add("show"));
+        return;
+      }
 
-          const index = [...cards].indexOf(entry.target);
+      const whyUsObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
 
-          setTimeout(() => {
             entry.target.classList.add("show");
-          }, index * 150);
+            whyUsObserver.unobserve(entry.target);
+          });
+        },
+        {
+          threshold: 0.14,
+          rootMargin: "0px 0px -40px",
+        },
+      );
 
-          observer.unobserve(entry.target);
-        }
-
+      elements.forEach((element, index) => {
+        element.style.transitionDelay = `${Math.min(index * 90, 540)}ms`;
+        whyUsObserver.observe(element);
       });
-    },
-    {
-      threshold:0.15
     }
-  );
 
-  cards.forEach(card => observer.observe(card));
-
-});
-</script>
-  <script src="https://unpkg.com/lucide@latest"></script>
-  <script>
-    lucide.createIcons();
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", initializeWhyUsSection);
+    } else {
+      initializeWhyUsSection();
+    }
   </script>
 </body>
 

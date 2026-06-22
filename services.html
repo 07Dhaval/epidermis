@@ -3,9 +3,14 @@
 
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+  />
   <title>Epidermis — Because Your Skin Deserves the Best</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="assets/css/site-cta.css" />
+  <script src="assets/js/site-cta.js" defer></script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
@@ -1058,6 +1063,226 @@
     .hero-banner:hover img {
       transform: scale(1.05);
     }
+
+    .services-section {
+      background: #f7f0eb;
+      padding: 120px 20px;
+    }
+
+    .services-wrapper {
+      max-width: 1200px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .image-container {
+      overflow: hidden;
+      border-radius: 0;
+    }
+
+    .image-container img {
+      width: 100%;
+      height: 560px;
+      object-fit: cover;
+      transition:
+        opacity .6s ease,
+        transform 1s ease;
+    }
+
+    .image-container img.fade {
+      opacity: 0;
+      transform: scale(1.08);
+    }
+
+    .services-tag {
+      color: #7B4328;
+      margin-bottom: 20px;
+    }
+
+    .services-title {
+      font-size: 72px;
+      line-height: 1;
+      color: #111;
+      margin-bottom: 40px;
+    }
+
+    .service-item {
+      border-top: 1px solid #ddd;
+      padding: 28px 0;
+      cursor: pointer;
+      transition: .4s ease;
+    }
+
+    .service-item:last-child {
+      border-bottom: 1px solid #ddd;
+    }
+
+    .service-item:hover {
+      background: rgba(255, 255, 255, .35);
+    }
+
+    .services-section {
+      background: #f7f0eb;
+      padding: 120px 20px;
+    }
+
+    .services-wrapper {
+      max-width: 1400px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: 520px 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .services-image img {
+      width: 100%;
+      height: 650px;
+      object-fit: cover;
+      transition:
+        opacity .5s ease,
+        transform .9s ease;
+    }
+
+    .services-image img.fade {
+      opacity: .2;
+      transform: scale(1.05);
+    }
+
+    .services-tag {
+      color: #8a4d2c;
+      margin-bottom: 20px;
+    }
+
+    .services-title {
+      font-size: 82px;
+      line-height: 1;
+      margin-bottom: 50px;
+    }
+
+    .service-row {
+      display: grid;
+      grid-template-columns: 320px 1fr 60px;
+      gap: 30px;
+      align-items: center;
+      padding: 28px 0;
+      border-top: 1px solid #d9d2cc;
+      cursor: pointer;
+      transition: .35s ease;
+    }
+
+    .service-row:last-child {
+      border-bottom: 1px solid #d9d2cc;
+    }
+
+    .service-row:hover {
+      padding-left: 18px;
+    }
+
+    .service-row h3 {
+      font-size: 22px;
+      font-weight: 500;
+    }
+
+    .service-row p {
+      color: #666;
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    .service-arrow {
+      width: 42px;
+      height: 42px;
+      background: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: .35s ease;
+    }
+
+    .service-row:hover .service-arrow {
+      transform: rotate(45deg);
+      background: #8a4d2c;
+      color: white;
+    }
+
+    .services-image img {
+      width: 100%;
+      height: 550px;
+      object-fit: cover;
+      margin-top: 70px;
+    }
+
+    .services-wrapper {
+      max-width: 1152px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: 420px 1fr;
+      gap: 60px;
+      align-items: start;
+    }
+
+    @media (max-width: 1023px) {
+      .services-wrapper {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+    }
+
+    @media (max-width: 767px) {
+      .service-row {
+        position: relative;
+        grid-template-columns: minmax(0, 1fr) 48px !important;
+        gap: 10px 14px !important;
+        min-height: 138px;
+        padding: 22px 0 !important;
+      }
+
+      .service-row:hover,
+      .service-row:focus-visible {
+        padding-left: 8px !important;
+      }
+
+      .service-row h3 {
+        grid-column: 1;
+        margin: 0;
+        font-size: clamp(1.35rem, 7vw, 1.75rem) !important;
+        line-height: 1.15;
+        overflow-wrap: anywhere;
+      }
+
+      .service-row p {
+        grid-column: 1;
+        margin: 0;
+        font-size: 0.9rem !important;
+        line-height: 1.55;
+      }
+
+      .service-row > div:last-child {
+        grid-column: 2;
+        grid-row: 1 / span 2;
+        align-self: center;
+        width: 44px !important;
+        height: 44px !important;
+      }
+
+      #serviceImage {
+        height: min(105vw, 420px) !important;
+      }
+    }
+
+    @media (max-width: 390px) {
+      .service-row {
+        min-height: 130px;
+      }
+
+      .service-row h3 {
+        font-size: 1.35rem !important;
+      }
+    }
   </style>
 </head>
 
@@ -1106,8 +1331,8 @@
 
     <div class="hidden md:flex items-center gap-3">
       <a href="booking.html" class="btn-primary">
-  Book a Consultation
-</a>
+        Book a Consultation
+      </a>
     </div>
 
     <!-- Hamburger -->
@@ -1127,12 +1352,9 @@
     <a href="services.html" class="nav-link">Services</a>
     <a href="#updates" onclick="toggleMenu()">News</a>
     <a href="faq.html" onclick="toggleMenu()">FAQ</a>
-    <button
-  class="btn-primary mt-4"
-  onclick="window.location.href='booking.html'"
->
-  Book a Consultation
-</button>
+    <button class="btn-primary mt-4" onclick="window.location.href='booking.html'">
+      Book a Consultation
+    </button>
   </div>
 
   <!-- ═══════════════════════════════════════════════
@@ -1146,14 +1368,9 @@
       </h1>
 
       <div class="flex justify-center gap-3 mt-6 reveal" style="animation-delay: 0.2s">
-        <button onclick="openModal()"
+        <button onclick="window.location.href = 'booking.html'"
           class="px-6 py-3 rounded-full bg-[#7B4328] text-white text-sm transition-all duration-300 hover:scale-105">
           Book a Consultation
-        </button>
-
-        <button onclick="window.location.href = 'subservices.html'"
-          class="px-6 py-3 rounded-full border border-[#c9917a] text-[#7B4328] text-sm transition-all duration-300 hover:bg-[#7B4328] hover:text-white">
-          Our Services
         </button>
 
       </div>
@@ -1167,90 +1384,250 @@
     </div>
   </section>
 
-  <!-- ═══════════════════════════════════════════════
-     CLINIC UPDATES / NEWS
-═══════════════════════════════════════════════ -->
-  <section id="updates" class="py-16 px-4" style="background: #f3e8df">
-    <div class="max-w-5xl mx-auto">
-      <!-- Header -->
-      <div class="flex flex-col md:flex-row md:justify-between md:items-start gap-8 mb-16">
 
-        <div>
-          <p class="text-sm font-bold text-[#7B4328] mb-4">
-            • Services
-          </p>
+  <section class="py-24 bg-[#f7f0eb] overflow-hidden">
 
-          <h2 class="font-display text-4xl md:text-5xl leading-none text-[#7B4328]">
-            Stay Ahead with<br />
-            Skincare Trends
-          </h2>
+    <div class="max-w-6xl mx-auto px-4">
+      <p class="text-[#7B4328] text-sm mb-6 reveal-up">
+        • Services
+      </p>
+
+      <h2 class="font-display text-[#7B4328] text-5xl md:text-6xl leading-none mb-12 reveal">
+        What We Offer
+      </h2>
+
+      <div class="grid lg:grid-cols-[420px_1fr] gap-12 lg:gap-16 items-start">
+
+        <!-- LEFT IMAGE -->
+        <div class="overflow-hidden reveal-left">
+
+          <img id="serviceImage" src="./assets/images/sa1.png" alt=""
+            class="w-full h-[500px] lg:h-[650px] object-cover transition-all duration-700 ease-out">
+
         </div>
 
-        <button onclick="window.location.href='subservices.html'"
-          class="w-fit px-6 py-2 rounded-full border border-[#7B4328] text-[#7B4328] transition-all duration-300 hover:bg-[#7B4328] hover:text-white">
-          View All
-        </button>
+        <!-- RIGHT CONTENT -->
+        <div>
 
-      </div>
 
-      <!-- News Grid -->
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-30">
-        <!-- Card 1 -->
-        <div class="flex flex-col sm:flex-row gap-5 items-start">
-          <div class="w-full sm:w-[300px] h-[250px] sm:h-[300px]
-  overflow-hidden rounded-[28px] flex-shrink-0">
-            <img src="./assets/images/n1.jpg" alt=""
-              class="w-full h-full object-cover transition-transform duration-700 hover:scale-110" />
-          </div>
+          <div class="border-t border-[#ddd] reveal-right">
 
-          <div class="pt-1 flex-1">
-            <h3 class="font-display font-bold text-[24px] sm:text-[20px] leading-tight text-[#7B4328] mb-4">
-              >
-              5 Common Skincare<br />
-              Mistakes to Avoid
-              </>
+            <!-- Row 1 -->
+            <div
+              class="service-row grid grid-cols-1 md:grid-cols-[260px_1fr_50px] gap-5 items-center py-8 border-b border-[#ddd] cursor-pointer transition-all duration-300 hover:pl-4"
+              data-image="./assets/images/sa1.png"
+              data-service="skincare-consultations"
+              role="link"
+              tabindex="0">
 
-              <p class="text-[#7B4328] text-[14px] sm:text-[12px] leading-relaxed mb-6">
-                Learn how to sidestep these everyday habits that could be
-                harming your skin.
+              <h3 class="text-3xl text-[#7B4328] font-bold">
+                Skincare Consultations
+              </h3>
+
+              <p class="text-[#7B4328] leading-relaxed">
+                Personalized expert advice for your skin's unique needs.
               </p>
 
-              <button onclick="window.location.href = 'subservices.html'"
-                class="px-6 py-2 mt-2 sm:mt-14 rounded-full border border-[#7B4328] text-[#7B4328] transition-all duration-300 hover:bg-[#7B4328] hover:text-white">
-                Learn More
-              </button>
-          </div>
-        </div>
+              <div
+                class="w-12 h-12 bg-white flex items-center justify-center text-xl transition-all duration-300 hover:bg-[#7B4328] hover:text-white">
+                ↗
+              </div>
 
-        <!-- Card 2 -->
-        <div class="flex flex-col sm:flex-row gap-5 items-start">
-          <div class="w-[300px] h-[300px] overflow-hidden rounded-[28px] flex-shrink-0">
-            <img src="./assets/images/n2.jpg" alt=""
-              class="w-full h-full object-cover transition-transform duration-700 hover:scale-110" />
-          </div>
+            </div>
 
-          <div class="pt-1 flex-1">
+            <!-- Row 2 -->
+            <div
+              class="service-row grid grid-cols-1 md:grid-cols-[260px_1fr_50px] gap-5 items-center py-8 border-b border-[#ddd] cursor-pointer transition-all duration-300 hover:pl-4"
+              data-image="./assets/images/sa2.png"
+              data-service="radiance-check-up"
+              role="link"
+              tabindex="0">
 
-            <h3 class="font-display font-bold text-[24px] sm:text-[20px] leading-tight text-[#7B4328] mb-4">
-              >
-              The Benefits of<br />
-              Chemical Peels
-            </h3>
+              <h3 class="text-3xl text-[#7B4328]">
+                Radiance Check-Up
+              </h3>
 
-            <p class="text-[#7B4328] text-[14px] sm:text-[12px] leading-relaxed mb-6">
-              Discover how chemical peels can rejuvenate your skin and restore
-              glow.
-            </p>
+              <p class="text-[#7B4328] leading-relaxed">
+                Assess your skin's glow and health with a professional evaluation.
+              </p>
 
-            <button onclick="window.location.href = 'subservices.html'"
-              class="px-6 py-2 mt-2 sm:mt-14 rounded-full border border-[#7B4328] text-[#7B4328] transition-all duration-300 hover:bg-[#7B4328] hover:text-white">
-              Learn More
-            </button>
+              <div
+                class="w-12 h-12 bg-white flex items-center justify-center text-xl transition-all duration-300 hover:bg-[#7B4328] hover:text-white">
+                ↗
+              </div>
+
+            </div>
+
+            <!-- Row 3 -->
+            <div
+              class="service-row grid grid-cols-1 md:grid-cols-[260px_1fr_50px] gap-5 items-center py-8 border-b border-[#ddd] cursor-pointer transition-all duration-300 hover:pl-4"
+              data-image="./assets/images/sa3.png"
+              data-service="skin-sync-analysis"
+              role="link"
+              tabindex="0">
+
+              <h3 class="text-3xl text-[#7B4328]">
+                Skin Sync Analysis
+              </h3>
+
+              <p class="text-[#7B4328] leading-relaxed">
+                A deep skin assessment for a perfectly balanced routine.
+              </p>
+
+              <div
+                class="w-12 h-12 bg-white flex items-center justify-center text-xl transition-all duration-300 hover:bg-[#7B4328] hover:text-white">
+                ↗
+              </div>
+
+            </div>
+
+            <!-- Row 4 -->
+            <div
+              class="service-row grid grid-cols-1 md:grid-cols-[260px_1fr_50px] gap-5 items-center py-8 border-b border-[#ddd] cursor-pointer transition-all duration-300 hover:pl-4"
+              data-image="./assets/images/sa4.png"
+              data-service="glow-revive-therapy"
+              role="link"
+              tabindex="0">
+
+              <h3 class="text-3xl text-[#7B4328]">
+                Glow Revive Therapy
+              </h3>
+
+              <p class="text-[#7B4328] leading-relaxed">
+                Rejuvenate and restore your skin's natural radiance.
+              </p>
+              <div
+                class="w-12 h-12 bg-white flex items-center justify-center text-xl transition-all duration-300 hover:bg-[#7B4328] hover:text-white">
+                ↗
+              </div>
+            </div>
+            <!-- Row 5 -->
+            <div
+              class="service-row grid grid-cols-1 md:grid-cols-[260px_1fr_50px] gap-5 items-center py-8 border-b border-[#ddd] cursor-pointer transition-all duration-300 hover:pl-4"
+              data-image="./assets/images/sa5.png"
+              data-service="luxe-nourish-spa"
+              role="link"
+              tabindex="0">
+              <h3 class="text-3xl text-[#7B4328]">
+                Luxe Nourish Spa
+              </h3>
+              <p class="text-[#7B4328] leading-relaxed">
+                Indulge in a luxurious treatment for ultimate hydration.
+              </p>
+              <div
+                class="w-12 h-12 bg-white flex items-center justify-center text-xl transition-all duration-300 hover:bg-[#7B4328] hover:text-white">
+                ↗
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </section>
+
+
+
+
+  <!-- ═══════════════════════════════════════════════
+     CLINIC UPDATES / NEWS
+═══════════════════════════════════════════════ -->
+  <section id="updates" class="py-16 px-4" style="background: #f3e8df">
+      <div class="max-w-5xl mx-auto">
+        <!-- Header -->
+        <div class="flex justify-between items-start mb-16 reveal-up">
+          <div>
+            <p class="text-sm font-bold text-[#7B4328] mb-4">• News</p>
+
+            <h2
+              class="font-display text-4xl md:text-5xl leading-none text-[#7B4328]"
+            >
+              Stay Ahead with<br />
+              Skincare Trends
+            </h2>
+          </div>
+
+          <!-- <button
+            class="mt-12 px-8 py-3 rounded-full border border-[#7B4328] text-[#7B4328] hover:bg-[#7B4328] hover:text-white transition"
+          >
+            View All
+          </button> -->
+        </div>
+
+        <!-- News Grid -->
+        <div class="grid md:grid-cols-2 gap-30">
+          <!-- Card 1 -->
+          <div class="flex gap-4 items-start reveal-left">
+            <div
+              class="w-[300px] h-[300px] overflow-hidden rounded-[28px] flex-shrink-0"
+            >
+              <img
+                src="./assets/images/n1.jpg"
+                alt=""
+                class="w-full h-full object-cover"
+              />
+            </div>
+
+            <div class="pt-1">
+              <p class="text-sm text-[#7B4328] mb-3">Dec 29, 2024</p>
+
+              <h3
+                class="font-display font-bold text-[20px] leading-tight text-[#7B4328] mb-4"
+              >
+                5 Common Skincare<br />
+                Mistakes to Avoid
+              </h3>
+
+              <p class="text-[#7B4328] text-[12px] leading-relaxed mb-8">
+                Learn how to sidestep these everyday habits that could be
+                harming your skin.
+              </p>
+
+              <!-- <button
+                class="px-6 py-2 mt-14 rounded-full border border-[#b06a45] text-[#b06a45]"
+              >
+                Learn More
+              </button> -->
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="flex gap-4 items-start reveal-right">
+            <div
+              class="w-[300px] h-[300px] overflow-hidden rounded-[28px] flex-shrink-0"
+            >
+              <img
+                src="./assets/images/n2.jpg"
+                alt=""
+                class="w-full h-full object-cover"
+              />
+            </div>
+
+            <div class="pt-1">
+              <p class="text-sm text-[#7B4328] mb-3">Dec 16, 2024</p>
+
+              <h3
+                class="font-display font-bold text-[20px] leading-tight text-[#7B4328] mb-4"
+              >
+                The Benefits of<br />
+                Chemical Peels
+              </h3>
+
+              <p class="text-[#7B4328] text-[12px] leading-relaxed mb-8">
+                Discover how chemical peels can rejuvenate your skin and restore
+                glow.
+              </p>
+
+              <!-- <button
+                class="px-6 py-2 mt-14 rounded-full border border-[#b06a45] text-[#b06a45]"
+              >
+                Learn More
+              </button> -->
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section>
 
   <!-- ═══════════════════════════════════════════════
    animation and images
@@ -1519,7 +1896,7 @@
   <!-- ═══════════════════════════════════════════════
      CTA SECTION
 ═══════════════════════════════════════════════ -->
-  <section class="relative py-0 overflow-hidden" style="min-height: 550px">
+  <section class="site-cta relative py-0 overflow-hidden" style="min-height: 550px">
     <img src="assets/images/f1.jpg" alt="Skin glow" style="
           position: absolute;
           inset: 0;
@@ -1543,7 +1920,7 @@
         </h2>
         <div class="flex flex-wrap gap-3 justify-center">
           <a href="booking.html" class="btn-primary"> Book a Consultation </a>
-            <a href="services.html" class="btn-primary"> Explore Services </a>
+          <a href="services.html" class="btn-primary"> Explore Services </a>
         </div>
       </div>
     </div>
@@ -1974,6 +2351,45 @@
       .forEach((el) => {
         luxuryObserver.observe(el);
       });
+  </script>
+  <script>
+    const rows =
+      document.querySelectorAll(".service-row");
+
+    const image =
+      document.getElementById("serviceImage");
+
+    rows.forEach(row => {
+
+      row.addEventListener("mouseenter", () => {
+
+        image.classList.add("fade");
+
+        setTimeout(() => {
+
+          image.src =
+            row.dataset.image;
+
+          image.classList.remove("fade");
+
+        }, 250);
+
+      });
+
+      const openService = () => {
+        window.location.href =
+          `subservices.html?service=${encodeURIComponent(row.dataset.service)}`;
+      };
+
+      row.addEventListener("click", openService);
+      row.addEventListener("keydown", (event) => {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          openService();
+        }
+      });
+
+    });
   </script>
 </body>
 
